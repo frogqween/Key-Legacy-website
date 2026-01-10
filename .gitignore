@@ -1,42 +1,19 @@
-# Dependencies
+# Development
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Environment variables
-.env
-.env.local
-.env.production
+.cache/
+*.log
 
 # IDE
 .vscode/
 .idea/
 *.swp
-*.swo
-*~
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Build outputs
-dist/
-build/
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-.cache/
-
-# Claude settings
+# Claude
 .claude/
 
-# Map project (separate side project)
+# Side project
 philly-map-project/
-
-# Documentation (optional - keep only if you want these in repo)
-MIGRATION_COMPLETE.md
-PROJECT_STRUCTURE.md
-CONTRIBUTING.md
