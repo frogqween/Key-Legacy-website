@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philadelphia Interactive Map - Real-Time City Explorer</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/maps.css">
+
+    <style>
+        /* Standalone page styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .map-wrapper {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Simple standalone header */
+        .standalone-header {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .standalone-header h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f0e12;
+            margin: 0;
+        }
+
+        .standalone-header .badge {
+            background: #FF4D00;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .standalone-header {
+                top: 10px;
+                padding: 10px 16px;
+            }
+
+            .standalone-header h1 {
+                font-size: 14px;
+            }
+
+            .standalone-header .badge {
+                font-size: 9px;
+                padding: 3px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Standalone Header -->
+    <div class="standalone-header">
+        <h1>Philadelphia Interactive Map</h1>
+        <span class="badge">Live Data</span>
+    </div>
+
+    <!-- Map Content Area -->
+    <div class="map-wrapper">
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <h2>Loading Philadelphia...</h2>
+                <p class="loading-status">Connecting to real-time data sources</p>
+            </div>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map"></div>
+
+        <!-- Control Panel -->
+        <div id="control-panel">
+            <!-- Header -->
+            <div class="panel-header">
+                <h1>Explore Philadelphia</h1>
+                <p class="subtitle">Discover neighborhoods with real-time data</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="search-input"
+                    placeholder="Search neighborhoods (e.g., Fishtown, Center City)">
+                <button id="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Layer Controls -->
+            <div class="layer-controls">
+                <h3>Data Layers</h3>
+                <div class="layer-toggles">
+                    <label class="layer-toggle">
+                        <input type="checkbox" id="layer-neighborhoods" checked>
+                        <span class="toggle-slider"></span>
+                        <span class="layer-label">
+                            <span class="layer-icon"
+                                style="background: rgba(52, 152, 219, 0.5); border: 1px solid #2c3e50;"></span>
+                            Neighborhoods
+                        </span>
+                    </label>
+                    <label class="layer-toggle">
+                        <input type="checkbox" id="layer-transit" checked>
+                        <span class="toggle-slider"></span>
+                        <span class="layer-label">
+                            <span class="layer-icon septa"></span>
+                            SEPTA Transit (Live)
+                        </span>
+                    </label>
+
+                    <label class="layer-toggle">
+                        <input type="checkbox" id="layer-schools">
+                        <span class="toggle-slider"></span>
+                        <span class="layer-label">
+                            <span class="layer-icon" style="background: #34a853;"></span>
+                            Schools
+                        </span>
+                    </label>
+
+                    <label class="layer-toggle">
+                        <input type="checkbox" id="layer-crime">
+                        <span class="toggle-slider"></span>
+                        <span class="layer-label">
+                            <span class="layer-icon" style="background: #ea4335;"></span>
+                            Safety Data
+                        </span>
+                    </label>
+
+                    <label class="layer-toggle">
+                        <input type="checkbox" id="layer-restaurants" checked>
+                        <span class="toggle-slider"></span>
+                        <span class="layer-label">
+                            <span class="layer-icon" style="background: #fbbc04;"></span>
+                            Restaurants & Landmarks
+                        </span>
+                    </label>
+
+                    <label class="layer-toggle">
+                        <input type="checkbox" id="layer-properties" checked>
+                        <span class="toggle-slider"></span>
+                        <span class="layer-label">
+                            <span class="layer-icon" style="background: #FF4D00;"></span>
+                            Available Properties
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div id="info-panel">
+                <div class="info-content">
+                    <p class="info-hint">Click on any neighborhood to learn more</p>
+                </div>
+            </div>
+
+            <!-- Data Attribution -->
+            <div class="data-attribution">
+                <button id="sources-btn" class="text-button">Data Sources</button>
+            </div>
+        </div>
+
+        <!-- Data Sources Modal -->
+        <div id="sources-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Real Data Sources</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="data-badge">✓ All data from verified, authentic sources - NO AI-generated content</p>
+
+                    <div class="source-item">
+                        <h3>🏘️ Neighborhoods</h3>
+                        <p><strong>Source:</strong> City of Philadelphia (OpenDataPhilly)</p>
+                        <p><strong>Updated:</strong> Regularly maintained</p>
+                        <a href="https://opendataphilly.org/datasets/philadelphia-neighborhoods/"
+                            target="_blank">View Source →</a>
+                    </div>
+
+                    <div class="source-item">
+                        <h3>🚊 Transit (Real-Time)</h3>
+                        <p><strong>Source:</strong> SEPTA Official APIs</p>
+                        <p><strong>Updated:</strong> Every 10 seconds</p>
+                        <a href="https://www3.septa.org/hackathon/" target="_blank">View Source →</a>
+                    </div>
+
+                    <div class="source-item">
+                        <h3>🏫 Schools</h3>
+                        <p><strong>Source:</strong> School District of Philadelphia</p>
+                        <p><strong>Updated:</strong> Quarterly</p>
+                        <a href="https://opendataphilly.org/datasets/schools-parcels/" target="_blank">View Source
+                            →</a>
+                    </div>
+
+                    <div class="source-item">
+                        <h3>🛡️ Crime Data</h3>
+                        <p><strong>Source:</strong> Philadelphia Police Department</p>
+                        <p><strong>Updated:</strong> Daily</p>
+                        <a href="https://opendataphilly.org/datasets/crime-incidents/" target="_blank">View Source
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Info Button -->
+        <button id="mobile-panel-toggle" class="mobile-only">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+        </button>
+
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+        <!-- Leaflet MarkerCluster JS -->
+        <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+        <!-- Properties Data Source -->
+        <script src="data/properties-source.js"></script>
+
+        <!-- Core Map Logic -->
+        <script src="js/maps.js"></script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "philly-map-project",
+  "version": "1.0.0",
+  "description": "Philadelphia Interactive Map - Real-time city explorer with live transit data",
+  "main": "index.html",
+  "scripts": {
+    "update-properties": "node scripts/update-map-properties.js",
+    "geocode": "node scripts/geocode-properties.js",
+    "start": "npx http-server -p 8000 -o"
+  },
+  "keywords": [
+    "philadelphia",
+    "map",
+    "septa",
+    "real-time",
+    "leaflet",
+    "interactive-map"
+  ],
+  "author": "Key Legacy Realty",
+  "license": "MIT"
+}
