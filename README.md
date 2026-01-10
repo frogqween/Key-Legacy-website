@@ -4,21 +4,25 @@ Professional rental property website for Key Legacy Realty, serving the Philadel
 
 ## 🏗️ Project Structure
 
-This repository contains the **Key Legacy Realty** rental property website with a clean, industry-standard organization:
+This repository contains the **Key Legacy Realty** rental property website optimized for GitHub Pages:
 
 ```
-├── 📂 public/                # All HTML pages (entry point: index.html)
+├── 📄 index.html             # Homepage (entry point)
+├── 📄 properties.html        # Property listings
+├── 📄 services.html          # Services page
+├── 📄 about.html             # About us
+├── 📄 contact.html           # Contact page
+├── 📄 form.html              # Application form
 ├── 📂 src/                   # Source code (CSS, JavaScript)
 ├── 📂 data/                  # Property listings data
 ├── 📂 assets/                # Static files (PDFs, images, fonts)
 ├── 📄 README.md              # This file
-├── 📄 package.json           # NPM configuration
-└── 📄 .gitignore             # Version control rules
+└── 📄 package.json           # NPM configuration
 ```
 
 ### Detailed Structure
 
-- **public/** - All website pages (index, properties, services, about, contact, form)
+- **Root HTML files** - All website pages for direct GitHub Pages access
 - **src/css/** - Stylesheets (style.css, form-style.css)
 - **src/js/** - JavaScript (config.js, form.js, utilities)
 - **data/** - Property listings (properties.json, properties-source.js)
