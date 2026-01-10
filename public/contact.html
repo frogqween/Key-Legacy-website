@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Key Legacy Realty</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="brand">
+                Key Legacy Realty
+                <span class="sub">Philadelphia Rentals</span>
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">Menu</button>
+                                                <nav id="mainNav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link">Search</a>
+                
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="form.html" class="nav-link">Form</a>
+            </nav>
+        </header>
+
+        <main>
+<!-- Contact Info & Form -->
+            <section class="content-section">
+                <div class="grid-2">
+                    <div>
+                        <h2 style="margin-bottom: 30px;">Get in Touch</h2>
+                        <div style="margin-bottom: 40px;">
+                            <h3 style="font-size: 18px; margin-bottom: 10px;">Office Address</h3>
+                            <p style="color: var(--muted-color); line-height: 1.6;">
+                                100 N 18th St, Suite 300<br>
+                                Philadelphia, PA 19103
+                            </p>
+                        </div>
+                        <div style="margin-bottom: 40px;">
+                            <h3 style="font-size: 18px; margin-bottom: 10px;">Phone & Email</h3>
+                            <p style="color: var(--muted-color); line-height: 1.6; margin-bottom: 10px;">
+                                <strong>Primary:</strong> (215) 778-9352<br>
+                                <strong>Text/Mbl:</strong> (215) 631-8767
+                            </p>
+                            <p style="color: var(--muted-color); line-height: 1.6;">
+                                <strong>Email:</strong> hello@keylegacyrealty.com<br>
+                                <strong>Closings:</strong> hello@keylegacyrealty.com
+                            </p>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 18px; margin-bottom: 10px;">Office Hours</h3>
+                            <p style="color: var(--muted-color); line-height: 1.6;">
+                                Monday - Friday: 9:00 AM - 5:00 PM<br>
+                                Saturday - Sunday: By Appointment
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div
+                            style="background: var(--card-bg); padding: 40px; border: 1px solid var(--border-color); border-radius: 8px;">
+                            <h3 style="margin-bottom: 20px;">Send a Message</h3>
+                            <form action="#" method="POST"
+                                onsubmit="event.preventDefault(); alert('Thank you for your message. We will reach out shortly.');">
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Full
+                                        Name</label>
+                                    <input type="text"
+                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color);"
+                                        required>
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Email
+                                        Address</label>
+                                    <input type="email"
+                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color);"
+                                        required>
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Phone
+                                        Number</label>
+                                    <input type="tel"
+                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color);">
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Message</label>
+                                    <textarea rows="5"
+                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color); font-family: inherit;"
+                                        required></textarea>
+                                </div>
+                                <button type="submit" class="cta-button"
+                                    style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Key Legacy Realty</h4>
+                    <p>Your premier source for quality rental properties in Philadelphia. We're committed to helping you
+                        find the perfect place to call home.</p>
+                    <p style="margin-top: 20px;">
+                        <strong>Contact Us:</strong><br>
+                        (215) 778-9352<br>
+                        broker@keylegacyrealty.com
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="properties.html">Properties</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="form.html">Apply Now</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Service Areas</h4>
+                    <div class="footer-links">
+                        <a href="properties.html">Center City</a>
+                        <a href="properties.html">University City</a>
+                        <a href="properties.html">Northern Liberties</a>
+                        <a href="properties.html">Chestnut Hill</a>
+                        <a href="properties.html">Northeast Philly</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Key Legacy Realty. All rights reserved.</span>
+                <span>Philadelphia, PA</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+

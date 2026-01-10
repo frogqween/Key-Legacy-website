@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Legacy Realty | Philadelphia Rentals</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+
+<body class="landing-page">
+    <div class="container">
+        <header>
+            <a href="index.html" class="brand">
+                Key Legacy Realty
+                <span class="sub">Philadelphia Rentals</span>
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">Menu</button>
+            <nav id="mainNav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="properties.html" class="nav-link">Search</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="form.html" class="nav-link">Form</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Find Your Next Home in Philadelphia</h1>
+                <p>Key Legacy Realty specializes in quality rental properties throughout Philadelphia. From Center City
+                    to Northeast Philly, we help you find the perfect place to call home.</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="properties.html" class="cta-button">Browse Properties</a></div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p style="margin-top: 20px;">
+                <strong>Contact Us:</strong><br>
+                100 N 18th St, Suite 300<br>
+                Philadelphia, PA 19103<br><br>
+                (215) 778-9352<br>
+                hello@keylegacyrealty.com
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+

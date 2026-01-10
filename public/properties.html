@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Properties | Key Legacy Realty</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="brand">
+                Key Legacy Realty
+                <span class="sub">Philadelphia Rentals</span>
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">Menu</button>
+                                                <nav id="mainNav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link active">Search</a>
+                
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="form.html" class="nav-link">Form</a>
+            </nav>
+        </header>
+
+        <main>
+<!-- Filter Bar -->
+            <div class="filter-bar">
+                <select class="filter-select" id="bedroomFilter" onchange="filterProperties()">
+                    <option value="">All Bedrooms</option>
+                    <option value="Studio">Studio</option>
+                    <option value="1">1 Bedroom</option>
+                    <option value="2">2 Bedrooms</option>
+                    <option value="3">3 Bedrooms</option>
+                    <option value="4">4+ Bedrooms</option>
+                </select>
+
+                <select class="filter-select" id="priceFilter" onchange="filterProperties()">
+                    <option value="">All Prices</option>
+                    <option value="0-1200">Under $1,200</option>
+                    <option value="1200-1500">$1,200 - $1,500</option>
+                    <option value="1500-1800">$1,500 - $1,800</option>
+                    <option value="1800-2500">$1,800+</option>
+                </select>
+
+                <span style="margin-left: auto; font-size: 12px; font-weight: 700; color: var(--muted-color);">
+                    <span id="propertyCount">24</span> PROPERTIES AVAILABLE
+                </span>
+            </div>
+
+            <!-- Properties Grid -->
+            <section class="content-section">
+                <div class="grid-3" id="propertiesGrid">
+                    <!-- Properties will be loaded here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="content-section" style="text-align: center;">
+                <h2 style="margin-bottom: 20px;">Don't See What You're Looking For?</h2>
+                <p style="font-size: 16px; color: var(--muted-color); margin-bottom: 30px;">
+                    Fill out our rental application and we'll notify you when new properties that match your criteria
+                    become available.
+                </p>
+                <a href="form.html" class="cta-button">Apply Now</a>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Key Legacy Realty</h4>
+                    <p>Your premier source for quality rental properties in Philadelphia. We're committed to helping you
+                        find the perfect place to call home.</p>
+                    <p style="margin-top: 20px;">
+                        <strong>Contact Us:</strong><br>
+                        100 N 18th St, Suite 300<br>
+                        Philadelphia, PA 19103<br><br>
+                        (215) 778-9352<br>
+                        hello@keylegacyrealty.com
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="properties.html">Properties</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="form.html">Apply Now</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Service Areas</h4>
+                    <div class="footer-links">
+                        <a href="properties.html">Center City</a>
+                        <a href="properties.html">University City</a>
+                        <a href="properties.html">Northern Liberties</a>
+                        <a href="properties.html">Chestnut Hill</a>
+                        <a href="properties.html">Northeast Philly</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Key Legacy Realty. All rights reserved.</span>
+                <span>Philadelphia, PA</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SINGLE SOURCE OF TRUTH: Load properties from shared source file -->
+    <script src="../data/properties-source.js"></script>
+
+    <script>
+        // Properties are now loaded from PROPERTIES_DATA global variable
+        const properties = window.PROPERTIES_DATA;
+
+        let filteredProperties = [...properties];
+
+        function renderProperties(propertiesToRender) {
+            const grid = document.getElementById('propertiesGrid');
+            const propertyCount = document.getElementById('propertyCount');
+
+            if (propertiesToRender.length === 0) {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--muted-color);"><h3>No properties match your filters</h3><p style="margin-top: 10px;">Try adjusting your search criteria.</p></div>';
+                propertyCount.textContent = '0';
+                return;
+            }
+
+            grid.innerHTML = propertiesToRender.map(prop => {
+                // Build image URL - check if it's already a full URL (YouTube) or needs the Buildium API path
+                const imageUrl = prop.img.startsWith('http')
+                    ? prop.img
+                    : `https://keylegacyrealty.managebuilding.com/Resident/api/public/files/download?fileName=${prop.img}&isPreview=true`;
+
+                // Build property detail page URL
+                const propertyUrl = `https://keylegacyrealty.managebuilding.com${prop.url}`;
+
+                return `
+                <div class="property-card">
+                    <a href="${propertyUrl}" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="property-image" style="background-image: url('${imageUrl}'); background-size: cover; background-position: center;"></div>
+                        <div class="property-info">
+                            <div class="property-address">${prop.address}</div>
+                            <div class="property-details">
+                                <span>${prop.beds === 'Studio' ? 'Studio' : prop.beds + ' Bed'}</span>
+                                <span>${prop.baths} Bath</span>
+                            </div>
+                            <div class="property-price">$${prop.rent.toLocaleString()}/mo</div>
+                            <div class="property-available">Available ${prop.available}</div>
+                        </div>
+                    </a>
+                    <div style="padding: 0 20px 20px; display: flex; gap: 8px;">
+                        <a href="${propertyUrl}" target="_blank" class="cta-button" style="font-size: 10px; padding: 10px 16px; flex: 1; text-align: center; text-decoration: none;">View Details</a>
+                        <a href="form.html" class="cta-button" style="font-size: 10px; padding: 10px 16px; flex: 1; text-align: center; background: transparent; color: var(--text-color); border: 1px solid var(--border-color); text-decoration: none;">Apply Now</a>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            propertyCount.textContent = propertiesToRender.length;
+        }
+
+        function filterProperties() {
+            const bedroomFilter = document.getElementById('bedroomFilter').value;
+            const priceFilter = document.getElementById('priceFilter').value;
+
+            filteredProperties = properties.filter(prop => {
+                // Bedroom filter
+                if (bedroomFilter) {
+                    if (bedroomFilter === 'Studio' && prop.beds !== 'Studio') return false;
+                    if (bedroomFilter === '1' && prop.beds !== 1) return false;
+                    if (bedroomFilter === '2' && prop.beds !== 2) return false;
+                    if (bedroomFilter === '3' && prop.beds !== 3) return false;
+                    if (bedroomFilter === '4' && prop.beds < 4) return false;
+                }
+
+                // Price filter
+                if (priceFilter) {
+                    const [min, max] = priceFilter.split('-').map(Number);
+                    if (max && (prop.rent < min || prop.rent > max)) return false;
+                    if (!max && prop.rent < min) return false;
+                }
+
+                return true;
+            });
+
+            renderProperties(filteredProperties);
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Initial render
+        renderProperties(properties);
+    </script>
+</body>
+
+</html>
+
+
+
+

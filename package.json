@@ -1,0 +1,32 @@
+{
+  "name": "key-legacy-realty-website",
+  "version": "2.0.0",
+  "description": "Key Legacy Realty - Philadelphia rental properties website",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "npx http-server public -p 8080 -o",
+    "dev": "npx http-server . -p 8080 -o",
+    "lint:css": "npx stylelint \"src/css/**/*.css\"",
+    "format": "npx prettier --write \"src/**/*.{js,css}\" \"public/**/*.html\"",
+    "validate": "npx html-validate \"public/**/*.html\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/key-legacy-realty.git"
+  },
+  "keywords": [
+    "real-estate",
+    "rental",
+    "philadelphia",
+    "property-management"
+  ],
+  "author": "Key Legacy Realty",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
