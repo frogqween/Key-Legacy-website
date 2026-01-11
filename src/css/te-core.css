@@ -1,0 +1,386 @@
+/* Teenage Engineering Design System "Lift" */
+
+:root {
+    /* Colors */
+    --te-black: #000000;
+    --te-white: #ffffff;
+    --te-gray-light: #e5e5e5;
+    --te-gray-medium: #b2b2b2;
+    --te-gray-dark: #4d4d4d;
+    --te-bg-body: #ffffff;
+
+    /* Typography */
+    /* Using Inter as a proxy for UniversTE20T. configured for similar optical sizing */
+    --te-font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --te-font-weight-light: 300;
+    --te-font-weight-regular: 400;
+    --te-font-weight-bold: 500;
+    /* They rarely use heavy bold */
+
+    /* Spacing / Grid */
+    --te-grid-gap: 20px;
+    --te-container-padding: 20px;
+    --te-max-width: 1400px;
+
+    /* Legacy/Nav variable matching */
+    --space-xl: 40px;
+    --space-l: 30px;
+    --space-m: 20px;
+    --space-s: 10px;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--te-bg-body);
+    font-family: var(--te-font-family);
+    color: var(--te-black);
+    line-height: 1.2;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Utility Classes */
+.te-container {
+    max-width: var(--te-max-width);
+    margin: 0 auto;
+    padding: 0 var(--te-container-padding);
+}
+
+.te-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--te-grid-gap);
+}
+
+/* Typography styles matching the "Technical Manual" look */
+.te-h1 {
+    font-size: 48px;
+    font-weight: var(--te-font-weight-light);
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.te-h2 {
+    font-size: 32px;
+    font-weight: var(--te-font-weight-light);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+}
+
+.te-text-small {
+    font-size: 12px;
+    color: var(--te-gray-dark);
+    text-transform: lowercase;
+}
+
+/* Buttons - Square, no radius, mimic the "Key" buttons often seen */
+.te-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--te-black);
+    color: var(--te-white);
+    border: none;
+    border-radius: 0px;
+    /* Crucial */
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: var(--te-font-weight-regular);
+    transition: opacity 0.2s ease;
+    text-transform: lowercase;
+}
+
+.te-btn:hover {
+    opacity: 0.7;
+}
+
+.te-btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--te-black);
+    color: var(--te-black);
+}
+
+/* Inputs */
+.te-input {
+    border: 1px solid var(--te-gray-light);
+    border-radius: 0px;
+    padding: 10px;
+    font-family: var(--te-font-family);
+    font-size: 14px;
+    width: 100%;
+}
+
+.te-input:focus {
+    outline: none;
+    border-color: var(--te-black);
+}
+
+.te-form-group {
+    margin-bottom: 20px;
+}
+
+.te-form-label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-transform: lowercase;
+    font-weight: var(--te-font-weight-bold);
+    color: var(--te-black);
+}
+
+textarea.te-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Divider Lines */
+.te-hr {
+    border: 0;
+    border-top: 1px solid var(--te-gray-light);
+    margin: 40px 0;
+}
+
+/* Grid & Layout Utilities */
+.te-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--te-grid-gap);
+}
+
+@media (max-width: 768px) {
+    .te-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.te-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--te-gray-light);
+}
+
+.te-page-header {
+    padding: 80px 0 40px;
+    border-bottom: 1px solid var(--te-black);
+}
+
+.te-page-title {
+    font-size: 48px;
+    font-weight: var(--te-font-weight-light);
+    text-transform: lowercase;
+    margin-bottom: 10px;
+}
+
+.te-page-subtitle {
+    font-size: 18px;
+    color: var(--te-gray-dark);
+    max-width: 600px;
+    text-transform: lowercase;
+}
+
+.te-section-title {
+    font-size: 24px;
+    font-weight: var(--te-font-weight-regular);
+    margin-bottom: 30px;
+    text-transform: lowercase;
+}
+
+/* Cards */
+.te-card {
+    background: var(--te-white);
+    padding: 20px;
+    border: 1px solid transparent;
+    /* TE cards are often just text blocks, but sometimes have subtle borders */
+}
+
+.te-card-title {
+    font-size: 18px;
+    font-weight: var(--te-font-weight-regular);
+    margin-bottom: 10px;
+    text-transform: lowercase;
+}
+
+.te-card-text {
+    font-size: 14px;
+    color: var(--te-gray-dark);
+    margin-bottom: 15px;
+    line-height: 1.5;
+    text-transform: lowercase;
+}
+
+.te-list {
+    padding-left: 20px;
+}
+
+.te-list li {
+    list-style-type: disc;
+    font-size: 14px;
+    color: var(--te-gray-dark);
+    margin-bottom: 5px;
+    text-transform: lowercase;
+}
+
+/* Utility to center simple content */
+.te-center {
+    text-align: center;
+}
+
+.te-text-muted {
+    color: var(--te-gray-dark);
+}
+
+.te-text-block {
+    margin-bottom: 20px;
+    text-transform: lowercase;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Property Layouts */
+.te-sidebar-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+@media (max-width: 768px) {
+    .te-sidebar-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.te-sidebar {
+    /* Sticky sidebar for desktop */
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.te-filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.te-filter-link {
+    font-size: 14px;
+    color: var(--te-gray-dark);
+    text-transform: lowercase;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.te-filter-link:hover,
+.te-filter-link.active {
+    color: var(--te-black);
+    font-weight: 500;
+}
+
+.te-sidebar-divider {
+    height: 1px;
+    background: var(--te-gray-light);
+    margin: 20px 0;
+    width: 20px;
+    /* Small dash style */
+}
+
+/* Property Grid */
+.te-property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Property Card - TE Store Style */
+.te-property-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: opacity 0.2s;
+}
+
+.te-property-card:hover {
+    opacity: 0.8;
+}
+
+.te-property-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.te-property-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* Standard photo ratio */
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 12px;
+}
+
+.te-property-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.te-property-title {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: lowercase;
+    color: var(--te-black);
+}
+
+.te-property-meta {
+    font-size: 12px;
+    color: var(--te-gray-dark);
+    text-transform: lowercase;
+}
+
+.te-property-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid transparent;
+    /* reserved space */
+}
+
+.te-property-price {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.te-apply-link {
+    font-size: 12px;
+    text-decoration: underline;
+    color: var(--te-black);
+    text-transform: lowercase;
+}

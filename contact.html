@@ -5,49 +5,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Key Legacy Realty</title>
-    <link rel="stylesheet" href="src/css/style.css?v=3">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=3">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/css/te-core.css?v=4">
+    <link rel="stylesheet" href="src/css/te-nav.css?v=4">
+
+    <style>
+        /* Footer override */
+        .te-footer {
+            padding: 60px 20px;
+            background: var(--te-bg-body);
+            border-top: 1px solid var(--te-gray-light);
+            font-size: 12px;
+        }
+
+        .te-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            max-width: var(--te-max-width);
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: lowercase;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--te-gray-dark);
+            text-transform: lowercase;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--te-black);
+            text-decoration: underline;
+        }
+
+        .footer-newsletter input {
+            width: 100%;
+            margin-bottom: 10px;
+            background: #f5f5f5;
+            border: none;
+        }
+
+        /* Local overrides */
+        .contact-label {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: lowercase;
+            margin-bottom: 4px;
+            color: var(--te-gray-dark);
+        }
+
+        .contact-text {
+            font-size: 16px;
+            margin-bottom: 4px;
+            text-transform: lowercase;
+        }
+
+        .contact-info-group {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 
 <body class="te-content-page">
-    <div class="container">
 
-        <header class="te-nav">
-            <div class="te-nav-primary">
-                <nav class="nav-links">
-                    <div class="nav-item">
-                        <a href="index.html" class="nav-main">
-                            <span class="nav-main-text">key legacy</span>
-                            <span class="nav-sub-inline">realty</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="properties.html" class="nav-main">properties</a>
-                        <a href="properties.html?type=rent" class="nav-sub">rent</a>
-                        <a href="properties.html?type=buy" class="nav-sub">buy</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="services.html" class="nav-main">services</a>
-                        <a href="services.html#property-management" class="nav-sub">property management</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="about.html" class="nav-main">about</a>
-                        <a href="https://instagram.com/keylegacyrealty" target="_blank" class="nav-sub">instagram</a>
-                        <a href="contact.html" class="nav-sub">contact</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="form.html" class="nav-main">forms</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
+    <!-- Navigation -->
+    <header class="te-nav">
+        <div class="te-nav-primary">
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-main">
+                        <span class="nav-main-text">key legacy</span>
+                        <span class="nav-sub-inline">realty</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="properties.html" class="nav-main">properties</a>
+                    <a href="properties.html?type=rent" class="nav-sub">rent</a>
+                    <a href="properties.html?type=buy" class="nav-sub">buy</a>
+                </div>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-main">services</a>
+                    <a href="services.html#property-management" class="nav-sub">property management</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="nav-main">about</a>
+                    <a href="https://instagram.com/keylegacyrealty" target="_blank" class="nav-sub">instagram</a>
+                    <a href="contact.html" class="nav-sub">contact</a>
+                </div>
+                <div class="nav-item">
+                    <a href="form.html" class="nav-main">forms</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-        <main>
-            <div class="te-page-header">
-                <h1 class="te-page-title">contact</h1>
-            </div>
+    <main class="te-container" style="padding-top: 20px;">
+        <div class="te-page-header">
+            <h1 class="te-page-title">contact</h1>
+        </div>
 
-            <div class="contact-layout">
+        <section class="te-section" style="border-bottom: none;">
+            <div class="te-grid-2">
                 <div class="contact-info-section">
                     <div class="contact-info-group">
                         <h3 class="contact-label">address</h3>
@@ -63,87 +135,90 @@
 
                     <div class="contact-info-group">
                         <h3 class="contact-label">email</h3>
-                        <p class="contact-text"><a href="mailto:hello@keylegacyrealty.com" class="te-link">hello@keylegacyrealty.com</a></p>
-                        <p class="contact-text">closings: <a href="mailto:hello@keylegacyrealty.com" class="te-link">hello@keylegacyrealty.com</a></p>
+                        <p class="contact-text"><a href="mailto:hello@keylegacyrealty.com"
+                                style="text-decoration: underline;">hello@keylegacyrealty.com</a></p>
                     </div>
 
                     <div class="contact-info-group">
                         <h3 class="contact-label">hours</h3>
-                        <p class="contact-text contact-text-muted">monday - friday: 9:00 am - 5:00 pm</p>
-                        <p class="contact-text contact-text-muted">saturday - sunday: by appointment</p>
+                        <p class="contact-text" style="color: var(--te-gray-dark);">monday - friday: 9:00 am - 5:00 pm
+                        </p>
+                        <p class="contact-text" style="color: var(--te-gray-dark);">saturday - sunday: by appointment
+                        </p>
                     </div>
                 </div>
 
                 <div class="contact-form-section">
-                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for your message. We will reach out shortly.');">
+                    <form action="#" method="POST"
+                        onsubmit="event.preventDefault(); alert('Thank you for your message. We will reach out shortly.');">
                         <div class="te-form-group">
                             <label class="te-form-label">name</label>
-                            <input type="text" class="te-form-input" required>
+                            <input type="text" class="te-input" required>
                         </div>
 
                         <div class="te-form-group">
                             <label class="te-form-label">email</label>
-                            <input type="email" class="te-form-input" required>
+                            <input type="email" class="te-input" required>
                         </div>
 
                         <div class="te-form-group">
                             <label class="te-form-label">phone</label>
-                            <input type="tel" class="te-form-input">
+                            <input type="tel" class="te-input">
                         </div>
 
                         <div class="te-form-group">
                             <label class="te-form-label">message</label>
-                            <textarea rows="8" class="te-form-textarea" required></textarea>
+                            <textarea class="te-input" required></textarea>
                         </div>
 
-                        <button type="submit" class="te-button" style="width: 100%; cursor: pointer; border: 1px solid #0f0e12;">send</button>
+                        <button type="submit" class="te-btn" style="width: 100%;">send</button>
                     </form>
                 </div>
             </div>
-        </main>
+        </section>
+    </main>
 
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Key Legacy Realty</h4>
-                    <p>Your premier source for quality rental properties in Philadelphia. We're committed to helping you
-                        find the perfect place to call home.</p>
-                    <p style="margin-top: 20px;">
-                        <strong>Contact Us:</strong><br>
-                        100 N 18th St, Suite 300<br>
-                        Philadelphia, PA 19103<br><br>
-                        (215) 778-9352<br>
-                        hello@keylegacyrealty.com
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="properties.html">Properties</a>
-                        <a href="services.html">Services</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="form.html">Apply Now</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Service Areas</h4>
-                    <div class="footer-links">
-                        <a href="properties.html">Center City</a>
-                        <a href="properties.html">University City</a>
-                        <a href="properties.html">Northern Liberties</a>
-                        <a href="properties.html">Chestnut Hill</a>
-                        <a href="properties.html">Northeast Philly</a>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="te-footer">
+        <div class="te-footer-grid">
+            <div class="footer-col">
+                <h4>properties</h4>
+                <ul>
+                    <li><a href="properties.html?type=rent">rentals</a></li>
+                    <li><a href="properties.html?type=buy">sales</a></li>
+                    <li><a href="#">commercial</a></li>
+                </ul>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Key Legacy Realty. All rights reserved.</span>
-                <span>Philadelphia, PA</span>
+            <div class="footer-col">
+                <h4>services</h4>
+                <ul>
+                    <li><a href="services.html">property management</a></li>
+                    <li><a href="#">consulting</a></li>
+                    <li><a href="#">renovations</a></li>
+                </ul>
             </div>
-        </footer>
-    </div>
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="about.html">about us</a></li>
+                    <li><a href="https://instagram.com/keylegacyrealty">instagram</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-newsletter">
+                <h4>newsletter</h4>
+                <p style="margin-bottom:10px; color:var(--te-gray-dark);">sign up for the latest listings.</p>
+                <form action="#">
+                    <input type="email" class="te-input" placeholder="email address">
+                    <button type="submit" class="te-btn">subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="te-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+            <p class="te-text-small">&copy; 2026 key legacy realty. philadelphia, pa.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

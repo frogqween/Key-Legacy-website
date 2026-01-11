@@ -5,119 +5,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Properties | Key Legacy Realty</title>
-    <link rel="stylesheet" href="src/css/style.css?v=3">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=3">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/css/te-core.css?v=4">
+    <link rel="stylesheet" href="src/css/te-nav.css?v=4">
+
+    <style>
+        /* Specific page overrides */
+        .te-footer {
+            padding: 60px 20px;
+            background: var(--te-bg-body);
+            border-top: 1px solid var(--te-gray-light);
+            font-size: 12px;
+        }
+
+        .te-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            max-width: var(--te-max-width);
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: lowercase;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--te-gray-dark);
+            text-transform: lowercase;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--te-black);
+            text-decoration: underline;
+        }
+
+        .footer-newsletter input {
+            width: 100%;
+            margin-bottom: 10px;
+            background: #f5f5f5;
+            border: none;
+        }
+
+        .no-results {
+            padding: 40px;
+            text-align: center;
+            color: var(--te-gray-dark);
+            font-size: 14px;
+            text-transform: lowercase;
+            grid-column: 1 / -1;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container">
+<body class="properties-page">
 
-        <header class="te-nav">
-            <div class="te-nav-primary">
-                <nav class="nav-links">
-                    <div class="nav-item">
-                        <a href="index.html" class="nav-main">
-                            <span class="nav-main-text">key legacy</span>
-                            <span class="nav-sub-inline">realty</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="properties.html" class="nav-main">properties</a>
-                        <a href="properties.html?type=rent" class="nav-sub">rent</a>
-                        <a href="properties.html?type=buy" class="nav-sub">buy</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="services.html" class="nav-main">services</a>
-                        <a href="services.html#property-management" class="nav-sub">property management</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="about.html" class="nav-main">about</a>
-                        <a href="https://instagram.com/keylegacyrealty" target="_blank" class="nav-sub">instagram</a>
-                        <a href="contact.html" class="nav-sub">contact</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="form.html" class="nav-main">forms</a>
-                    </div>
+    <!-- Navigation -->
+    <header class="te-nav">
+        <div class="te-nav-primary">
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html" class="nav-main">
+                        <span class="nav-main-text">key legacy</span>
+                        <span class="nav-sub-inline">realty</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="properties.html" class="nav-main">properties</a>
+                    <a href="properties.html?type=rent" class="nav-sub">rent</a>
+                    <a href="properties.html?type=buy" class="nav-sub">buy</a>
+                </div>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-main">services</a>
+                    <a href="services.html#property-management" class="nav-sub">property management</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="nav-main">about</a>
+                    <a href="https://instagram.com/keylegacyrealty" target="_blank" class="nav-sub">instagram</a>
+                    <a href="contact.html" class="nav-sub">contact</a>
+                </div>
+                <div class="nav-item">
+                    <a href="form.html" class="nav-main">forms</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="te-container" style="padding-top: 20px;">
+        <div class="te-page-header" style="border-bottom: none; padding-bottom: 0;">
+            <h1 class="te-page-title">properties</h1>
+            <p class="te-property-meta"><span id="propertyCount">0</span> available</p>
+        </div>
+
+        <div class="te-sidebar-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="te-sidebar">
+                <nav class="te-filter-list">
+                    <a href="#" class="te-filter-link active" data-filter="">all properties</a>
+                    <div class="te-sidebar-divider" style="margin: 10px 0; width: 10px;"></div>
+                    <a href="#" class="te-filter-link" data-filter="studio">studio</a>
+                    <a href="#" class="te-filter-link" data-filter="1">1 bedroom</a>
+                    <a href="#" class="te-filter-link" data-filter="2">2 bedrooms</a>
+                    <a href="#" class="te-filter-link" data-filter="3">3 bedrooms</a>
+                    <a href="#" class="te-filter-link" data-filter="4">4+ bedrooms</a>
+                    <div class="te-sidebar-divider"></div>
+                    <a href="#" class="te-filter-link" data-filter="0-1200">under $1,200</a>
+                    <a href="#" class="te-filter-link" data-filter="1200-1500">$1,200 - $1,500</a>
+                    <a href="#" class="te-filter-link" data-filter="1500-1800">$1,500 - $1,800</a>
+                    <a href="#" class="te-filter-link" data-filter="1800-5000">$1,800+</a>
                 </nav>
-            </div>
-        </header>
+            </aside>
 
-
-        <main class="properties-main">
-            <div class="properties-container">
-                <!-- Sidebar Navigation -->
-                <aside class="properties-sidebar">
-                    <nav class="sidebar-nav">
-                        <a href="#" class="sidebar-link active" data-filter="">all properties</a>
-                        <a href="#" class="sidebar-link" data-filter="studio">studio</a>
-                        <a href="#" class="sidebar-link" data-filter="1">1 bedroom</a>
-                        <a href="#" class="sidebar-link" data-filter="2">2 bedrooms</a>
-                        <a href="#" class="sidebar-link" data-filter="3">3 bedrooms</a>
-                        <a href="#" class="sidebar-link" data-filter="4">4+ bedrooms</a>
-                        <div class="sidebar-divider"></div>
-                        <a href="#" class="sidebar-link" data-filter="0-1200">under $1,200</a>
-                        <a href="#" class="sidebar-link" data-filter="1200-1500">$1,200 - $1,500</a>
-                        <a href="#" class="sidebar-link" data-filter="1500-1800">$1,500 - $1,800</a>
-                        <a href="#" class="sidebar-link" data-filter="1800-5000">$1,800+</a>
-                    </nav>
-                </aside>
-
-                <!-- Main Content Area -->
-                <div class="properties-content">
-                    <div class="properties-header">
-                        <span class="property-count"><span id="propertyCount">0</span> properties</span>
-                    </div>
-
-                    <!-- Properties Grid -->
-                    <div class="properties-grid" id="propertiesGrid">
-                        <!-- Properties will be loaded here by JavaScript -->
-                    </div>
+            <!-- Main Content Area -->
+            <div class="properties-content">
+                <!-- Properties Grid -->
+                <div class="te-property-grid" id="propertiesGrid">
+                    <!-- Properties will be loaded here by JavaScript -->
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
 
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Key Legacy Realty</h4>
-                    <p>Your premier source for quality rental properties in Philadelphia. We're committed to helping you
-                        find the perfect place to call home.</p>
-                    <p style="margin-top: 20px;">
-                        <strong>Contact Us:</strong><br>
-                        100 N 18th St, Suite 300<br>
-                        Philadelphia, PA 19103<br><br>
-                        (215) 778-9352<br>
-                        hello@keylegacyrealty.com
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="properties.html">Properties</a>
-                        <a href="services.html">Services</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="form.html">Apply Now</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Service Areas</h4>
-                    <div class="footer-links">
-                        <a href="properties.html">Center City</a>
-                        <a href="properties.html">University City</a>
-                        <a href="properties.html">Northern Liberties</a>
-                        <a href="properties.html">Chestnut Hill</a>
-                        <a href="properties.html">Northeast Philly</a>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="te-footer">
+        <div class="te-footer-grid">
+            <div class="footer-col">
+                <h4>properties</h4>
+                <ul>
+                    <li><a href="properties.html?type=rent">rentals</a></li>
+                    <li><a href="properties.html?type=buy">sales</a></li>
+                    <li><a href="#">commercial</a></li>
+                </ul>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Key Legacy Realty. All rights reserved.</span>
-                <span>Philadelphia, PA</span>
+            <div class="footer-col">
+                <h4>services</h4>
+                <ul>
+                    <li><a href="services.html">property management</a></li>
+                    <li><a href="#">consulting</a></li>
+                    <li><a href="#">renovations</a></li>
+                </ul>
             </div>
-        </footer>
-    </div>
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="about.html">about us</a></li>
+                    <li><a href="https://instagram.com/keylegacyrealty">instagram</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-newsletter">
+                <h4>newsletter</h4>
+                <p style="margin-bottom:10px; color:var(--te-gray-dark);">sign up for the latest listings.</p>
+                <form action="#">
+                    <input type="email" class="te-input" placeholder="email address">
+                    <button type="submit" class="te-btn">subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="te-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+            <p class="te-text-small">&copy; 2026 key legacy realty. philadelphia, pa.</p>
+        </div>
+    </footer>
 
     <!-- SINGLE SOURCE OF TRUTH: Load properties from shared source file -->
     <script src="data/properties-source.js"></script>
@@ -141,9 +203,13 @@
 
             grid.innerHTML = propertiesToRender.map(prop => {
                 // Build image URL - check if it's already a full URL (YouTube) or needs the Buildium API path
-                const imageUrl = prop.img.startsWith('http')
-                    ? prop.img
-                    : `https://keylegacyrealty.managebuilding.com/Resident/api/public/files/download?fileName=${prop.img}&isPreview=true`;
+                // Using a fallback image if none provided
+                let imageUrl = 'assets/images/placeholder.jpg';
+                if (prop.img) {
+                    imageUrl = prop.img.startsWith('http')
+                        ? prop.img
+                        : `https://keylegacyrealty.managebuilding.com/Resident/api/public/files/download?fileName=${prop.img}&isPreview=true`;
+                }
 
                 // Build property detail page URL
                 const propertyUrl = `https://keylegacyrealty.managebuilding.com${prop.url}`;
@@ -170,7 +236,11 @@
 
         function filterProperties(bedroomFilter, priceFilter) {
             currentBedroomFilter = bedroomFilter !== undefined ? bedroomFilter : currentBedroomFilter;
+            // Handle clearing filters if empty string passed
+            if (bedroomFilter === '') currentBedroomFilter = '';
+
             currentPriceFilter = priceFilter !== undefined ? priceFilter : currentPriceFilter;
+            if (priceFilter === '') currentPriceFilter = '';
 
             const filtered = properties.filter(prop => {
                 // Bedroom filter
@@ -196,12 +266,12 @@
         }
 
         // Sidebar link click handlers
-        document.querySelectorAll('.sidebar-link').forEach(link => {
+        document.querySelectorAll('.te-filter-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 // Remove active class from all links
-                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.te-filter-link').forEach(l => l.classList.remove('active'));
 
                 // Add active class to clicked link
                 link.classList.add('active');
@@ -218,10 +288,18 @@
                     }
                 } else {
                     // Bedroom filter
+                    // If bedroom filter is a number, pass it as string, logic handles it.
+                    // Actually logic expects logic matching so we just pass filterValue
                     filterProperties(filterValue, undefined);
                 }
             });
         });
+
+        // Initialize with URL params if present (basic)
+        const urlParams = new URLSearchParams(window.location.search);
+        const typeParam = urlParams.get('type');
+        // We don't have type filtering in the JSON currently (rent vs buy), assuming all rent for now based on data structure
+        // If we did, we'd add it here.
 
         // Initial render
         renderProperties(properties);
