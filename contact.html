@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Key Legacy Realty</title>
-    <link rel="stylesheet" href="src/css/style.css?v=2">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=2">
+    <link rel="stylesheet" href="src/css/style.css?v=3">
+    <link rel="stylesheet" href="src/css/te-nav.css?v=3">
 </head>
 
-<body>
+<body class="te-content-page">
     <div class="container">
 
         <header class="te-nav">
@@ -42,74 +42,67 @@
             </div>
         </header>
 
-
         <main>
-            <!-- Contact Info & Form -->
-            <section class="content-section">
-                <div class="grid-2">
+            <div class="te-page-header">
+                <h1 class="te-page-title">get in touch</h1>
+                <p class="te-page-subtitle">we're here to help you find your perfect philadelphia home</p>
+            </div>
+
+            <section class="te-section">
+                <div class="te-grid-2">
                     <div>
-                        <h2 style="margin-bottom: 30px;">Get in Touch</h2>
-                        <div style="margin-bottom: 40px;">
-                            <h3 style="font-size: 18px; margin-bottom: 10px;">Office Address</h3>
-                            <p style="color: var(--muted-color); line-height: 1.6;">
-                                100 N 18th St, Suite 300<br>
-                                Philadelphia, PA 19103
+                        <div class="te-info-block">
+                            <h3 class="te-info-title">office address</h3>
+                            <p class="te-info-text">
+                                100 n 18th st, suite 300<br>
+                                philadelphia, pa 19103
                             </p>
                         </div>
-                        <div style="margin-bottom: 40px;">
-                            <h3 style="font-size: 18px; margin-bottom: 10px;">Phone & Email</h3>
-                            <p style="color: var(--muted-color); line-height: 1.6; margin-bottom: 10px;">
-                                <strong>Primary:</strong> (215) 778-9352<br>
-                                <strong>Text/Mbl:</strong> (215) 631-8767
-                            </p>
-                            <p style="color: var(--muted-color); line-height: 1.6;">
-                                <strong>Email:</strong> hello@keylegacyrealty.com<br>
-                                <strong>Closings:</strong> hello@keylegacyrealty.com
+
+                        <div class="te-info-block">
+                            <h3 class="te-info-title">phone & email</h3>
+                            <p class="te-info-text">
+                                primary: (215) 778-9352<br>
+                                text/mbl: (215) 631-8767<br><br>
+                                email: hello@keylegacyrealty.com<br>
+                                closings: hello@keylegacyrealty.com
                             </p>
                         </div>
-                        <div>
-                            <h3 style="font-size: 18px; margin-bottom: 10px;">Office Hours</h3>
-                            <p style="color: var(--muted-color); line-height: 1.6;">
-                                Monday - Friday: 9:00 AM - 5:00 PM<br>
-                                Saturday - Sunday: By Appointment
+
+                        <div class="te-info-block">
+                            <h3 class="te-info-title">office hours</h3>
+                            <p class="te-info-text">
+                                monday - friday: 9:00 am - 5:00 pm<br>
+                                saturday - sunday: by appointment
                             </p>
                         </div>
                     </div>
 
                     <div>
-                        <div
-                            style="background: var(--card-bg); padding: 40px; border: 1px solid var(--border-color); border-radius: 8px;">
-                            <h3 style="margin-bottom: 20px;">Send a Message</h3>
-                            <form action="#" method="POST"
-                                onsubmit="event.preventDefault(); alert('Thank you for your message. We will reach out shortly.');">
-                                <div style="margin-bottom: 20px;">
-                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Full
-                                        Name</label>
-                                    <input type="text"
-                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color);"
-                                        required>
+                        <div style="border: 1px solid #0f0e12; padding: 40px;">
+                            <h3 class="te-section-title">send a message</h3>
+                            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for your message. We will reach out shortly.');">
+                                <div class="te-form-group">
+                                    <label class="te-form-label">full name</label>
+                                    <input type="text" class="te-form-input" required>
                                 </div>
-                                <div style="margin-bottom: 20px;">
-                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Email
-                                        Address</label>
-                                    <input type="email"
-                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color);"
-                                        required>
+
+                                <div class="te-form-group">
+                                    <label class="te-form-label">email address</label>
+                                    <input type="email" class="te-form-input" required>
                                 </div>
-                                <div style="margin-bottom: 20px;">
-                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Phone
-                                        Number</label>
-                                    <input type="tel"
-                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color);">
+
+                                <div class="te-form-group">
+                                    <label class="te-form-label">phone number</label>
+                                    <input type="tel" class="te-form-input">
                                 </div>
-                                <div style="margin-bottom: 20px;">
-                                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Message</label>
-                                    <textarea rows="5"
-                                        style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-color); color: var(--text-color); font-family: inherit;"
-                                        required></textarea>
+
+                                <div class="te-form-group">
+                                    <label class="te-form-label">message</label>
+                                    <textarea rows="5" class="te-form-textarea" required></textarea>
                                 </div>
-                                <button type="submit" class="cta-button"
-                                    style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+
+                                <button type="submit" class="te-button" style="width: 100%; cursor: pointer; border: 1px solid #0f0e12;">send message</button>
                             </form>
                         </div>
                     </div>
@@ -157,13 +150,6 @@
             </div>
         </footer>
     </div>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('mainNav');
-            nav.classList.toggle('active');
-        }
-    </script>
 </body>
 
 </html>

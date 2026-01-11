@@ -1085,3 +1085,258 @@ footer {
         font-size: 13px;
     }
 }
+
+/* Content Pages - Teenage Engineering Style */
+.te-content-page {
+    background: #ffffff;
+    font-family: "TE20T", "Inter", Helvetica, Arial, sans-serif;
+}
+
+.te-content-page main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 60px 40px 100px 40px;
+}
+
+.te-page-header {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #0f0e12;
+}
+
+.te-page-title {
+    font-size: 36px;
+    font-weight: 300;
+    text-transform: lowercase;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: #0f0e12;
+}
+
+.te-page-subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    color: #7f7f7f;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+.te-section {
+    margin-bottom: 80px;
+}
+
+.te-section-title {
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: lowercase;
+    margin-bottom: 30px;
+    color: #0f0e12;
+}
+
+.te-text-block {
+    font-size: 15px;
+    font-weight: 300;
+    color: #0f0e12;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.te-text-muted {
+    color: #7f7f7f;
+}
+
+.te-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+}
+
+.te-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.te-card {
+    padding: 30px;
+    border: 1px solid #0f0e12;
+    background: #ffffff;
+}
+
+.te-card-title {
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: lowercase;
+    margin-bottom: 15px;
+    color: #0f0e12;
+}
+
+.te-card-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: #7f7f7f;
+    line-height: 1.6;
+}
+
+.te-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.te-list li {
+    font-size: 13px;
+    font-weight: 300;
+    color: #7f7f7f;
+    line-height: 1.8;
+    padding-left: 15px;
+    position: relative;
+}
+
+.te-list li:before {
+    content: "–";
+    position: absolute;
+    left: 0;
+}
+
+.te-info-block {
+    padding: 30px;
+    border: 1px solid #0f0e12;
+    margin-bottom: 30px;
+}
+
+.te-info-title {
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: lowercase;
+    margin-bottom: 10px;
+    color: #0f0e12;
+}
+
+.te-info-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: #7f7f7f;
+    line-height: 1.8;
+}
+
+.te-link {
+    color: #0f0e12;
+    text-decoration: underline;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: lowercase;
+    transition: opacity 0.2s ease;
+}
+
+.te-link:hover {
+    opacity: 0.5;
+}
+
+.te-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #0f0e12;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: lowercase;
+    border: 1px solid #0f0e12;
+    transition: all 0.2s ease;
+}
+
+.te-button:hover {
+    background: #ffffff;
+    color: #0f0e12;
+}
+
+.te-button-secondary {
+    background: #ffffff;
+    color: #0f0e12;
+}
+
+.te-button-secondary:hover {
+    background: #0f0e12;
+    color: #ffffff;
+}
+
+.te-form-group {
+    margin-bottom: 20px;
+}
+
+.te-form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: lowercase;
+    margin-bottom: 8px;
+    color: #0f0e12;
+}
+
+.te-form-input,
+.te-form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #0f0e12;
+    background: #ffffff;
+    color: #0f0e12;
+    font-family: "TE20T", "Inter", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.te-form-input:focus,
+.te-form-textarea:focus {
+    outline: none;
+    border-color: #7f7f7f;
+}
+
+.te-form-textarea {
+    resize: vertical;
+}
+
+/* Responsive adjustments for content pages */
+@media (max-width: 768px) {
+    .te-content-page main {
+        padding: 40px 20px 80px 20px;
+    }
+
+    .te-page-header {
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+    }
+
+    .te-page-title {
+        font-size: 28px;
+    }
+
+    .te-section {
+        margin-bottom: 60px;
+    }
+
+    .te-section-title {
+        font-size: 20px;
+    }
+
+    .te-grid-2,
+    .te-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .te-page-title {
+        font-size: 24px;
+    }
+
+    .te-section-title {
+        font-size: 18px;
+    }
+
+    .te-card,
+    .te-info-block {
+        padding: 20px;
+    }
+}
