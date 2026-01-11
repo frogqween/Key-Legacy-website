@@ -28,7 +28,7 @@
 }
 
 /* Navigation Items */
-.form-page .nav-item {
+.form-page .sidebar .nav-item {
     cursor: pointer;
     width: 100%;
     text-align: left;
@@ -50,11 +50,11 @@
     font-weight: 700;
 }
 
-.form-page .nav-item:hover:not(.disabled) {
+.form-page .sidebar .nav-item:hover:not(.disabled) {
     background: rgba(0, 0, 0, 0.05);
 }
 
-.form-page .nav-item.active {
+.form-page .sidebar .nav-item.active {
     background: white;
     border-left: 4px solid var(--accent-color);
     margin-right: -1px;
@@ -62,36 +62,36 @@
     font-weight: 800;
 }
 
-.form-page .nav-item.active .step-number {
+.form-page .sidebar .nav-item.active .step-number {
     background: var(--accent-color);
     color: white;
 }
 
-.form-page .nav-item.active .nav-title {
+.form-page .sidebar .nav-item.active .nav-title {
     color: var(--text-color);
     font-weight: 800;
 }
 
-.form-page .nav-item.completed {
+.form-page .sidebar .nav-item.completed {
     background: var(--accent-color);
     color: white;
 }
 
-.form-page .nav-item.completed .step-number {
+.form-page .sidebar .nav-item.completed .step-number {
     background: white;
     color: var(--accent-color);
 }
 
-.form-page .nav-item.completed .nav-title {
+.form-page .sidebar .nav-item.completed .nav-title {
     color: white;
 }
 
-.form-page .nav-item.disabled {
+.form-page .sidebar .nav-item.disabled {
     opacity: 0.4;
     cursor: not-allowed;
 }
 
-.form-page .nav-item.disabled .nav-title {
+.form-page .sidebar .nav-item.disabled .nav-title {
     color: var(--muted-color);
 }
 
@@ -108,7 +108,7 @@
     flex-shrink: 0;
 }
 
-.form-page .nav-title {
+.form-page .sidebar .nav-title {
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -401,7 +401,7 @@ textarea:focus {
         -webkit-overflow-scrolling: touch;
     }
 
-    .form-page .nav-item {
+    .form-page .sidebar .nav-item {
         flex-direction: column !important;
         align-items: center;
         justify-content: center;
@@ -417,11 +417,11 @@ textarea:focus {
         flex: 1;
     }
 
-    .form-page .nav-item:last-child {
+    .form-page .sidebar .nav-item:last-child {
         border-right: none;
     }
 
-    .form-page .nav-item.active {
+    .form-page .sidebar .nav-item.active {
         border-left: none;
         border-top: 4px solid var(--accent-color);
         margin-right: 0;
@@ -434,7 +434,7 @@ textarea:focus {
         font-size: 14px;
     }
 
-    .form-page .nav-title {
+    .form-page .sidebar .nav-title {
         display: none;
     }
 
