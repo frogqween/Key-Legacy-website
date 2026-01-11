@@ -16,16 +16,11 @@ body.landing-page .te-nav {
 
 body.landing-page .nav-links a {
     color: #000000;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 1),
-                 0 0 25px rgba(255, 255, 255, 1),
-                 0 0 35px rgba(255, 255, 255, 1),
-                 0 0 45px rgba(255, 255, 255, 0.9),
-                 0 0 55px rgba(255, 255, 255, 0.8);
 }
 
 .te-nav-primary {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 50px 0;
     max-width: 61.25rem;
@@ -35,7 +30,11 @@ body.landing-page .nav-links a {
 }
 
 .nav-links {
-    display: contents;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 12px;
 }
 
 .nav-links a {
@@ -47,6 +46,7 @@ body.landing-page .nav-links a {
     line-height: 24px;
     transition: opacity 0.2s ease;
     display: block;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -62,18 +62,11 @@ body.landing-page .nav-links a {
 @media (max-width: 768px) {
     .te-nav-primary {
         padding: 20px 15px;
-        text-align: center;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
     }
 
     .nav-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        width: 100%;
+        gap: 8px;
+        flex-wrap: nowrap;
     }
 
     .nav-links a {
@@ -87,15 +80,29 @@ body.landing-page .nav-links a {
 
 @media (max-width: 480px) {
     .nav-links a {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .te-nav-primary {
-        padding: 15px 10px;
-        gap: 8px;
+        padding: 15px 5px;
     }
 
     .nav-links {
-        gap: 8px;
+        gap: 4px;
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .te-nav-primary {
+        padding: 10px 3px;
+    }
+
+    .nav-links {
+        gap: 2px;
     }
 }

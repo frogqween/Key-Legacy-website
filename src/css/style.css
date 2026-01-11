@@ -709,16 +709,16 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header {
+    header:not(.te-nav) {
         flex-wrap: wrap;
         padding: 15px;
     }
 
     .mobile-menu-toggle {
-        display: block;
+        display: none;
     }
 
-    nav {
+    nav:not(.nav-links) {
         display: none;
         width: 100%;
         flex-direction: column;
@@ -726,7 +726,7 @@ footer {
         margin-top: 15px;
     }
 
-    nav.active {
+    nav.active:not(.nav-links) {
         display: flex;
     }
 
