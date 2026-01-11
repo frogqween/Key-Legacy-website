@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Properties | Key Legacy Realty</title>
-    <link rel="stylesheet" href="src/css/style.css?v=2">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=2">
+    <link rel="stylesheet" href="src/css/style.css?v=3">
+    <link rel="stylesheet" href="src/css/te-nav.css?v=3">
 </head>
 
 <body>
@@ -43,47 +43,37 @@
         </header>
 
 
-        <main>
-            <!-- Filter Bar -->
-            <div class="filter-bar">
-                <select class="filter-select" id="bedroomFilter" onchange="filterProperties()">
-                    <option value="">All Bedrooms</option>
-                    <option value="Studio">Studio</option>
-                    <option value="1">1 Bedroom</option>
-                    <option value="2">2 Bedrooms</option>
-                    <option value="3">3 Bedrooms</option>
-                    <option value="4">4+ Bedrooms</option>
-                </select>
+        <main class="properties-main">
+            <div class="properties-container">
+                <!-- Sidebar Navigation -->
+                <aside class="properties-sidebar">
+                    <nav class="sidebar-nav">
+                        <a href="#" class="sidebar-link active" data-filter="">all properties</a>
+                        <a href="#" class="sidebar-link" data-filter="studio">studio</a>
+                        <a href="#" class="sidebar-link" data-filter="1">1 bedroom</a>
+                        <a href="#" class="sidebar-link" data-filter="2">2 bedrooms</a>
+                        <a href="#" class="sidebar-link" data-filter="3">3 bedrooms</a>
+                        <a href="#" class="sidebar-link" data-filter="4">4+ bedrooms</a>
+                        <div class="sidebar-divider"></div>
+                        <a href="#" class="sidebar-link" data-filter="0-1200">under $1,200</a>
+                        <a href="#" class="sidebar-link" data-filter="1200-1500">$1,200 - $1,500</a>
+                        <a href="#" class="sidebar-link" data-filter="1500-1800">$1,500 - $1,800</a>
+                        <a href="#" class="sidebar-link" data-filter="1800-5000">$1,800+</a>
+                    </nav>
+                </aside>
 
-                <select class="filter-select" id="priceFilter" onchange="filterProperties()">
-                    <option value="">All Prices</option>
-                    <option value="0-1200">Under $1,200</option>
-                    <option value="1200-1500">$1,200 - $1,500</option>
-                    <option value="1500-1800">$1,500 - $1,800</option>
-                    <option value="1800-2500">$1,800+</option>
-                </select>
+                <!-- Main Content Area -->
+                <div class="properties-content">
+                    <div class="properties-header">
+                        <span class="property-count"><span id="propertyCount">0</span> properties</span>
+                    </div>
 
-                <span style="margin-left: auto; font-size: 12px; font-weight: 700; color: var(--muted-color);">
-                    <span id="propertyCount">24</span> PROPERTIES AVAILABLE
-                </span>
-            </div>
-
-            <!-- Properties Grid -->
-            <section class="content-section">
-                <div class="grid-3" id="propertiesGrid">
-                    <!-- Properties will be loaded here by JavaScript -->
+                    <!-- Properties Grid -->
+                    <div class="properties-grid" id="propertiesGrid">
+                        <!-- Properties will be loaded here by JavaScript -->
+                    </div>
                 </div>
-            </section>
-
-            <!-- CTA Section -->
-            <section class="content-section" style="text-align: center;">
-                <h2 style="margin-bottom: 20px;">Don't See What You're Looking For?</h2>
-                <p style="font-size: 16px; color: var(--muted-color); margin-bottom: 30px;">
-                    Fill out our rental application and we'll notify you when new properties that match your criteria
-                    become available.
-                </p>
-                <a href="form.html" class="cta-button">Apply Now</a>
-            </section>
+            </div>
         </main>
 
         <footer>
@@ -136,14 +126,15 @@
         // Properties are now loaded from PROPERTIES_DATA global variable
         const properties = window.PROPERTIES_DATA;
 
-        let filteredProperties = [...properties];
+        let currentBedroomFilter = '';
+        let currentPriceFilter = '';
 
         function renderProperties(propertiesToRender) {
             const grid = document.getElementById('propertiesGrid');
             const propertyCount = document.getElementById('propertyCount');
 
             if (propertiesToRender.length === 0) {
-                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--muted-color);"><h3>No properties match your filters</h3><p style="margin-top: 10px;">Try adjusting your search criteria.</p></div>';
+                grid.innerHTML = '<div class="no-results"><p>no properties match your criteria</p></div>';
                 propertyCount.textContent = '0';
                 return;
             }
@@ -158,22 +149,17 @@
                 const propertyUrl = `https://keylegacyrealty.managebuilding.com${prop.url}`;
 
                 return `
-                <div class="property-card">
-                    <a href="${propertyUrl}" target="_blank" style="text-decoration: none; color: inherit;">
-                        <div class="property-image" style="background-image: url('${imageUrl}'); background-size: cover; background-position: center;"></div>
-                        <div class="property-info">
-                            <div class="property-address">${prop.address}</div>
-                            <div class="property-details">
-                                <span>${prop.beds === 'Studio' ? 'Studio' : prop.beds + ' Bed'}</span>
-                                <span>${prop.baths} Bath</span>
-                            </div>
-                            <div class="property-price">$${prop.rent.toLocaleString()}/mo</div>
-                            <div class="property-available">Available ${prop.available}</div>
+                <div class="te-property-card">
+                    <a href="${propertyUrl}" target="_blank" class="te-property-link">
+                        <div class="te-property-image" style="background-image: url('${imageUrl}');"></div>
+                        <div class="te-property-info">
+                            <div class="te-property-title">${prop.address}</div>
+                            <div class="te-property-meta">${prop.beds === 'Studio' ? 'studio' : prop.beds + ' bed'} · ${prop.baths} bath</div>
                         </div>
                     </a>
-                    <div style="padding: 0 20px 20px; display: flex; gap: 8px;">
-                        <a href="${propertyUrl}" target="_blank" class="cta-button" style="font-size: 10px; padding: 10px 16px; flex: 1; text-align: center; text-decoration: none;">View Details</a>
-                        <a href="form.html" class="cta-button" style="font-size: 10px; padding: 10px 16px; flex: 1; text-align: center; background: transparent; color: var(--text-color); border: 1px solid var(--border-color); text-decoration: none;">Apply Now</a>
+                    <div class="te-property-footer">
+                        <span class="te-property-price">$${prop.rent.toLocaleString()}/mo</span>
+                        <a href="form.html" class="te-apply-link">apply</a>
                     </div>
                 </div>
                 `;
@@ -182,23 +168,23 @@
             propertyCount.textContent = propertiesToRender.length;
         }
 
-        function filterProperties() {
-            const bedroomFilter = document.getElementById('bedroomFilter').value;
-            const priceFilter = document.getElementById('priceFilter').value;
+        function filterProperties(bedroomFilter, priceFilter) {
+            currentBedroomFilter = bedroomFilter !== undefined ? bedroomFilter : currentBedroomFilter;
+            currentPriceFilter = priceFilter !== undefined ? priceFilter : currentPriceFilter;
 
-            filteredProperties = properties.filter(prop => {
+            const filtered = properties.filter(prop => {
                 // Bedroom filter
-                if (bedroomFilter) {
-                    if (bedroomFilter === 'Studio' && prop.beds !== 'Studio') return false;
-                    if (bedroomFilter === '1' && prop.beds !== 1) return false;
-                    if (bedroomFilter === '2' && prop.beds !== 2) return false;
-                    if (bedroomFilter === '3' && prop.beds !== 3) return false;
-                    if (bedroomFilter === '4' && prop.beds < 4) return false;
+                if (currentBedroomFilter) {
+                    if (currentBedroomFilter === 'studio' && prop.beds !== 'Studio') return false;
+                    if (currentBedroomFilter === '1' && prop.beds !== 1) return false;
+                    if (currentBedroomFilter === '2' && prop.beds !== 2) return false;
+                    if (currentBedroomFilter === '3' && prop.beds !== 3) return false;
+                    if (currentBedroomFilter === '4' && prop.beds < 4) return false;
                 }
 
                 // Price filter
-                if (priceFilter) {
-                    const [min, max] = priceFilter.split('-').map(Number);
+                if (currentPriceFilter) {
+                    const [min, max] = currentPriceFilter.split('-').map(Number);
                     if (max && (prop.rent < min || prop.rent > max)) return false;
                     if (!max && prop.rent < min) return false;
                 }
@@ -206,13 +192,36 @@
                 return true;
             });
 
-            renderProperties(filteredProperties);
+            renderProperties(filtered);
         }
 
-        function toggleMenu() {
-            const nav = document.getElementById('mainNav');
-            nav.classList.toggle('active');
-        }
+        // Sidebar link click handlers
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Remove active class from all links
+                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+
+                // Add active class to clicked link
+                link.classList.add('active');
+
+                const filterValue = link.getAttribute('data-filter');
+
+                // Check if it's a price filter or bedroom filter
+                if (filterValue.includes('-') || filterValue === '') {
+                    // Price filter or "all properties"
+                    if (filterValue === '') {
+                        filterProperties('', '');
+                    } else {
+                        filterProperties(undefined, filterValue);
+                    }
+                } else {
+                    // Bedroom filter
+                    filterProperties(filterValue, undefined);
+                }
+            });
+        });
 
         // Initial render
         renderProperties(properties);
