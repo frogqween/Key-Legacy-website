@@ -1,5 +1,30 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
 
+@font-face {
+    font-family: "TE20T";
+    src: url("../../assets/fonts/TE20T-63BF04BCA86B.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TE20L";
+    src: url("../../assets/fonts/TE20L-63BF04BCA86B.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TE40T";
+    src: url("../../assets/fonts/TE40T-63BF04BCA86B.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
     --bg-color: #f6f8f7;
     --text-color: #0f0e12;
@@ -9,6 +34,11 @@
     --muted-color: #666666;
     --card-bg: #ffffff;
     --input-bg: #ffffff;
+    --space-xs: 0.3125rem;
+    --space-sm: 0.625rem;
+    --space-md: 0.9375rem;
+    --space-lg: 1.40625rem;
+    --space-xl: 2.8125rem;
 }
 
 * {
@@ -36,78 +66,172 @@ body::-webkit-scrollbar {
 }
 
 body.landing-page {
-    overflow-x: hidden;
-    overflow-y: scroll;
+    background: #e5e5e5;
+    font-family: "TE20T", "Inter", Helvetica, Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.25rem;
+    overflow: hidden;
     height: 100vh;
 }
 
 body.landing-page .container {
+    max-width: none;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    background: #e5e5e5;
     height: 100vh;
     overflow: hidden;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: none;
+    width: 100%;
     margin: 0 auto;
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
+    border-left: none;
+    border-right: none;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: var(--bg-color);
-    width: 100%;
 }
 
 /* Header & Navigation - Exact Teenage Engineering Style */
 header {
     padding: 0;
-    background: #0f0e12;
+    background: #e5e5e5;
     border: none;
+    font-family: "TE20T", "Inter", Helvetica, Arial, sans-serif;
 }
 
-nav {
-    display: flex;
+header table {
     width: 100%;
-    padding: 20px 20px;
-    gap: 60px;
+    padding: 28px 20px 14px;
+    margin-top: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
-.nav-section {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
+header table td {
+    padding-right: 40px;
+    text-align: center;
+    vertical-align: top;
+    padding-top: 0;
 }
 
-.nav-main {
-    text-decoration: none;
-    color: #ffffff;
-    text-transform: lowercase;
+header h1 {
+    font-size: 20px;
     font-weight: 300;
-    font-size: 17px;
+    text-transform: lowercase;
+    margin: 0;
     letter-spacing: 0;
-    line-height: 1.2;
-    transition: opacity 0.2s;
-    font-family: 'Inter', sans-serif;
+    line-height: 20px;
 }
 
-.nav-main:hover {
+header h1 a {
+    color: #0f0e12;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    display: inline-block;
+    line-height: 20px;
+}
+
+header h1 a:hover {
     opacity: 0.5;
 }
 
-.nav-sub {
-    text-decoration: none;
-    color: #7f7f7f;
-    text-transform: lowercase;
-    font-weight: 300;
-    font-size: 13px;
-    letter-spacing: 0;
-    line-height: 1.2;
-    transition: color 0.2s;
-    font-family: 'Inter', sans-serif;
+.nav-logo {
+    display: block;
+    height: 30px;
+    margin-top: 4px;
 }
 
-.nav-sub:hover {
+.nav-logo svg {
+    width: 38px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.4px;
+}
+
+body.landing-page .nav-logo svg {
+    stroke: #0f0e12;
+}
+
+.nav-date {
+    color: #7f7f7f;
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: lowercase;
+}
+
+header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+header ul li {
+    margin-bottom: 3px;
+}
+
+header ul li a {
+    color: #4d4d4d;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: lowercase;
+    transition: color 0.2s;
+    line-height: 20px;
+}
+
+header ul li a:hover {
     color: #ffffff;
+}
+
+header ul>li>a {
+    color: #0f0e12;
+    font-size: 20px;
+    line-height: 20px;
+    display: inline-block;
+}
+
+header ul>li>a:hover {
+    opacity: 0.5;
+}
+
+
+.nav-icons-cell {
+    padding-right: 20px;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    justify-content: flex-end;
+}
+
+.nav-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+}
+
+body.landing-page header {
+    /* Background handled by te-nav.css */
+}
+
+body.landing-page header table {
+    max-width: 61.25rem;
+    margin: 0 auto;
+    padding: 28px var(--space-xl) 14px;
+    margin-top: 0;
 }
 
 /* Mobile menu toggle (hide for now) */
@@ -116,7 +240,10 @@ nav {
 }
 
 /* Typography */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -186,6 +313,147 @@ body.landing-page .hero p {
     max-width: 700px;
     margin: 0 auto 50px;
     line-height: 1.8;
+}
+
+
+/* Landing Page - Teenage Engineering style */
+.landing-main {
+    background: #e5e5e5;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.landing-hero {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0 var(--space-lg);
+    align-items: end;
+}
+
+.landing-hero-content h2 {
+    font-family: "TE40T", "TE20T", "Inter", Helvetica, Arial, sans-serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: var(--space-md);
+    font-weight: 300;
+}
+
+.landing-hero-content p {
+    font-size: 0.9375rem;
+    line-height: 1.25rem;
+    max-width: 32rem;
+    color: #4d4d4d;
+    font-weight: 300;
+}
+
+.landing-hero-link {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    font-size: 0.75rem;
+    text-transform: lowercase;
+    color: #0f0e12;
+    text-decoration: underline;
+    font-weight: 300;
+}
+
+.landing-eyebrow {
+    font-size: 0.8125rem;
+    text-transform: lowercase;
+    letter-spacing: 0.04em;
+    color: #7f7f7f;
+    margin-bottom: var(--space-sm);
+}
+
+.landing-hero-media {
+    background: #ffffff;
+    border: 1px solid #0f0e12;
+    padding: var(--space-sm);
+}
+
+.landing-hero-media img {
+    width: 100%;
+    display: block;
+}
+
+.landing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    padding: 0 0 calc(var(--space-xl) * 1.25);
+}
+
+.landing-card {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.landing-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1px solid #0f0e12;
+    background: #ffffff;
+}
+
+.landing-card h3 {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.landing-title-icon {
+    width: 0.6rem;
+    height: 0.6rem;
+    display: inline-block;
+}
+
+.landing-title-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    stroke: #0f0e12;
+    stroke-width: 1.5px;
+    fill: none;
+}
+
+.landing-card p {
+    font-size: 0.75rem;
+    color: #7f7f7f;
+    text-transform: lowercase;
+    font-weight: 300;
+}
+
+.landing-card .landing-link {
+    margin-top: auto;
+    font-size: 0.75rem;
+    text-transform: lowercase;
+    color: #0f0e12;
+    text-decoration: underline;
+    font-weight: 300;
 }
 
 .cta-button {
@@ -502,6 +770,21 @@ footer {
         gap: 10px;
         text-align: center;
     }
+
+
+    .landing-main {
+        padding: 0 1.25rem;
+    }
+
+    .landing-hero {
+        grid-template-columns: 1fr;
+        padding: var(--space-lg) 0 var(--space-md);
+    }
+
+    .landing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding-bottom: var(--space-xl);
+    }
 }
 
 @media (max-width: 480px) {
@@ -515,6 +798,11 @@ footer {
 
     footer {
         padding: 30px 20px;
+    }
+
+
+    .landing-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -549,6 +837,3 @@ footer {
     outline: none;
     border-color: var(--accent-color);
 }
-
-
-

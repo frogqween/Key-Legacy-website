@@ -1,0 +1,78 @@
+/* Header & Navigation - New Teenage Engineering Style */
+.te-nav {
+    background: #000000;
+    width: 100%;
+    z-index: 1000;
+    padding: 0;
+    font-family: "TE20T", "Inter", Helvetica, Arial, sans-serif;
+}
+
+body.landing-page .te-nav {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+body.landing-page .nav-links a {
+    color: #000000;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1),
+                 0 0 25px rgba(255, 255, 255, 1),
+                 0 0 35px rgba(255, 255, 255, 1),
+                 0 0 45px rgba(255, 255, 255, 0.9),
+                 0 0 55px rgba(255, 255, 255, 0.8);
+}
+
+.te-nav-primary {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 0;
+    max-width: 61.25rem;
+    margin: 0 auto;
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+}
+
+.nav-links {
+    display: contents;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    text-transform: lowercase;
+    font-weight: 300;
+    line-height: 24px;
+    transition: opacity 0.2s ease;
+    display: block;
+}
+
+.nav-links a:hover {
+    opacity: 0.5;
+}
+
+.nav-actions {
+    display: none;
+    /* Hide since we are using exact 6 columns for tabs */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .te-nav-primary {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+}
