@@ -58,72 +58,63 @@ body.landing-page .container {
     width: 100%;
 }
 
-/* Header & Navigation - Minimal Teenage Engineering Style */
+/* Header & Navigation - Teenage Engineering Style */
 header {
     border-bottom: 1px solid var(--border-color);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--bg-color);
-}
-
-.brand {
-    font-weight: 300;
-    text-transform: lowercase;
-    letter-spacing: 0;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-.brand span.sub {
-    font-size: 11px;
-    color: var(--muted-color);
-    margin-top: 0px;
-    font-weight: 300;
+    padding: 0;
+    background: var(--text-color);
 }
 
 nav {
     display: flex;
-    gap: 25px;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.nav-link {
-    padding: 0;
+.nav-section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    flex: 1;
+}
+
+.nav-section:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-main {
     text-decoration: none;
-    color: var(--text-color);
+    color: white;
+    text-transform: lowercase;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+    transition: opacity 0.2s;
+}
+
+.nav-main:hover {
+    opacity: 0.6;
+}
+
+.nav-sub {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
     text-transform: lowercase;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 0;
-    border: none;
     transition: opacity 0.2s;
-    position: relative;
 }
 
-.nav-link:hover {
-    opacity: 0.5;
-    background: none;
-    color: var(--text-color);
+.nav-sub:hover {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.nav-link.active {
-    background: none;
-    color: var(--text-color);
-    font-weight: 400;
-}
-
-.nav-link.active:after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--text-color);
+/* Mobile menu toggle (hide for now) */
+.mobile-menu-toggle {
+    display: none;
 }
 
 /* Typography */
