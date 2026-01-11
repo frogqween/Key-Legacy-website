@@ -61,18 +61,41 @@ body.landing-page .nav-links a {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .te-nav-primary {
-        padding: 20px;
+        padding: 20px 15px;
         text-align: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
     }
 
     .nav-links {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 12px;
+        width: 100%;
     }
 
     .nav-links a {
         font-size: 16px;
+    }
+
+    body.landing-page .te-nav-primary {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .te-nav-primary {
+        padding: 15px 10px;
+        gap: 8px;
+    }
+
+    .nav-links {
+        gap: 8px;
     }
 }
