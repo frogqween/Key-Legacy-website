@@ -1296,6 +1296,15 @@ footer {
     resize: vertical;
 }
 
+/* Contact page wide layout */
+.contact-grid-wide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* Responsive adjustments for content pages */
 @media (max-width: 768px) {
     .te-content-page main {
@@ -1323,6 +1332,12 @@ footer {
     .te-grid-3 {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+
+    /* Contact page responsive */
+    .contact-grid-wide {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
     }
 }
 
