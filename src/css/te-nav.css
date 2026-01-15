@@ -8,11 +8,43 @@
     position: fixed;
     bottom: 0;
     left: 0;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Hide the brand/logo on all pages since we have a home link */
 .nav-item:first-child {
     display: none;
+}
+
+/* Mobile menu toggle - hidden by default */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .te-nav-primary {
@@ -104,13 +136,13 @@
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
     .te-nav-primary {
         padding: 16px 20px;
     }
 
     .nav-links {
-        gap: 30px;
+        gap: 35px;
     }
 
     .nav-main {
@@ -119,17 +151,53 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .te-nav-primary {
         padding: 14px 15px;
     }
 
     .nav-links {
-        gap: 18px;
+        gap: 20px;
     }
 
     .nav-main {
         font-size: 12px;
+        padding: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .te-nav {
+        box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .te-nav-primary {
+        padding: 12px 10px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        justify-content: space-around;
+    }
+
+    .nav-main {
+        font-size: 11px;
         padding: 4px 0;
+        letter-spacing: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .te-nav-primary {
+        padding: 10px 8px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-main {
+        font-size: 10px;
+        padding: 3px 0;
     }
 }

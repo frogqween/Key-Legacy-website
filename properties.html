@@ -304,19 +304,106 @@
             font-size: 12px;
         }
 
+        /* Tablet - Medium screens */
+        @media (max-width: 1024px) {
+            .te-property-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 15px;
+            }
+
+            .te-footer-grid {
+                gap: 30px;
+            }
+        }
+
+        /* Tablet - Small screens */
         @media (max-width: 768px) {
             .te-property-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
 
             .te-page-header {
                 flex-wrap: wrap;
                 gap: 10px;
+                padding: 15px 15px 0;
+            }
+
+            .te-page-title {
+                font-size: 20px;
+            }
+
+            .te-property-meta {
+                font-size: 13px;
+                margin-left: 15px;
             }
 
             .filter-toggle {
                 margin-left: auto;
+            }
+
+            .te-layout-container {
+                padding: 0 8px;
+            }
+
+            .te-property-card {
+                border-radius: 8px;
+                aspect-ratio: 4/3;
+            }
+
+            .prop-pill {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .prop-price-pill {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .prop-info-overlay {
+                padding: 12px;
+            }
+
+            .filter-content {
+                padding: 15px 15px 30px;
+                gap: 30px;
+            }
+
+            .te-footer {
+                padding: 40px 15px;
+            }
+
+            .te-footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* Mobile - Small phones */
+        @media (max-width: 480px) {
+            .te-property-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding-bottom: 30px;
+            }
+
+            .te-page-header {
+                padding: 12px 12px 0;
+            }
+
+            .te-page-title {
+                font-size: 18px;
+            }
+
+            .te-property-meta {
+                font-size: 12px;
+                margin-left: 10px;
+            }
+
+            .filter-toggle {
+                font-size: 12px;
+                padding: 5px 10px;
             }
 
             .te-layout-container {
@@ -325,6 +412,84 @@
 
             .te-property-card {
                 border-radius: 0;
+                aspect-ratio: 16/10;
+            }
+
+            .prop-pill {
+                font-size: 12px;
+                padding: 6px 12px;
+                max-width: 60%;
+            }
+
+            .prop-price-pill {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .prop-info-overlay {
+                padding: 15px;
+            }
+
+            .filter-drawer.open {
+                max-height: 400px;
+            }
+
+            .filter-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 15px 15px 25px;
+            }
+
+            .filter-group h4 {
+                font-size: 11px;
+                margin-bottom: 10px;
+            }
+
+            .filter-option {
+                font-size: 13px;
+            }
+
+            .te-footer {
+                padding: 35px 15px;
+                margin-top: 40px;
+            }
+
+            .te-footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .footer-col h4 {
+                font-size: 13px;
+            }
+
+            .footer-col ul li a {
+                font-size: 12px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 360px) {
+            .te-page-title {
+                font-size: 16px;
+            }
+
+            .te-property-meta {
+                display: none;
+            }
+
+            .te-property-card {
+                aspect-ratio: 4/3;
+            }
+
+            .filter-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .te-footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
         }
 
