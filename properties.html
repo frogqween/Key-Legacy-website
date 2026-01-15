@@ -15,19 +15,255 @@
     <link rel="stylesheet" href="src/css/te-nav.css?v=4">
 
     <style>
-        /* Specific page overrides */
+        /* Property page specific styles - Image Dominant */
+        :root {
+            --prop-bg: #ffffff;
+            --prop-card-bg: #f4f4f4;
+            --prop-ink: #000000;
+            --prop-muted: #666666;
+            --prop-pill-bg: #ffffff;
+            --prop-pill-text: #000000;
+        }
+
+        body.properties-page {
+            background-color: var(--prop-bg);
+        }
+
+        .te-page-header {
+            padding: 20px 20px 0;
+            border-bottom: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            position: relative;
+            z-index: 200;
+        }
+
+        .te-page-title {
+            font-family: "Inter", "Segoe UI", sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .te-property-meta {
+            font-size: 14px;
+            color: var(--prop-muted);
+            margin-right: auto;
+            margin-left: 20px;
+        }
+
+        /* Technical Toggle Button */
+        .filter-toggle {
+            background: none;
+            border: 1px solid var(--prop-muted);
+            color: var(--prop-ink);
+            font-family: "Inter", monospace;
+            font-size: 13px;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+            text-transform: lowercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-toggle:hover {
+            border-color: var(--prop-ink);
+            background: var(--prop-ink);
+            color: white;
+        }
+
+        .filter-toggle span.icon {
+            font-size: 10px;
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body.drawer-open .filter-toggle span.icon {
+            transform: rotate(45deg);
+        }
+
+        /* Collapsible Drawer */
+        .filter-drawer {
+            max-height: 0;
+            overflow: hidden;
+            background: var(--prop-bg);
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-bottom: 0px solid transparent;
+        }
+
+        .filter-drawer.open {
+            max-height: 300px;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .filter-content {
+            padding: 20px 20px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+        }
+
+        .filter-group h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--prop-muted);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-option {
+            font-size: 14px;
+            color: var(--prop-ink);
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .filter-option:hover,
+        .filter-option.active {
+            opacity: 1;
+        }
+
+        .filter-option.active::before {
+            content: "→";
+            font-size: 12px;
+            margin-left: -15px;
+            width: 15px;
+            display: inline-block;
+        }
+
+        /* Full Width Grid */
+        .te-layout-container {
+            padding: 0 10px;
+            max-width: 100%;
+            transition: opacity 0.3s;
+        }
+
+        .te-property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 10px;
+            padding-bottom: 40px;
+            margin-top: 20px;
+        }
+
+        /* Large Image Cards */
+        .te-property-card {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            background: var(--prop-card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            /* Animation Init */
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 1, 0.2, 1) forwards;
+        }
+
+        .te-property-card:hover .prop-image-container img {
+            transform: scale(1.05);
+        }
+
+        .prop-image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prop-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Floating Info Pills */
+        .prop-info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            pointer-events: none;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+            /* ensuring readability */
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        .prop-pill {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            color: var(--prop-pill-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 65%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .prop-price-pill {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            color: var(--prop-pill-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-results {
+            padding: 100px 0;
+            text-align: center;
+            color: var(--prop-muted);
+            font-size: 18px;
+            grid-column: 1 / -1;
+        }
+
+        /* Footer Consistent Styles */
         .te-footer {
             padding: 60px 20px;
-            background: var(--te-bg-body);
-            border-top: 1px solid var(--te-gray-light);
+            background: #F0F0F0;
+            border-top: 1px solid #e5e5e5;
             font-size: 12px;
+            margin-top: 60px;
         }
 
         .te-footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 40px;
-            max-width: var(--te-max-width);
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -35,6 +271,7 @@
             font-weight: 500;
             margin-bottom: 12px;
             text-transform: lowercase;
+            font-size: 14px;
         }
 
         .footer-col ul li {
@@ -42,13 +279,14 @@
         }
 
         .footer-col ul li a {
-            color: var(--te-gray-dark);
+            color: #4d4d4d;
             text-transform: lowercase;
             transition: color 0.2s;
+            text-decoration: none;
         }
 
         .footer-col ul li a:hover {
-            color: var(--te-black);
+            color: #000000;
             text-decoration: underline;
         }
 
@@ -57,15 +295,66 @@
             margin-bottom: 10px;
             background: #f5f5f5;
             border: none;
+            padding: 10px;
+            font-size: 12px;
         }
 
-        .no-results {
-            padding: 40px;
-            text-align: center;
-            color: var(--te-gray-dark);
-            font-size: 14px;
-            text-transform: lowercase;
-            grid-column: 1 / -1;
+        .footer-newsletter .te-btn {
+            padding: 10px 20px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .te-property-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .te-page-header {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .filter-toggle {
+                margin-left: auto;
+            }
+
+            .te-layout-container {
+                padding: 0;
+            }
+
+            .te-property-card {
+                border-radius: 0;
+            }
+        }
+
+        /* Dim grid when drawer is open to focus attention */
+        .drawer-open .te-layout-container {
+            opacity: 0.3;
+            filter: blur(2px);
+            pointer-events: none;
+            transition: all 0.4s;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .filter-toggle .icon {
+            transition: transform 0.3s ease;
+        }
+
+        .filter-toggle.active .icon {
+            transform: rotate(45deg);
         }
     </style>
 </head>
@@ -105,37 +394,44 @@
     </header>
 
 
-    <main class="te-container" style="padding-top: 20px;">
-        <div class="te-page-header" style="border-bottom: none; padding-bottom: 0;">
+    <main>
+        <div class="te-page-header">
             <h1 class="te-page-title">properties</h1>
             <p class="te-property-meta"><span id="propertyCount">0</span> available</p>
+
+            <button class="filter-toggle" id="filterToggle">
+                <span class="icon">+</span> filter
+            </button>
         </div>
 
-        <div class="te-sidebar-layout">
-            <!-- Sidebar Navigation -->
-            <aside class="te-sidebar">
-                <nav class="te-filter-list">
-                    <a href="#" class="te-filter-link active" data-filter="">all properties</a>
-                    <div class="te-sidebar-divider" style="margin: 10px 0; width: 10px;"></div>
-                    <a href="#" class="te-filter-link" data-filter="studio">studio</a>
-                    <a href="#" class="te-filter-link" data-filter="1">1 bedroom</a>
-                    <a href="#" class="te-filter-link" data-filter="2">2 bedrooms</a>
-                    <a href="#" class="te-filter-link" data-filter="3">3 bedrooms</a>
-                    <a href="#" class="te-filter-link" data-filter="4">4+ bedrooms</a>
-                    <div class="te-sidebar-divider"></div>
-                    <a href="#" class="te-filter-link" data-filter="0-1200">under $1,200</a>
-                    <a href="#" class="te-filter-link" data-filter="1200-1500">$1,200 - $1,500</a>
-                    <a href="#" class="te-filter-link" data-filter="1500-1800">$1,500 - $1,800</a>
-                    <a href="#" class="te-filter-link" data-filter="1800-5000">$1,800+</a>
-                </nav>
-            </aside>
-
-            <!-- Main Content Area -->
-            <div class="properties-content">
-                <!-- Properties Grid -->
-                <div class="te-property-grid" id="propertiesGrid">
-                    <!-- Properties will be loaded here by JavaScript -->
+        <div class="filter-drawer" id="filterDrawer">
+            <div class="filter-content">
+                <div class="filter-group">
+                    <h4>Unit Type</h4>
+                    <div class="filter-options">
+                        <a class="filter-option active" data-type="bed" data-val="">All Types</a>
+                        <a class="filter-option" data-type="bed" data-val="studio">Studio</a>
+                        <a class="filter-option" data-type="bed" data-val="1">1 Bedroom</a>
+                        <a class="filter-option" data-type="bed" data-val="2">2 Bedrooms</a>
+                        <a class="filter-option" data-type="bed" data-val="3">3+ Bedrooms</a>
+                    </div>
                 </div>
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <div class="filter-options">
+                        <a class="filter-option active" data-type="price" data-val="">Any Price</a>
+                        <a class="filter-option" data-type="price" data-val="0-1200">Under $1,200</a>
+                        <a class="filter-option" data-type="price" data-val="1200-1800">$1,200 - $1,800</a>
+                        <a class="filter-option" data-type="price" data-val="1800-5000">$1,800+</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="te-layout-container">
+            <!-- Properties Grid -->
+            <div class="te-property-grid" id="propertiesGrid">
+                <!-- Properties will be loaded here by JavaScript -->
             </div>
         </div>
     </main>
@@ -177,7 +473,7 @@
             </div>
         </div>
 
-        <div class="te-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+        <div class="te-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e0db;">
             <p class="te-text-small">&copy; 2026 key legacy realty. philadelphia, pa.</p>
         </div>
     </footer>
@@ -202,9 +498,8 @@
                 return;
             }
 
-            grid.innerHTML = propertiesToRender.map(prop => {
-                // Build image URL - check if it's already a full URL (YouTube) or needs the Buildium API path
-                // Using a fallback image if none provided
+            grid.innerHTML = propertiesToRender.map((prop, index) => {
+                // Build image URL
                 let imageUrl = 'assets/images/placeholder.jpg';
                 if (prop.img) {
                     imageUrl = prop.img.startsWith('http')
@@ -215,42 +510,36 @@
                 // Build property detail page URL
                 const propertyUrl = `https://keylegacyrealty.managebuilding.com${prop.url}`;
 
+                // Format price with commas
+                const price = prop.rent.toLocaleString();
+
+                // Stagger delay
+                const delay = Math.min(index * 0.05, 1.0);
+
                 return `
-                <div class="te-property-card">
-                    <a href="${propertyUrl}" target="_blank" class="te-property-link">
-                        <div class="te-property-image" style="background-image: url('${imageUrl}');"></div>
-                        <div class="te-property-info">
-                            <div class="te-property-title">${prop.address}</div>
-                            <div class="te-property-meta">${prop.beds === 'Studio' ? 'studio' : prop.beds + ' bed'} · ${prop.baths} bath</div>
+                <a href="${propertyUrl}" target="_blank" class="te-property-card" style="animation-delay: ${delay}s">
+                    <div class="prop-image-container">
+                        <img src="${imageUrl}" alt="${prop.address}" loading="lazy">
+                        <div class="prop-info-overlay">
+                            <span class="prop-pill">${prop.address}</span>
+                            <span class="prop-price-pill">$${price}</span>
                         </div>
-                    </a>
-                    <div class="te-property-footer">
-                        <span class="te-property-price">$${prop.rent.toLocaleString()}/mo</span>
-                        <a href="form.html" class="te-apply-link">apply</a>
                     </div>
-                </div>
+                </a>
                 `;
             }).join('');
 
             propertyCount.textContent = propertiesToRender.length;
         }
 
-        function filterProperties(bedroomFilter, priceFilter) {
-            currentBedroomFilter = bedroomFilter !== undefined ? bedroomFilter : currentBedroomFilter;
-            // Handle clearing filters if empty string passed
-            if (bedroomFilter === '') currentBedroomFilter = '';
-
-            currentPriceFilter = priceFilter !== undefined ? priceFilter : currentPriceFilter;
-            if (priceFilter === '') currentPriceFilter = '';
-
+        function filterProperties() {
             const filtered = properties.filter(prop => {
                 // Bedroom filter
                 if (currentBedroomFilter) {
                     if (currentBedroomFilter === 'studio' && prop.beds !== 'Studio') return false;
                     if (currentBedroomFilter === '1' && prop.beds !== 1) return false;
                     if (currentBedroomFilter === '2' && prop.beds !== 2) return false;
-                    if (currentBedroomFilter === '3' && prop.beds !== 3) return false;
-                    if (currentBedroomFilter === '4' && prop.beds < 4) return false;
+                    if (currentBedroomFilter === '3' && (prop.beds < 3)) return false;
                 }
 
                 // Price filter
@@ -266,41 +555,38 @@
             renderProperties(filtered);
         }
 
-        // Sidebar link click handlers
-        document.querySelectorAll('.te-filter-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
+        // Toggle Drawer logic
+        const toggleBtn = document.getElementById('filterToggle');
+        const drawer = document.getElementById('filterDrawer');
+        const icon = toggleBtn.querySelector('.icon');
 
-                // Remove active class from all links
-                document.querySelectorAll('.te-filter-link').forEach(l => l.classList.remove('active'));
-
-                // Add active class to clicked link
-                link.classList.add('active');
-
-                const filterValue = link.getAttribute('data-filter');
-
-                // Check if it's a price filter or bedroom filter
-                if (filterValue.includes('-') || filterValue === '') {
-                    // Price filter or "all properties"
-                    if (filterValue === '') {
-                        filterProperties('', '');
-                    } else {
-                        filterProperties(undefined, filterValue);
-                    }
-                } else {
-                    // Bedroom filter
-                    // If bedroom filter is a number, pass it as string, logic handles it.
-                    // Actually logic expects logic matching so we just pass filterValue
-                    filterProperties(filterValue, undefined);
-                }
-            });
+        toggleBtn.addEventListener('click', () => {
+            drawer.classList.toggle('open');
+            document.body.classList.toggle('drawer-open');
         });
 
-        // Initialize with URL params if present (basic)
-        const urlParams = new URLSearchParams(window.location.search);
-        const typeParam = urlParams.get('type');
-        // We don't have type filtering in the JSON currently (rent vs buy), assuming all rent for now based on data structure
-        // If we did, we'd add it here.
+        // Filter Options Logic
+        document.querySelectorAll('.filter-option').forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.preventDefault();
+                const type = opt.getAttribute('data-type');
+                const val = opt.getAttribute('data-val');
+
+                // Update UI state
+                // Deselect siblings
+                opt.parentElement.querySelectorAll('.filter-option').forEach(s => s.classList.remove('active'));
+                opt.classList.add('active');
+
+                // Update State
+                if (type === 'bed') {
+                    currentBedroomFilter = val;
+                } else if (type === 'price') {
+                    currentPriceFilter = val;
+                }
+
+                filterProperties();
+            });
+        });
 
         // Initial render
         renderProperties(properties);

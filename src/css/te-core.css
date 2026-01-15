@@ -42,8 +42,9 @@ body {
     background-color: var(--te-bg-body);
     font-family: var(--te-font-family);
     color: var(--te-black);
-    line-height: 1.2;
+    line-height: 1.4;
     font-size: 16px;
+    font-weight: 500;
     overflow-x: hidden;
     padding-bottom: 80px; /* Space for fixed bottom nav */
 }
@@ -97,7 +98,7 @@ img {
 }
 
 .te-text-small {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--te-gray-dark);
     text-transform: lowercase;
 }
@@ -111,10 +112,9 @@ img {
     color: var(--te-white);
     border: none;
     border-radius: 0px;
-    /* Crucial */
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: var(--te-font-weight-regular);
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 500;
     transition: opacity 0.2s ease;
     text-transform: lowercase;
 }
@@ -133,9 +133,10 @@ img {
 .te-input {
     border: 1px solid var(--te-gray-light);
     border-radius: 0px;
-    padding: 10px;
+    padding: 12px;
     font-family: var(--te-font-family);
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
     width: 100%;
 }
 
@@ -150,10 +151,10 @@ img {
 
 .te-form-label {
     display: block;
-    font-size: 12px;
-    margin-bottom: 6px;
+    font-size: 14px;
+    margin-bottom: 8px;
     text-transform: lowercase;
-    font-weight: var(--te-font-weight-bold);
+    font-weight: 500;
     color: var(--te-black);
 }
 
@@ -204,11 +205,12 @@ textarea.te-input {
     color: var(--te-gray-dark);
     max-width: 600px;
     text-transform: lowercase;
+    font-weight: 500;
 }
 
 .te-section-title {
     font-size: 24px;
-    font-weight: var(--te-font-weight-regular);
+    font-weight: 500;
     margin-bottom: 30px;
     text-transform: lowercase;
 }
@@ -223,13 +225,13 @@ textarea.te-input {
 
 .te-card-title {
     font-size: 18px;
-    font-weight: var(--te-font-weight-regular);
+    font-weight: 500;
     margin-bottom: 10px;
     text-transform: lowercase;
 }
 
 .te-card-text {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--te-gray-dark);
     margin-bottom: 15px;
     line-height: 1.5;
@@ -242,9 +244,9 @@ textarea.te-input {
 
 .te-list li {
     list-style-type: disc;
-    font-size: 14px;
+    font-size: 15px;
     color: var(--te-gray-dark);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     text-transform: lowercase;
 }
 
@@ -260,7 +262,7 @@ textarea.te-input {
 .te-text-block {
     margin-bottom: 20px;
     text-transform: lowercase;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -292,7 +294,7 @@ textarea.te-input {
 }
 
 .te-filter-link {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--te-gray-dark);
     text-transform: lowercase;
     transition: color 0.2s;
@@ -356,14 +358,14 @@ textarea.te-input {
 }
 
 .te-property-title {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     text-transform: lowercase;
     color: var(--te-black);
 }
 
 .te-property-meta {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--te-gray-dark);
     text-transform: lowercase;
 }
@@ -379,12 +381,12 @@ textarea.te-input {
 }
 
 .te-property-price {
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .te-apply-link {
-    font-size: 12px;
+    font-size: 14px;
     text-decoration: underline;
     color: var(--te-black);
     text-transform: lowercase;
