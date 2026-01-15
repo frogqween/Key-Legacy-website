@@ -5,74 +5,59 @@
     z-index: 1000;
     padding: 0;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-body.landing-page .te-nav {
-    background: #ffffff;
     position: fixed;
     bottom: 0;
     left: 0;
-    top: auto;
-    border-top: 1px solid #e0e0e0;
+}
+
+/* Hide the brand/logo on all pages since we have a home link */
+.nav-item:first-child {
+    display: none;
 }
 
 .te-nav-primary {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 40px;
-    max-width: 1200px;
+    padding: 20px 60px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
 .nav-links {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     flex-wrap: nowrap;
-    gap: 30px;
+    gap: 80px;
 }
 
 .nav-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Logo / Brand */
-.nav-item:first-child .nav-main {
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-}
-
-.nav-item:first-child .nav-sub-inline {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #888;
-}
-
-/* Main nav links */
+/* Main nav links - consistent across all pages */
 .nav-main {
-    color: #000000;
+    color: #666666;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: lowercase;
     font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1.4;
+    letter-spacing: 0.02em;
+    line-height: 1;
     transition: color 0.2s ease;
     display: flex;
     flex-direction: column;
     white-space: nowrap;
+    padding: 8px 0;
 }
 
 .nav-main:hover {
-    color: #666;
+    color: #000000;
 }
 
 .nav-main-text {
@@ -80,14 +65,14 @@ body.landing-page .te-nav {
 }
 
 .nav-sub-inline {
-    color: #888;
-    font-size: 11px;
+    color: #999;
+    font-size: 10px;
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1.2;
     display: block;
 }
 
-/* Sub navigation links */
+/* Sub navigation links (if needed later) */
 .nav-sub {
     color: #888;
     text-decoration: none;
@@ -107,80 +92,44 @@ body.landing-page .te-nav {
 /* Responsive adjustments */
 @media (max-width: 900px) {
     .te-nav-primary {
-        padding: 16px 24px;
+        padding: 18px 30px;
     }
 
     .nav-links {
-        gap: 20px;
-    }
-
-    .nav-item:first-child .nav-main {
-        font-size: 16px;
+        gap: 50px;
     }
 
     .nav-main {
-        font-size: 13px;
-    }
-
-    .nav-sub,
-    .nav-sub-inline,
-    .nav-item:first-child .nav-sub-inline {
-        font-size: 10px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 680px) {
     .te-nav-primary {
-        padding: 14px 16px;
+        padding: 16px 20px;
     }
 
     .nav-links {
-        gap: 12px;
-    }
-
-    .nav-item:first-child .nav-main {
-        font-size: 14px;
+        gap: 30px;
     }
 
     .nav-main {
-        font-size: 12px;
-    }
-
-    .nav-sub,
-    .nav-sub-inline,
-    .nav-item:first-child .nav-sub-inline {
-        font-size: 9px;
-    }
-
-    .nav-item {
-        gap: 2px;
+        font-size: 13px;
+        padding: 6px 0;
     }
 }
 
 @media (max-width: 480px) {
     .te-nav-primary {
-        padding: 12px 12px;
+        padding: 14px 15px;
     }
 
     .nav-links {
-        gap: 8px;
-    }
-
-    .nav-item:first-child .nav-main {
-        font-size: 12px;
+        gap: 18px;
     }
 
     .nav-main {
-        font-size: 10px;
-    }
-
-    .nav-sub,
-    .nav-sub-inline,
-    .nav-item:first-child .nav-sub-inline {
-        font-size: 8px;
-    }
-
-    .nav-item {
-        gap: 1px;
+        font-size: 12px;
+        padding: 4px 0;
     }
 }

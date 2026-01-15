@@ -25,10 +25,10 @@
 
         .hero-section {
             width: 100%;
-            height: calc(100vh - 70px);
+            height: calc(100vh - 60px);
             background-color: #000;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
             position: fixed;
             top: 0;
@@ -41,6 +41,37 @@
             height: 100%;
             object-fit: cover;
             object-position: center bottom;
+        }
+
+        /* Hero text overlay like reference */
+        .hero-overlay {
+            position: absolute;
+            bottom: 15%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin: 0 0 14px 0;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -58,21 +89,22 @@
                     </a>
                 </div>
                 <div class="nav-item">
+                    <a href="index.html" class="nav-main">home</a>
+                </div>
+                <div class="nav-item">
                     <a href="properties.html" class="nav-main">properties</a>
-                    <a href="properties.html?type=rent" class="nav-sub">rent</a>
-                    <a href="properties.html?type=buy" class="nav-sub">buy</a>
                 </div>
                 <div class="nav-item">
                     <a href="services.html" class="nav-main">services</a>
-                    <a href="services.html#property-management" class="nav-sub">property management</a>
-                </div>
-                <div class="nav-item">
-                    <a href="about.html" class="nav-main">about</a>
-                    <a href="https://instagram.com/keylegacyrealty" target="_blank" class="nav-sub">instagram</a>
-                    <a href="contact.html" class="nav-sub">contact</a>
                 </div>
                 <div class="nav-item">
                     <a href="form.html" class="nav-main">forms</a>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html" class="nav-main">about</a>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html" class="nav-main">contact</a>
                 </div>
             </nav>
         </div>
@@ -82,6 +114,10 @@
     <main>
         <section class="hero-section">
             <img src="assets/images/Key Home Page.jpg" alt="Key Legacy Realty" class="hero-image">
+            <div class="hero-overlay">
+                <h1 class="hero-title">Key Legacy</h1>
+                <p class="hero-subtitle">Philadelphia Rental Properties</p>
+            </div>
         </section>
     </main>
 </body>
