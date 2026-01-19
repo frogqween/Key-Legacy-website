@@ -250,59 +250,7 @@
             grid-column: 1 / -1;
         }
 
-        /* Footer Consistent Styles */
-        .te-footer {
-            padding: 60px 20px;
-            background: #F0F0F0;
-            border-top: 1px solid #e5e5e5;
-            font-size: 12px;
-            margin-top: 60px;
-        }
 
-        .te-footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-col h4 {
-            font-weight: 500;
-            margin-bottom: 12px;
-            text-transform: lowercase;
-            font-size: 14px;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-col ul li a {
-            color: #4d4d4d;
-            text-transform: lowercase;
-            transition: color 0.2s;
-            text-decoration: none;
-        }
-
-        .footer-col ul li a:hover {
-            color: #000000;
-            text-decoration: underline;
-        }
-
-        .footer-newsletter input {
-            width: 100%;
-            margin-bottom: 10px;
-            background: #f5f5f5;
-            border: none;
-            padding: 10px;
-            font-size: 12px;
-        }
-
-        .footer-newsletter .te-btn {
-            padding: 10px 20px;
-            font-size: 12px;
-        }
 
         /* Tablet - Medium screens */
         @media (max-width: 1024px) {
@@ -551,8 +499,11 @@
                 <div class="nav-item">
                     <a href="about.html" class="nav-main">about</a>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item has-dropdown">
                     <a href="contact.html" class="nav-main">contact</a>
+                    <div class="nav-dropdown">
+                        <a href="agents.html" class="dropdown-link">agents</a>
+                    </div>
                 </div>
             </nav>
         </div>

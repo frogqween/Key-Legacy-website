@@ -46,11 +46,13 @@ body {
     font-size: 16px;
     font-weight: 500;
     overflow-x: hidden;
-    padding-bottom: 80px; /* Space for fixed bottom nav */
+    padding-bottom: 80px;
+    /* Space for fixed bottom nav */
 }
 
 body.landing-page {
-    padding-bottom: 0; /* Landing page handles this differently */
+    padding-bottom: 0;
+    /* Landing page handles this differently */
 }
 
 a {
@@ -385,9 +387,62 @@ textarea.te-input {
     font-weight: 500;
 }
 
-.te-apply-link {
-    font-size: 14px;
-    text-decoration: underline;
-    color: var(--te-black);
+
+/* Shared Footer Styles */
+.te-footer {
+    padding: 60px 20px;
+    background: var(--te-bg-body);
+    border-top: 1px solid var(--te-gray-light);
+    font-size: 12px;
+    margin-top: auto;
+    /* Push to bottom if flex container */
+    width: 100%;
+}
+
+.te-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 40px;
+    max-width: var(--te-max-width);
+    margin: 0 auto;
+}
+
+.footer-col h4 {
+    font-weight: 500;
+    margin-bottom: 12px;
     text-transform: lowercase;
+    font-size: 14px;
+    color: var(--te-black);
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+    color: var(--te-gray-dark);
+    text-transform: lowercase;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+    color: var(--te-black);
+    text-decoration: underline;
+}
+
+.footer-newsletter input {
+    width: 100%;
+    margin-bottom: 10px;
+    background: #f5f5f5;
+    border: none;
+    padding: 12px;
+    font-family: var(--te-font-family);
+    font-size: 14px;
+    color: var(--te-black);
+}
+
+.footer-newsletter input:focus {
+    outline: 1px solid var(--te-black);
+    background: #fff;
 }
