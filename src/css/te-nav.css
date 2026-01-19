@@ -1,7 +1,7 @@
 /* Header & Navigation - Clean Technical Style v2 */
 
 .te-nav {
-    background: var(--te-bg-body, #bf5518);
+    background: var(--te-white, #ffffff);
     width: 100%;
     z-index: 1000;
     padding: 0;
@@ -91,7 +91,7 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--te-bg-body, #bf5518);
+    background: var(--te-white, #ffffff);
     padding: 10px 0;
     min-width: 180px;
     z-index: 1002;
