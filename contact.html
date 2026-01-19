@@ -5,35 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Key Legacy Realty</title>
-
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="src/css/te-core.css?v=4">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=4">
-
-    <style>
-        /* Local overrides */
-        .contact-label {
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: lowercase;
-            margin-bottom: 4px;
-            color: var(--te-gray-dark);
-        }
-
-        .contact-text {
-            font-size: 16px;
-            margin-bottom: 4px;
-            text-transform: lowercase;
-        }
-
-        .contact-info-group {
-            margin-bottom: 30px;
-        }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/css/te-core.css?v=6">
+    <link rel="stylesheet" href="src/css/te-nav.css?v=6">
 </head>
 
 <body class="te-content-page">
@@ -54,8 +33,14 @@
                 <div class="nav-item">
                     <a href="properties.html" class="nav-main">properties</a>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item has-dropdown">
                     <a href="services.html" class="nav-main">services</a>
+                    <div class="nav-dropdown">
+                        <a href="services.html" class="dropdown-link">property management</a>
+                        <a href="buyers.html" class="dropdown-link">buyers</a>
+                        <a href="sellers.html" class="dropdown-link">sellers</a>
+                        <a href="renters.html" class="dropdown-link">renters</a>
+                    </div>
                 </div>
                 <div class="nav-item">
                     <a href="form.html" class="nav-main">forms</a>
@@ -73,110 +58,93 @@
         </div>
     </header>
 
-    <main class="te-container" style="padding-top: 20px;">
+    <main class="te-container">
         <div class="te-page-header">
             <h1 class="te-page-title">contact</h1>
+            <p class="te-page-subtitle">get in touch with our team.</p>
         </div>
 
         <section class="te-section" style="border-bottom: none;">
             <div class="te-grid-2">
-                <div class="contact-info-section">
-                    <div class="contact-info-group">
-                        <h3 class="contact-label">address</h3>
-                        <p class="contact-text">100 n 18th st, suite 300</p>
-                        <p class="contact-text">philadelphia, pa 19103</p>
-                    </div>
+                <div>
+                    <h2 class="te-section-title">contact info</h2>
+                    <ul class="te-list" style="margin-bottom: 40px;">
+                        <li><strong>phone:</strong> (215) 778-9352</li>
+                        <li><strong>email:</strong> hello@keylegacyrealty.com</li>
+                        <li><strong>address:</strong> philadelphia, pa</li>
+                    </ul>
 
-                    <div class="contact-info-group">
-                        <h3 class="contact-label">phone</h3>
-                        <p class="contact-text">primary: (215) 778-9352</p>
-                        <p class="contact-text">text/mobile: (215) 631-8767</p>
-                    </div>
-
-                    <div class="contact-info-group">
-                        <h3 class="contact-label">email</h3>
-                        <p class="contact-text"><a href="mailto:hello@keylegacyrealty.com"
-                                style="text-decoration: underline;">hello@keylegacyrealty.com</a></p>
-                    </div>
-
-                    <div class="contact-info-group">
-                        <h3 class="contact-label">hours</h3>
-                        <p class="contact-text" style="color: var(--te-gray-dark);">monday - friday: 9:00 am - 5:00 pm
-                        </p>
-                        <p class="contact-text" style="color: var(--te-gray-dark);">saturday - sunday: by appointment
-                        </p>
-                    </div>
+                    <h2 class="te-section-title">send us a message</h2>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="te-form-group">
+                            <label class="te-label">name</label>
+                            <input type="text" name="name" class="te-input" required>
+                        </div>
+                        <div class="te-form-group">
+                            <label class="te-label">email</label>
+                            <input type="email" name="email" class="te-input" required>
+                        </div>
+                        <div class="te-form-group">
+                            <label class="te-label">message</label>
+                            <textarea name="message" class="te-input" style="height: 150px;"></textarea>
+                        </div>
+                        <button type="submit" class="te-btn">send message</button>
+                    </form>
                 </div>
 
-                <div class="contact-form-section">
-                    <form action="#" method="POST"
-                        onsubmit="event.preventDefault(); alert('Thank you for your message. We will reach out shortly.');">
-                        <div class="te-form-group">
-                            <label class="te-form-label">name</label>
-                            <input type="text" class="te-input" required>
-                        </div>
-
-                        <div class="te-form-group">
-                            <label class="te-form-label">email</label>
-                            <input type="email" class="te-input" required>
-                        </div>
-
-                        <div class="te-form-group">
-                            <label class="te-form-label">phone</label>
-                            <input type="tel" class="te-input">
-                        </div>
-
-                        <div class="te-form-group">
-                            <label class="te-form-label">message</label>
-                            <textarea class="te-input" required></textarea>
-                        </div>
-
-                        <button type="submit" class="te-btn" style="width: 100%;">send</button>
-                    </form>
+                <div
+                    style="background: #f5f5f5; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                    <!-- Map placeholder or actual map -->
+                    <p class="te-text-small te-mono">[ map view ]</p>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
     <footer class="te-footer">
-        <div class="te-footer-grid">
-            <div class="footer-col">
-                <h4>properties</h4>
-                <ul>
-                    <li><a href="properties.html?type=rent">rentals</a></li>
-                    <li><a href="properties.html?type=buy">sales</a></li>
-                    <li><a href="#">commercial</a></li>
-                </ul>
+        <div class="te-container">
+            <div class="te-footer-grid">
+                <div class="footer-col">
+                    <h4>properties</h4>
+                    <ul>
+                        <li><a href="properties.html?type=rent">rentals</a></li>
+                        <li><a href="properties.html?type=buy">sales</a></li>
+                        <li><a href="#">commercial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>services</h4>
+                    <ul>
+                        <li><a href="services.html">property management</a></li>
+                        <li><a href="buyers.html">buyers</a></li>
+                        <li><a href="sellers.html">sellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="https://instagram.com/keylegacyrealty">instagram</a></li>
+                        <li><a href="contact.html">contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-newsletter">
+                    <h4>newsletter</h4>
+                    <p style="margin-bottom:10px; color:var(--te-gray-dark); font-size:13px;">sign up for the latest
+                        listings.</p>
+                    <form action="#">
+                        <input type="email" class="te-input" placeholder="email address">
+                        <button type="submit" class="te-btn" style="width:100%; margin-top:10px;">subscribe</button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>services</h4>
-                <ul>
-                    <li><a href="services.html">property management</a></li>
-                    <li><a href="#">consulting</a></li>
-                    <li><a href="#">renovations</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>company</h4>
-                <ul>
-                    <li><a href="about.html">about us</a></li>
-                    <li><a href="https://instagram.com/keylegacyrealty">instagram</a></li>
-                    <li><a href="contact.html">contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col footer-newsletter">
-                <h4>newsletter</h4>
-                <p style="margin-bottom:10px; color:var(--te-gray-dark);">sign up for the latest listings.</p>
-                <form action="#">
-                    <input type="email" class="te-input" placeholder="email address">
-                    <button type="submit" class="te-btn">subscribe</button>
-                </form>
-            </div>
-        </div>
 
-        <div class="te-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p class="te-text-small">&copy; 2026 key legacy realty. philadelphia, pa.</p>
+            <div class="te-footer-bottom">
+                <p>&copy; 2026 key legacy realty. philadelphia, pa.</p>
+                <p><a href="privacy-policy.html">privacy policy</a></p>
+            </div>
         </div>
     </footer>
 </body>

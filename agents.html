@@ -9,78 +9,33 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="src/css/te-core.css">
-    <link rel="stylesheet" href="src/css/te-nav.css">
+    <link rel="stylesheet" href="src/css/te-core.css?v=6">
+    <link rel="stylesheet" href="src/css/te-nav.css?v=6">
 
     <style>
-        .agent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .agent-card {
-            background: var(--te-white);
-            border: 1px solid transparent;
-            /* Align with other cards */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .agent-image-placeholder {
-            width: 100%;
-            aspect-ratio: 1;
-            /* Square photos often look good in TE style */
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--te-gray-medium);
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-
-        .agent-info {
-            padding: 20px;
-            padding-top: 0;
-        }
-
-        .agent-name {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 4px;
-            text-transform: lowercase;
-        }
-
-        .agent-title {
-            font-size: 14px;
-            color: var(--te-gray-dark);
-            margin-bottom: 12px;
-            text-transform: lowercase;
-        }
-
-        .agent-contact {
-            font-size: 14px;
-            margin-bottom: 6px;
-            text-transform: lowercase;
-        }
-
-        .agent-contact a {
-            text-decoration: underline;
-            color: var(--te-black);
-        }
-
         .agent-image {
             width: 100%;
             aspect-ratio: 1;
             object-fit: cover;
-            object-position: center top;
-            display: block;
+            filter: grayscale(100%);
+            /* TE style often grayscale, remove if user dislikes */
+            transition: filter 0.3s;
             margin-bottom: 20px;
+        }
+
+        .te-card:hover .agent-image {
+            filter: grayscale(0%);
+        }
+
+        .agent-contact-link {
+            display: block;
+            margin-top: 5px;
+            font-size: var(--te-text-sm);
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -103,8 +58,14 @@
                 <div class="nav-item">
                     <a href="properties.html" class="nav-main">properties</a>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item has-dropdown">
                     <a href="services.html" class="nav-main">services</a>
+                    <div class="nav-dropdown">
+                        <a href="services.html" class="dropdown-link">property management</a>
+                        <a href="buyers.html" class="dropdown-link">buyers</a>
+                        <a href="sellers.html" class="dropdown-link">sellers</a>
+                        <a href="renters.html" class="dropdown-link">renters</a>
+                    </div>
                 </div>
                 <div class="nav-item">
                     <a href="form.html" class="nav-main">forms</a>
@@ -122,161 +83,132 @@
         </div>
     </header>
 
-    <main class="te-container" style="padding-top: 20px;">
+    <main class="te-container">
         <div class="te-page-header">
             <h1 class="te-page-title">agents</h1>
             <p class="te-page-subtitle">our dedicated team of real estate professionals.</p>
         </div>
 
-        <section class="te-section" style="border-bottom: none;">
-            <div class="agent-grid">
+        <section class="te-section" style="border-bottom: none; padding-top: 0;">
+            <div class="te-grid-4">
                 <!-- Earnest Key -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/earnest-key.jpg" alt="earnest key" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">earnest key</h3>
-                        <p class="agent-title">broker of record, co-founder</p>
-                        <p class="agent-contact"><a href="tel:+12153372509">(215) 337-2509</a></p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/earnest-key.jpg" alt="earnest key" class="agent-image">
+                    <h3 class="te-card-title">earnest key</h3>
+                    <p class="te-text-small">broker of record, co-founder</p>
+                    <a href="tel:+12153372509" class="agent-contact-link">(215) 337-2509</a>
                 </div>
 
                 <!-- Jacqui Key -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/jacqui-key.jpg" alt="jacqui key" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">jacqui key</h3>
-                        <p class="agent-title">director of operations, co-founder</p>
-                        <p class="agent-contact"><a href="tel:+12679345458">(267) 934-5458</a></p>
-                        <p class="agent-contact"><a
-                                href="mailto:jacqui@keylegacyrealty.com">jacqui@keylegacyrealty.com</a></p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/jacqui-key.jpg" alt="jacqui key" class="agent-image">
+                    <h3 class="te-card-title">jacqui key</h3>
+                    <p class="te-text-small">director of operations, co-founder</p>
+                    <a href="tel:+12679345458" class="agent-contact-link">(267) 934-5458</a>
+                    <a href="mailto:jacqui@keylegacyrealty.com"
+                        class="agent-contact-link">jacqui@keylegacyrealty.com</a>
                 </div>
 
                 <!-- Omar Jones -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/omar-jones.jpeg" alt="omar jones" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">omar jones</h3>
-                        <p class="agent-title">agent</p>
-                        <p class="agent-contact"><a href="tel:+12672782487">(267) 278-2487</a></p>
-                        <p class="agent-contact"><a href="mailto:omar@keylegacyrealty.com">omar@keylegacyrealty.com</a>
-                        </p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/omar-jones.jpeg" alt="omar jones" class="agent-image">
+                    <h3 class="te-card-title">omar jones</h3>
+                    <p class="te-text-small">agent</p>
+                    <a href="tel:+12672782487" class="agent-contact-link">(267) 278-2487</a>
+                    <a href="mailto:omar@keylegacyrealty.com" class="agent-contact-link">email me</a>
                 </div>
 
                 <!-- Joe Wadsworth -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/joe-wadsworth.jpeg" alt="joe wadsworth" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">joe wadsworth</h3>
-                        <p class="agent-title">agent</p>
-                        <p class="agent-contact"><a href="tel:+12158803469">(215) 880-3469</a></p>
-                        <p class="agent-contact"><a href="mailto:joe@keylegacyrealty.com">joe@keylegacyrealty.com</a>
-                        </p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/joe-wadsworth.jpeg" alt="joe wadsworth" class="agent-image">
+                    <h3 class="te-card-title">joe wadsworth</h3>
+                    <p class="te-text-small">agent</p>
+                    <a href="tel:+12158803469" class="agent-contact-link">(215) 880-3469</a>
+                    <a href="mailto:joe@keylegacyrealty.com" class="agent-contact-link">email me</a>
                 </div>
 
                 <!-- Yasmin Mohamed -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/yasmin-mohamed.png" alt="yasmin mohamed" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">yasmin mohamed</h3>
-                        <p class="agent-title">agent</p>
-                        <p class="agent-contact"><a href="tel:+12672315833">(267) 231-5833</a></p>
-                        <p class="agent-contact"><a
-                                href="mailto:yasmin@keylegacyrealty.com">yasmin@keylegacyrealty.com</a></p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/yasmin-mohamed.png" alt="yasmin mohamed" class="agent-image">
+                    <h3 class="te-card-title">yasmin mohamed</h3>
+                    <p class="te-text-small">agent</p>
+                    <a href="tel:+12672315833" class="agent-contact-link">(267) 231-5833</a>
+                    <a href="mailto:yasmin@keylegacyrealty.com" class="agent-contact-link">email me</a>
                 </div>
 
                 <!-- Meaghan Conlisk -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/meaghan-conlisk.jpeg" alt="meaghan conlisk" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">meaghan conlisk</h3>
-                        <p class="agent-title">agent</p>
-                        <p class="agent-contact"><a href="tel:+17084667504">(708) 466-7504</a></p>
-                        <p class="agent-contact"><a
-                                href="mailto:meaghan@keylegacyrealty.com">meaghan@keylegacyrealty.com</a></p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/meaghan-conlisk.jpeg" alt="meaghan conlisk" class="agent-image">
+                    <h3 class="te-card-title">meaghan conlisk</h3>
+                    <p class="te-text-small">agent</p>
+                    <a href="tel:+17084667504" class="agent-contact-link">(708) 466-7504</a>
+                    <a href="mailto:meaghan@keylegacyrealty.com" class="agent-contact-link">email me</a>
                 </div>
 
                 <!-- Michelle Williams -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/michelle-williams.jpg" alt="michelle williams" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">michelle williams</h3>
-                        <p class="agent-title">agent</p>
-                        <p class="agent-contact"><a href="tel:+12158392886">(215) 839-2886</a></p>
-                        <p class="agent-contact"><a
-                                href="mailto:michelle@keylegacyrealty.com">michelle@keylegacyrealty.com</a></p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/michelle-williams.jpg" alt="michelle williams" class="agent-image">
+                    <h3 class="te-card-title">michelle williams</h3>
+                    <p class="te-text-small">agent</p>
+                    <a href="tel:+12158392886" class="agent-contact-link">(215) 839-2886</a>
+                    <a href="mailto:michelle@keylegacyrealty.com" class="agent-contact-link">email me</a>
                 </div>
 
                 <!-- Daisja Jones -->
-                <div class="agent-card">
-                    <img src="assets/images/agents/daisja-jones.jpg" alt="daisja jones" class="agent-image"
-                        style="width:100%; height:auto;">
-                    <div class="agent-info">
-                        <h3 class="agent-name">daisja jones</h3>
-                        <p class="agent-title">agent</p>
-                        <p class="agent-contact"><a href="tel:+14842199477">(484) 219-9477</a></p>
-                        <p class="agent-contact"><a
-                                href="mailto:daisja@keylegacyrealty.com">daisja@keylegacyrealty.com</a></p>
-                    </div>
+                <div class="te-card">
+                    <img src="assets/images/agents/daisja-jones.jpg" alt="daisja jones" class="agent-image">
+                    <h3 class="te-card-title">daisja jones</h3>
+                    <p class="te-text-small">agent</p>
+                    <a href="tel:+14842199477" class="agent-contact-link">(484) 219-9477</a>
+                    <a href="mailto:daisja@keylegacyrealty.com" class="agent-contact-link">email me</a>
                 </div>
-
-
-
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="te-footer">
-        <div class="te-footer-grid">
-            <div class="footer-col">
-                <h4>properties</h4>
-                <ul>
-                    <li><a href="properties.html?type=rent">rentals</a></li>
-                    <li><a href="properties.html?type=buy">sales</a></li>
-                    <li><a href="#">commercial</a></li>
-                </ul>
+        <div class="te-container">
+            <div class="te-footer-grid">
+                <div class="footer-col">
+                    <h4>properties</h4>
+                    <ul>
+                        <li><a href="properties.html?type=rent">rentals</a></li>
+                        <li><a href="properties.html?type=buy">sales</a></li>
+                        <li><a href="#">commercial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>services</h4>
+                    <ul>
+                        <li><a href="services.html">property management</a></li>
+                        <li><a href="buyers.html">buyers</a></li>
+                        <li><a href="sellers.html">sellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="about.html">about us</a></li>
+                        <li><a href="https://instagram.com/keylegacyrealty">instagram</a></li>
+                        <li><a href="contact.html">contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-newsletter">
+                    <h4>newsletter</h4>
+                    <p style="margin-bottom:10px; color:var(--te-gray-dark); font-size:13px;">sign up for the latest
+                        listings.</p>
+                    <form action="#">
+                        <input type="email" class="te-input" placeholder="email address">
+                        <button type="submit" class="te-btn" style="width:100%; margin-top:10px;">subscribe</button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>services</h4>
-                <ul>
-                    <li><a href="services.html">property management</a></li>
-                    <li><a href="#">consulting</a></li>
-                    <li><a href="#">renovations</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>company</h4>
-                <ul>
-                    <li><a href="about.html">about us</a></li>
-                    <li><a href="https://instagram.com/keylegacyrealty">instagram</a></li>
-                    <li><a href="contact.html">contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col footer-newsletter">
-                <h4>newsletter</h4>
-                <p style="margin-bottom:10px; color:var(--te-gray-dark);">sign up for the latest listings.</p>
-                <form action="#">
-                    <input type="email" class="te-input" placeholder="email address">
-                    <button type="submit" class="te-btn">subscribe</button>
-                </form>
-            </div>
-        </div>
 
-        <div class="te-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p class="te-text-small">&copy; 2026 key legacy realty. philadelphia, pa.</p>
+            <div class="te-footer-bottom">
+                <p>&copy; 2026 key legacy realty. philadelphia, pa.</p>
+                <p><a href="privacy-policy.html">privacy policy</a></p>
+            </div>
         </div>
     </footer>
 </body>

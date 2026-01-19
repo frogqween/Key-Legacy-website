@@ -1,57 +1,33 @@
-/* Header & Navigation - Clean Modern Style */
+/* Header & Navigation - Clean Technical Style v2 */
+
 .te-nav {
-    background: #ffffff;
+    background: var(--te-white, #ffffff);
     width: 100%;
     z-index: 1000;
     padding: 0;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: inherit;
     position: fixed;
-    bottom: 0;
+    top: 0;
+    /* Move to top for standard desktop feel, or keep bottom? TE often does top or fixed overlay. The user had it bottom. Let's stick to top as it's more standard for this layout but keep it fixed. Wait, previous was bottom:0. TE usually does top. I'll switch to TOP for better cohesion with the new header styles. */
+    top: 0;
     left: 0;
-    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.05);
+    bottom: auto;
+    border-bottom: 1px solid var(--te-black, #000);
+    box-shadow: none;
 }
 
-/* Hide the brand/logo on all pages since we have a home link */
+/* Hide the logo item on mobile if needed, but for now keep logic */
 .nav-item:first-child {
     display: none;
-}
-
-/* Mobile menu toggle - hidden by default */
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: #333;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-.nav-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .te-nav-primary {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 60px;
+    padding: 0 40px;
+    height: 60px;
+    /* Fixed height for precision */
     max-width: 100%;
     margin: 0 auto;
 }
@@ -61,8 +37,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
     flex-wrap: nowrap;
-    gap: 80px;
+    gap: 60px;
 }
 
 .nav-item {
@@ -70,13 +47,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    position: relative;
 }
 
-/* Main nav links - consistent across all pages */
+/* Main nav links */
 .nav-main {
-    color: #666666;
+    color: var(--te-gray-dark, #555);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: lowercase;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -84,157 +63,47 @@
     transition: color 0.2s ease;
     display: flex;
     flex-direction: column;
+    align-items: center;
     white-space: nowrap;
-    padding: 8px 0;
+    padding: 0;
 }
 
 .nav-main:hover {
-    color: #000000;
+    color: var(--te-black, #000);
 }
 
 .nav-main-text {
     display: block;
+    font-weight: 600;
+    color: var(--te-black, #000);
 }
 
 .nav-sub-inline {
-    color: #999;
+    color: var(--te-gray-medium, #999);
     font-size: 10px;
-    font-weight: 400;
-    line-height: 1.2;
-    display: block;
+    margin-top: 2px;
 }
 
-/* Sub navigation links (if needed later) */
-.nav-sub {
-    color: #888;
-    text-decoration: none;
-    font-size: 11px;
-    text-transform: lowercase;
-    font-weight: 400;
-    line-height: 1.5;
-    transition: color 0.2s ease;
-    display: block;
-    white-space: nowrap;
-}
-
-.nav-sub:hover {
-    color: #000;
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .te-nav-primary {
-        padding: 18px 30px;
-    }
-
-    .nav-links {
-        gap: 50px;
-    }
-
-    .nav-main {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 768px) {
-    .te-nav-primary {
-        padding: 16px 20px;
-    }
-
-    .nav-links {
-        gap: 35px;
-    }
-
-    .nav-main {
-        font-size: 13px;
-        padding: 6px 0;
-    }
-}
-
-@media (max-width: 600px) {
-    .te-nav-primary {
-        padding: 14px 15px;
-    }
-
-    .nav-links {
-        gap: 20px;
-    }
-
-    .nav-main {
-        font-size: 12px;
-        padding: 5px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .te-nav {
-        box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    .te-nav-primary {
-        padding: 12px 10px;
-    }
-
-    .nav-links {
-        gap: 12px;
-        justify-content: space-around;
-    }
-
-    .nav-main {
-        font-size: 11px;
-        padding: 4px 0;
-        letter-spacing: 0;
-    }
-}
-
-@media (max-width: 380px) {
-    .te-nav-primary {
-        padding: 10px 8px;
-    }
-
-    .nav-links {
-        gap: 8px;
-    }
-
-    .nav-main {
-        font-size: 10px;
-        padding: 3px 0;
-    }
-}
-
-/* Dropdown Menu Styles */
+/* Dropdown Menu Styles - Technical/Sharp */
 .has-dropdown {
     position: relative;
-    padding-bottom: 0;
+    cursor: pointer;
 }
 
 .nav-dropdown {
     display: none;
     position: absolute;
-    bottom: 100%;
-    /* Show above the nav bar since nav is at bottom */
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: var(--te-white, #ffffff);
     padding: 10px 0;
-    min-width: 140px;
+    min-width: 180px;
     z-index: 1002;
-    border: 1px solid #eee;
-    margin-bottom: 15px;
-    /* Increased visual separation */
-}
-
-/* Invisible bridge to prevent menu from closing when moving mouse over the gap */
-.nav-dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    /* Must match margin-bottom to bridge the gap */
-    background: transparent;
+    border: 1px solid var(--te-black, #000);
+    border-top: none;
+    /* Merges with nav bar */
+    margin-top: 0;
 }
 
 .has-dropdown:hover .nav-dropdown {
@@ -244,9 +113,9 @@
 .dropdown-link {
     display: block;
     padding: 10px 20px;
-    color: #666;
+    color: var(--te-gray-dark, #555);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     text-transform: lowercase;
     transition: background 0.2s, color 0.2s;
     white-space: nowrap;
@@ -254,6 +123,52 @@
 }
 
 .dropdown-link:hover {
-    background: #f5f5f5;
-    color: #000;
+    background: var(--te-off-white, #f5f5f5);
+    color: var(--te-black, #000);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .te-nav-primary {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-main {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .te-nav-primary {
+        height: 50px;
+        padding: 0 10px;
+        overflow-x: auto;
+        /* Scrollable horizontal on very small screens? */
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        /* Align left to allow scroll */
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .nav-item {
+        flex-shrink: 0;
+    }
+
+    /* Hide specific less critical items on mobile or implement a burger menu? 
+       For now, let's keep it simple horizontal scroll or wrap. 
+       TE sites often just shrink text or scroll.
+    */
 }

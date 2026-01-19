@@ -4,17 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Key Legacy Realty</title>
-
+    <title>Property Management Checklist | Key Legacy Realty</title>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="src/css/te-core.css?v=6">
     <link rel="stylesheet" href="src/css/te-nav.css?v=6">
+
+    <style>
+        .checklist-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--te-gray-light);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-family: var(--te-font-mono);
+            background: var(--te-black);
+            color: var(--te-white);
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+    </style>
 </head>
 
 <body class="te-content-page">
@@ -62,55 +80,74 @@
 
     <main class="te-container">
         <div class="te-page-header">
-            <h1 class="te-page-title">about us</h1>
-            <p class="te-page-subtitle">building legacy in the philadelphia region.</p>
+            <h1 class="te-page-title">onboarding checklist</h1>
+            <p class="te-page-subtitle">everything you need to get started with our property management services.</p>
         </div>
 
         <section class="te-section">
             <div class="te-grid-2">
                 <div>
-                    <h2 class="te-section-title">our mission</h2>
-                    <p class="te-text-block">
-                        key legacy realty is a platform created to inform and update its audience about everything
-                        philly (suburbs included). from best places to dine; where to plan your next event; to pro tips
-                        from local businesses; we hope to create a virtual environment for all those that love this
-                        amazing community and would like to experience what it has to offer.
-                    </p>
-                    <p class="te-text-block te-text-muted">
-                        we are dedicated to connecting renters with quality homes and helping investors build their
-                        legacy in the philadelphia region.
-                    </p>
-                </div>
-                <div>
+                    <h2 class="te-section-title">immediate actions</h2>
                     <div class="te-card">
-                        <h3 class="te-card-title">local expertise</h3>
-                        <p class="te-card-text">
-                            we don't just work here, we live here. our understanding of the philadelphia market is built
-                            on years of experience and genuine community connection.
-                        </p>
+                        <p class="te-card-text">please provide the following information via email:</p>
+                        <ul class="te-list">
+                            <li>full name</li>
+                            <li>mailing address</li>
+                            <li>cell phone number</li>
+                            <li>email address</li>
+                            <li>llc operating agreement (if applicable)</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="te-section-title" style="margin-top: 40px;">onboarding fees</h2>
+                    <div class="te-card">
+                        <div class="checklist-item">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>1st unit setup</span>
+                                <span class="price-tag">$150</span>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>2-4 units (per unit)</span>
+                                <span class="price-tag">$50</span>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>5+ units (per unit)</span>
+                                <span class="price-tag">$25</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="te-section" style="border-bottom: none;">
-            <div class="te-grid-2">
                 <div>
-                    <!-- Image placeholder or quote -->
-                    <h2 class="te-section-title">the earnest key team</h2>
-                </div>
-                <div>
-                    <p class="te-text-block">
-                        the earnest key team is committed to excellence in every interaction. we understand the
-                        philadelphia rental market because we live here. our team members are your neighbors, and we
-                        take pride in helping build strong, vibrant communities throughout the city.
+                    <h2 class="te-section-title">required documents</h2>
+                    <p class="te-text-block te-text-muted">we will provide these forms for you to sign electronically.
                     </p>
-                    <p class="te-text-block te-text-muted">
-                        whether you are buying, selling, investing, or renting, we are here to guide you through every
-                        step of the process with integrity and local expertise.
-                    </p>
-                    <div style="margin-top: 30px;">
-                        <a href="agents.html" class="te-btn-outline te-btn">meet the team</a>
+                    <ul class="te-list">
+                        <li>consumer notice</li>
+                        <li>property management agreement</li>
+                        <li>direct deposit authorization form</li>
+                        <li>w9 form</li>
+                        <li>current leases & tenant ledgers</li>
+                        <li>rental licenses</li>
+                        <li>lead certificates (if applicable)</li>
+                        <li>partners in good housing brochure</li>
+                    </ul>
+
+                    <h2 class="te-section-title" style="margin-top: 40px;">resources</h2>
+                    <div class="te-card">
+                        <h3 class="te-card-title">landlord cooperation program</h3>
+                        <p class="te-card-text" style="font-size:13px; margin-bottom:10px;">we highly recommend
+                            registering with pgw to avoid liens on your property from tenant gas usage.</p>
+                        <a href="#" class="te-btn-outline te-btn" style="width:100%">learn more</a>
+
+                        <h3 class="te-card-title" style="margin-top:20px;">sewer line protection</h3>
+                        <p class="te-card-text" style="font-size:13px; margin-bottom:10px;">american water resources
+                            offers protection plans for water and sewer lines.</p>
+                        <a href="#" class="te-btn-outline te-btn" style="width:100%">view plans</a>
                     </div>
                 </div>
             </div>

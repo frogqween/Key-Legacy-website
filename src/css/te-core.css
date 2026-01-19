@@ -1,36 +1,42 @@
-/* Teenage Engineering Design System "Lift" */
+/* Teenage Engineering Design System "Lift" v2 */
 
 :root {
     /* Colors */
     --te-black: #000000;
     --te-white: #ffffff;
-    --te-gray-light: #e5e5e5;
-    --te-gray-medium: #b2b2b2;
-    --te-gray-dark: #4d4d4d;
-    --te-bg-body: #F0F0F0;
+    --te-off-white: #f5f5f5;
+    --te-gray-light: #e0e0e0;
+    --te-gray-medium: #a0a0a0;
+    --te-gray-dark: #555555;
+    --te-accent: #ff4d00;
+    /* Classic industrial orange, used sparingly */
+    --te-bg-body: #ffffff;
 
     /* Typography */
-    /* Using Inter as a proxy for UniversTE20T. configured for similar optical sizing */
-    --te-font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --te-font-weight-light: 300;
-    --te-font-weight-regular: 400;
-    --te-font-weight-bold: 500;
-    /* They rarely use heavy bold */
+    --te-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --te-font-mono: "Space Mono", monospace;
+    /* If available, else monospace */
+
+    --te-text-xs: 11px;
+    --te-text-sm: 13px;
+    --te-text-base: 15px;
+    --te-text-lg: 18px;
+    --te-text-xl: 24px;
+    --te-text-2xl: 36px;
+    --te-text-3xl: 48px;
 
     /* Spacing / Grid */
     --te-grid-gap: 20px;
-    --te-container-padding: 20px;
+    --te-container-padding: 30px;
     --te-max-width: 1400px;
 
-    /* Legacy/Nav variable matching */
-    --space-xl: 40px;
-    --space-l: 30px;
-    --space-m: 20px;
-    --space-s: 10px;
+    --te-border-width: 1px;
 }
 
 /* Reset & Base */
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -38,27 +44,37 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     background-color: var(--te-bg-body);
     font-family: var(--te-font-family);
     color: var(--te-black);
-    line-height: 1.4;
-    font-size: 16px;
-    font-weight: 500;
+    line-height: 1.5;
+    font-size: var(--te-text-base);
+    font-weight: 400;
     overflow-x: hidden;
-    padding-bottom: 80px;
-    /* Space for fixed bottom nav */
+    display: flex;
+    flex-direction: column;
 }
 
 body.landing-page {
-    padding-bottom: 0;
-    /* Landing page handles this differently */
+    display: block;
+    /* Reset for landing page */
 }
 
 a {
     color: inherit;
     text-decoration: none;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.7;
 }
 
 ul {
@@ -71,75 +87,207 @@ img {
     height: auto;
 }
 
-/* Utility Classes */
-.te-container {
-    max-width: var(--te-max-width);
-    margin: 0 auto;
-    padding: 0 var(--te-container-padding);
-}
-
-.te-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--te-grid-gap);
-}
-
 /* Typography styles matching the "Technical Manual" look */
-.te-h1 {
-    font-size: 48px;
-    font-weight: var(--te-font-weight-light);
-    letter-spacing: -1px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+    line-height: 1.2;
+}
+
+.te-h1,
+h1.te-page-title {
+    font-size: var(--te-text-3xl);
     margin-bottom: 20px;
 }
 
-.te-h2 {
-    font-size: 32px;
-    font-weight: var(--te-font-weight-light);
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
+.te-h2,
+h2.te-section-title {
+    font-size: var(--te-text-xl);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--te-black);
+    padding-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.te-h3,
+h3.te-card-title {
+    font-size: var(--te-text-lg);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+p {
+    margin-bottom: 1em;
+    max-width: 70ch;
+    /* Readable line length */
 }
 
 .te-text-small {
-    font-size: 14px;
+    font-size: var(--te-text-xs);
     color: var(--te-gray-dark);
     text-transform: lowercase;
 }
 
-/* Buttons - Square, no radius, mimic the "Key" buttons often seen */
+.te-text-muted {
+    color: var(--te-gray-dark);
+}
+
+.te-mono {
+    font-family: var(--te-font-mono);
+}
+
+/* Layout Utilities */
+.te-container {
+    width: 100%;
+    max-width: var(--te-max-width);
+    margin: 0 auto;
+    padding: 0 var(--te-container-padding);
+    flex: 1;
+    /* Pushes footer down */
+}
+
+/* Sections */
+.te-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--te-gray-light);
+}
+
+.te-section:last-child {
+    border-bottom: none;
+}
+
+/* Page Header component */
+.te-page-header {
+    padding-top: 120px;
+    /* Accounts for fixed header */
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--te-black);
+}
+
+.te-page-subtitle {
+    font-size: var(--te-text-lg);
+    color: var(--te-gray-dark);
+    max-width: 600px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+/* Grids */
+.te-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.te-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.te-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Responsive Grids */
+@media (max-width: 900px) {
+
+    .te-grid-3,
+    .te-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .te-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .te-page-header {
+        padding-top: 100px;
+        padding-bottom: 30px;
+    }
+
+    .te-h1,
+    h1.te-page-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .te-grid-3,
+    .te-grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Components */
+
+/* Buttons */
 .te-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: var(--te-black);
     color: var(--te-white);
-    border: none;
-    border-radius: 0px;
-    padding: 14px 28px;
-    font-size: 15px;
-    font-weight: 500;
-    transition: opacity 0.2s ease;
+    border: 1px solid var(--te-black);
+    border-radius: 0;
+    padding: 12px 24px;
+    font-size: var(--te-text-sm);
     text-transform: lowercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .te-btn:hover {
-    opacity: 0.7;
+    background-color: var(--te-white);
+    color: var(--te-black);
+    opacity: 1;
+    /* Override opacity transition */
 }
 
 .te-btn-outline {
     background-color: transparent;
-    border: 1px solid var(--te-black);
     color: var(--te-black);
+    border: 1px solid var(--te-gray-light);
+}
+
+.te-btn-outline:hover {
+    border-color: var(--te-black);
+    background-color: transparent;
+    color: var(--te-black);
+}
+
+.te-btn-lg {
+    padding: 16px 32px;
+    font-size: var(--te-text-base);
 }
 
 /* Inputs */
 .te-input {
-    border: 1px solid var(--te-gray-light);
-    border-radius: 0px;
-    padding: 12px;
-    font-family: var(--te-font-family);
-    font-size: 15px;
-    font-weight: 500;
+    display: block;
     width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--te-gray-light);
+    border-radius: 0;
+    background: var(--te-white);
+    font-family: inherit;
+    font-size: var(--te-text-base);
+    color: var(--te-black);
+    transition: border-color 0.2s;
 }
 
 .te-input:focus {
@@ -151,298 +299,172 @@ img {
     margin-bottom: 20px;
 }
 
-.te-form-label {
+.te-label {
     display: block;
-    font-size: 14px;
     margin-bottom: 8px;
-    text-transform: lowercase;
-    font-weight: 500;
-    color: var(--te-black);
-}
-
-textarea.te-input {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Divider Lines */
-.te-hr {
-    border: 0;
-    border-top: 1px solid var(--te-gray-light);
-    margin: 40px 0;
-}
-
-/* Grid & Layout Utilities */
-.te-grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--te-grid-gap);
-}
-
-@media (max-width: 768px) {
-    .te-grid-2 {
-        grid-template-columns: 1fr;
-    }
-}
-
-.te-section {
-    padding: 60px 0;
-    border-bottom: 1px solid var(--te-gray-light);
-}
-
-.te-page-header {
-    padding: 80px 0 40px;
-    border-bottom: 1px solid var(--te-black);
-}
-
-.te-page-title {
-    font-size: 48px;
-    font-weight: var(--te-font-weight-light);
-    text-transform: lowercase;
-    margin-bottom: 10px;
-}
-
-.te-page-subtitle {
-    font-size: 18px;
+    font-size: var(--te-text-sm);
     color: var(--te-gray-dark);
-    max-width: 600px;
-    text-transform: lowercase;
-    font-weight: 500;
-}
-
-.te-section-title {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 30px;
     text-transform: lowercase;
 }
 
 /* Cards */
 .te-card {
-    background: var(--te-white);
-    padding: 20px;
-    border: 1px solid transparent;
-    /* TE cards are often just text blocks, but sometimes have subtle borders */
-}
-
-.te-card-title {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 10px;
-    text-transform: lowercase;
-}
-
-.te-card-text {
-    font-size: 15px;
-    color: var(--te-gray-dark);
-    margin-bottom: 15px;
-    line-height: 1.5;
-    text-transform: lowercase;
-}
-
-.te-list {
-    padding-left: 20px;
-}
-
-.te-list li {
-    list-style-type: disc;
-    font-size: 15px;
-    color: var(--te-gray-dark);
-    margin-bottom: 8px;
-    text-transform: lowercase;
-}
-
-/* Utility to center simple content */
-.te-center {
-    text-align: center;
-}
-
-.te-text-muted {
-    color: var(--te-gray-dark);
-}
-
-.te-text-block {
-    margin-bottom: 20px;
-    text-transform: lowercase;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Property Layouts */
-.te-sidebar-layout {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    padding: 40px 0;
-}
-
-@media (max-width: 768px) {
-    .te-sidebar-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
-.te-sidebar {
-    /* Sticky sidebar for desktop */
-    position: sticky;
-    top: 20px;
-    height: fit-content;
-}
-
-.te-filter-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.te-filter-link {
-    font-size: 15px;
-    color: var(--te-gray-dark);
-    text-transform: lowercase;
-    transition: color 0.2s;
-    cursor: pointer;
-}
-
-.te-filter-link:hover,
-.te-filter-link.active {
-    color: var(--te-black);
-    font-weight: 500;
-}
-
-.te-sidebar-divider {
-    height: 1px;
-    background: var(--te-gray-light);
-    margin: 20px 0;
-    width: 20px;
-    /* Small dash style */
-}
-
-/* Property Grid */
-.te-property-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* Property Card - TE Store Style */
-.te-property-card {
-    display: flex;
-    flex-direction: column;
+    background: var(--te-off-white);
+    padding: 30px;
     height: 100%;
-    transition: opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
 }
 
-.te-property-card:hover {
-    opacity: 0.8;
+.te-card:hover {
+    border-color: var(--te-gray-medium);
 }
 
-.te-property-link {
-    display: block;
+a.te-card {
     text-decoration: none;
     color: inherit;
 }
 
-.te-property-image {
-    width: 100%;
-    aspect-ratio: 4/3;
-    /* Standard photo ratio */
-    background-color: #f5f5f5;
-    background-size: cover;
-    background-position: center;
+.te-card-title {
+    font-size: var(--te-text-lg);
     margin-bottom: 12px;
-}
-
-.te-property-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-}
-
-.te-property-title {
-    font-size: 15px;
     font-weight: 500;
     text-transform: lowercase;
-    color: var(--te-black);
 }
 
-.te-property-meta {
-    font-size: 14px;
+.te-card-text {
+    font-size: var(--te-text-base);
     color: var(--te-gray-dark);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Lists */
+.te-list {
+    margin-top: 10px;
+    list-style: none;
+    /* Custom bullets */
+}
+
+.te-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+    color: var(--te-gray-dark);
+    font-size: var(--te-text-base);
     text-transform: lowercase;
 }
 
-.te-property-footer {
+.te-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--te-gray-medium);
+}
+
+/* Accordion / FAQ */
+details {
+    border-top: 1px solid var(--te-gray-light);
+    padding: 20px 0;
+}
+
+details:last-of-type {
+    border-bottom: 1px solid var(--te-gray-light);
+}
+
+details summary {
+    cursor: pointer;
+    font-size: var(--te-text-lg);
+    font-weight: 500;
+    list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
-    padding-top: 10px;
-    border-top: 1px solid transparent;
-    /* reserved space */
+    color: var(--te-black);
+    transition: color 0.2s;
 }
 
-.te-property-price {
-    font-size: 15px;
-    font-weight: 500;
+details summary::-webkit-details-marker {
+    display: none;
 }
 
+details summary:hover {
+    color: var(--te-gray-dark);
+}
 
-/* Shared Footer Styles */
+details summary::after {
+    content: "+";
+    font-weight: 300;
+    font-size: 24px;
+}
+
+details[open] summary::after {
+    content: "-";
+}
+
+details p {
+    margin-top: 15px;
+    color: var(--te-gray-dark);
+    line-height: 1.6;
+    font-size: var(--te-text-base);
+}
+
+/* Footer (Shared) */
 .te-footer {
-    padding: 60px 20px;
-    background: var(--te-bg-body);
-    border-top: 1px solid var(--te-gray-light);
-    font-size: 12px;
+    padding: 80px 0 40px;
+    background: var(--te-white);
+    border-top: 1px solid var(--te-black);
     margin-top: auto;
-    /* Push to bottom if flex container */
-    width: 100%;
 }
 
 .te-footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-    max-width: var(--te-max-width);
-    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 900px) {
+    .te-footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .te-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
 
 .footer-col h4 {
-    font-weight: 500;
-    margin-bottom: 12px;
-    text-transform: lowercase;
-    font-size: 14px;
-    color: var(--te-black);
+    font-size: var(--te-text-sm);
+    margin-bottom: 20px;
+    color: var(--te-gray-dark);
 }
 
 .footer-col ul li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .footer-col ul li a {
-    color: var(--te-gray-dark);
-    text-transform: lowercase;
-    transition: color 0.2s;
-    text-decoration: none;
+    font-size: var(--te-text-base);
+    color: var(--te-black);
 }
 
 .footer-col ul li a:hover {
-    color: var(--te-black);
     text-decoration: underline;
 }
 
-.footer-newsletter input {
-    width: 100%;
-    margin-bottom: 10px;
-    background: #f5f5f5;
-    border: none;
-    padding: 12px;
-    font-family: var(--te-font-family);
-    font-size: 14px;
-    color: var(--te-black);
-}
-
-.footer-newsletter input:focus {
-    outline: 1px solid var(--te-black);
-    background: #fff;
+.te-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--te-gray-light);
+    font-size: var(--te-text-xs);
+    color: var(--te-gray-dark);
 }
