@@ -9,7 +9,7 @@
     --success-color: #34a853;
     --warning-color: #fbbc04;
     --danger-color: #ea4335;
-    --bg-light: #ffffff;
+    --bg-light: #bf5518;
     --bg-dark: #f8f9fa;
     --text-primary: #2c3e50;
     --text-secondary: #6c757d;
@@ -217,7 +217,7 @@ body.maps-page header {
 #search-input:focus {
     outline: none;
     border-color: var(--text-color);
-    background: white;
+    background: #bf5518;
 }
 
 #search-btn {
@@ -421,7 +421,7 @@ body.maps-page header {
 }
 
 .stat-card {
-    background: white;
+    background: #bf5518;
     border: 1px solid var(--border-color);
     padding: 10px;
     text-align: center;
@@ -845,7 +845,7 @@ body.maps-page header {
 }
 
 .leaflet-control-zoom a {
-    background-color: var(--card-bg, #ffffff) !important;
+    background-color: var(--card-bg, #bf5518) !important;
     color: var(--text-color, #0f0e12) !important;
     border-bottom: 1px solid var(--border-color, #0f0e12) !important;
     width: 36px !important;
@@ -859,7 +859,7 @@ body.maps-page header {
 
 .leaflet-control-zoom a:hover {
     background-color: var(--text-color, #0f0e12) !important;
-    color: var(--bg-color, #ffffff) !important;
+    color: var(--bg-color, #bf5518) !important;
 }
 
 .leaflet-control-zoom a:last-child {
@@ -876,7 +876,7 @@ body.maps-page header {
 .leaflet-control-scale-line {
     border: 2px solid var(--text-color, #0f0e12) !important;
     border-top: none !important;
-    background: var(--card-bg, #ffffff) !important;
+    background: var(--card-bg, #bf5518) !important;
     color: var(--text-color, #0f0e12) !important;
     font-size: 11px !important;
     font-weight: 700 !important;
@@ -963,7 +963,7 @@ body.maps-page header {
 }
 
 .property-pin {
-    background: white;
+    background: #bf5518;
     border: 2px solid #0f0e12;
     border-radius: 4px;
     padding: 4px 8px;
@@ -1129,7 +1129,7 @@ body.maps-page header {
     width: 100%;
     padding: 10px 16px;
     background: var(--text-color, #0f0e12);
-    color: var(--bg-color, #ffffff);
+    color: var(--bg-color, #bf5518);
     text-decoration: none;
     font-weight: 800;
     font-size: 11px;
@@ -1239,7 +1239,7 @@ body.maps-page header {
 
     /* Updated Transit Infrastructure */
     .transit-station {
-        background: #fff;
+        background: #bf5518;
         border: 2px solid #333;
         border-radius: 50%;
     }

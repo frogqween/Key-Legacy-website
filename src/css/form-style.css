@@ -22,7 +22,7 @@
 
 .form-page .form-panel {
     padding: 40px;
-    background: #fff;
+    background: #bf5518;
     flex: 1;
     overflow-y: auto;
 }
@@ -55,7 +55,7 @@
 }
 
 .form-page .sidebar .nav-item.active {
-    background: white;
+    background: #bf5518;
     border-left: 4px solid var(--accent-color);
     margin-right: -1px;
     z-index: 10;
@@ -78,7 +78,7 @@
 }
 
 .form-page .sidebar .nav-item.completed .step-number {
-    background: white;
+    background: #bf5518;
     color: var(--accent-color);
 }
 
