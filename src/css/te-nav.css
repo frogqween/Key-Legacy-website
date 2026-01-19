@@ -8,15 +8,12 @@
     font-family: inherit;
     position: fixed;
     top: 0;
-    /* Move to top for standard desktop feel, or keep bottom? TE often does top or fixed overlay. The user had it bottom. Let's stick to top as it's more standard for this layout but keep it fixed. Wait, previous was bottom:0. TE usually does top. I'll switch to TOP for better cohesion with the new header styles. */
-    top: 0;
     left: 0;
     bottom: auto;
     border-bottom: 1px solid var(--te-black, #000);
     box-shadow: none;
 }
 
-/* Hide the logo item on mobile if needed, but for now keep logic */
 .nav-item:first-child {
     display: none;
 }
@@ -27,7 +24,6 @@
     align-items: center;
     padding: 0 40px;
     height: 60px;
-    /* Fixed height for precision */
     max-width: 100%;
     margin: 0 auto;
 }
@@ -51,7 +47,6 @@
     position: relative;
 }
 
-/* Main nav links */
 .nav-main {
     color: var(--te-gray-dark, #555);
     text-decoration: none;
@@ -84,7 +79,7 @@
     margin-top: 2px;
 }
 
-/* Dropdown Menu Styles - Technical/Sharp */
+/* Dropdown Menu */
 .has-dropdown {
     position: relative;
     cursor: pointer;
@@ -102,7 +97,6 @@
     z-index: 1002;
     border: 1px solid var(--te-black, #000);
     border-top: none;
-    /* Merges with nav bar */
     margin-top: 0;
 }
 
@@ -127,7 +121,7 @@
     color: var(--te-black, #000);
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 900px) {
     .nav-links {
         gap: 30px;
@@ -153,12 +147,10 @@
         height: 50px;
         padding: 0 10px;
         overflow-x: auto;
-        /* Scrollable horizontal on very small screens? */
     }
 
     .nav-links {
         justify-content: flex-start;
-        /* Align left to allow scroll */
         gap: 20px;
         padding: 0 10px;
     }
@@ -166,9 +158,4 @@
     .nav-item {
         flex-shrink: 0;
     }
-
-    /* Hide specific less critical items on mobile or implement a burger menu? 
-       For now, let's keep it simple horizontal scroll or wrap. 
-       TE sites often just shrink text or scroll.
-    */
 }

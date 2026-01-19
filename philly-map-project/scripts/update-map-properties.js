@@ -13,8 +13,8 @@
 const fs = require('fs');
 const path = require('path');
 
-// Load the source properties
-const PROPERTIES_DATA = require('../data/properties-source.js');
+// Load the source properties (shared with main site)
+const PROPERTIES_DATA = require('../../data/properties-source.js');
 
 // Load existing geocoded properties (if they exist)
 let existingGeocodedProperties = [];
