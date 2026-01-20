@@ -1,308 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buyers | Key Legacy Realty</title>
-
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="src/css/te-core.css?v=7">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=7">
-
-    <style>
-        .buyers-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-xl);
-            padding-bottom: var(--space-xl);
-            border-bottom: 1px solid var(--color-border-light);
-        }
-
-        .buyers-intro__content h2 {
-            font-size: var(--text-xl);
-            margin-bottom: var(--space-md);
-        }
-
-        .buyers-intro__content p {
-            color: var(--color-muted);
-            margin-bottom: var(--space-md);
-        }
-
-        .steps-card {
-            padding: var(--space-md);
-            border: 1px solid var(--color-border-light);
-        }
-
-        .steps-card h3 {
-            font-size: var(--text-lg);
-            margin-bottom: var(--space-sm);
-        }
-
-        .steps-list {
-            counter-reset: steps;
-        }
-
-        .steps-list li {
-            position: relative;
-            padding-left: 2em;
-            margin-bottom: 0.75em;
-            color: var(--color-muted);
-            font-size: var(--text-sm);
-            counter-increment: steps;
-        }
-
-        .steps-list li::before {
-            content: counter(steps);
-            position: absolute;
-            left: 0;
-            font-weight: 500;
-            color: var(--color-text);
-        }
-
-        @media (max-width: 768px) {
-            .buyers-intro {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: var(--space-xl) 0;
-        }
-
-        .faq-section h2 {
-            font-size: var(--text-xl);
-            margin-bottom: var(--space-lg);
-        }
-
-        .faq-list {
-            max-width: 800px;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--color-border-light);
-        }
-
-        .faq-item summary {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--space-md) 0;
-            font-size: var(--text-base);
-            cursor: pointer;
-            list-style: none;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item summary::after {
-            content: "+";
-            font-size: var(--text-lg);
-            font-weight: 300;
-            transition: transform var(--transition-base);
-        }
-
-        .faq-item[open] summary::after {
-            transform: rotate(45deg);
-        }
-
-        .faq-item p {
-            padding-bottom: var(--space-md);
-            color: var(--color-muted);
-            font-size: var(--text-sm);
-            max-width: 65ch;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/groth-theme.css">
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav__inner">
-            <a href="index.html" class="nav__logo">key legacy realty</a>
-            <div class="nav__links">
-                <a href="properties.html" class="nav__link">properties</a>
-                <a href="services.html" class="nav__link">services</a>
-                <a href="agents.html" class="nav__link">agents</a>
-                <a href="about.html" class="nav__link">about</a>
-                <a href="contact.html" class="nav__link">contact</a>
-            </div>
-            <button class="nav__toggle" aria-label="Menu">
-                <span class="nav__toggle-line"></span>
-                <span class="nav__toggle-line"></span>
-                <span class="nav__toggle-line"></span>
-            </button>
+    <nav>
+        <a href="index.html" class="logo">Key Legacy Realty</a>
+        <div class="nav-links">
+            <a href="properties.html">Properties</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="nav__mobile">
-        <div class="nav__mobile-links">
-            <a href="properties.html" class="nav__mobile-link">properties</a>
-            <a href="services.html" class="nav__mobile-link">services</a>
-            <a href="agents.html" class="nav__mobile-link">agents</a>
-            <a href="about.html" class="nav__mobile-link">about</a>
-            <a href="contact.html" class="nav__mobile-link">contact</a>
-        </div>
-    </div>
+    <main class="container">
+        <section>
+            <h1>Buyers</h1>
+            <p>Expert guidance through the home buying process.</p>
+        </section>
 
-    <main>
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="container">
-                <h1 class="page-header__title">buyers</h1>
-                <p class="page-header__subtitle">guidance through every step of your home purchase</p>
-            </div>
-        </div>
-
-        <!-- Intro Section -->
-        <section class="section">
-            <div class="container">
-                <div class="buyers-intro">
-                    <div class="buyers-intro__content">
-                        <h2>making the move</h2>
-                        <p>relocating and making a life-changing purchase can be adventurous yet intimidating. we know how overwhelming buying a home can be—key legacy connects you with experienced local agents to ensure a seamless transition.</p>
-                        <p>we are committed to informing and guiding our clients through everything involving the home buying process.</p>
-                        <a href="contact.html" class="btn">start your search</a>
-                    </div>
-
-                    <div class="steps-card">
-                        <h3>key steps</h3>
-                        <ol class="steps-list">
-                            <li>get pre-approved by a lender</li>
-                            <li>connect with a realtor</li>
-                            <li>define your criteria</li>
-                            <li>tour properties</li>
-                            <li>submit an offer</li>
-                            <li>inspections & appraisal</li>
-                            <li>closing</li>
-                        </ol>
-                    </div>
+        <section class="border-b">
+            <h2>How It Works</h2>
+            <div class="grid-3">
+                <div>
+                    <h3>1. Consultation</h3>
+                    <p>We discuss your needs, budget, and timeline.</p>
+                </div>
+                <div>
+                    <h3>2. Search</h3>
+                    <p>We find properties that match your criteria.</p>
+                </div>
+                <div>
+                    <h3>3. Close</h3>
+                    <p>We guide you through offers and closing.</p>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <div class="container">
-                <h2>frequently asked questions</h2>
-                <div class="faq-list">
-                    <details class="faq-item">
-                        <summary>how do i know if i'm ready to buy?</summary>
-                        <p>you will know you are ready to buy a home after you have spoken with a mortgage professional (lender). a lender will be able to help you determine a monthly payment you are comfortable with as well as verify what you will need for a down payment and closing costs.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>what are the first steps to buying a home?</summary>
-                        <p>the first steps to buying a home are getting pre-approved by a mortgage professional and connecting with a realtor.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>what is the role of a realtor?</summary>
-                        <p>a realtor is the professional who guides you through the process of finding and closing on a home. a realtor also maintains a relationship with you throughout your homeownership. the realtor connects you with other vetted professionals you will need such as home inspectors and lenders.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>besides the down payment, are there other financial considerations?</summary>
-                        <p>yes. in addition to the down payment, you will need to pay "closing costs". these include transfer taxes, property taxes, loan fees, and title fees. you will also pay for inspections and appraisals prior to settlement.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>what happens after my offer is accepted?</summary>
-                        <p>once your offer is accepted, you will deposit your earnest money. you will also attend home inspections, order the appraisal, and submit your documents to the mortgage company. your agent will guide you through this process to the closing table.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="section" style="border-top: 1px solid var(--color-border);">
-            <div class="container" style="text-align: center;">
-                <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-sm);">ready to find your home?</h2>
-                <p style="color: var(--color-muted); margin-bottom: var(--space-md);">connect with our team to start your search</p>
-                <a href="agents.html" class="btn">meet our agents</a>
-            </div>
+        <section style="text-align: center;">
+            <h2>Ready to buy?</h2>
+            <br>
+            <a href="contact.html" class="btn">Contact Us</a>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer__grid">
-                <div class="footer__col">
-                    <h4>properties</h4>
-                    <ul>
-                        <li><a href="properties.html?type=rent">rentals</a></li>
-                        <li><a href="properties.html?type=buy">sales</a></li>
-                    </ul>
+            <div class="footer-grid">
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About</a>
+                    <a href="agents.html">Team</a>
+                    <a href="contact.html">Contact</a>
                 </div>
-                <div class="footer__col">
-                    <h4>services</h4>
-                    <ul>
-                        <li><a href="services.html">property management</a></li>
-                        <li><a href="buyers.html">buyers</a></li>
-                    </ul>
+                <div>
+                    <h4>Services</h4>
+                    <a href="services.html">Management</a>
+                    <a href="buyers.html">Buyers</a>
                 </div>
-                <div class="footer__col">
-                    <h4>company</h4>
-                    <ul>
-                        <li><a href="about.html">about us</a></li>
-                        <li><a href="agents.html">our team</a></li>
-                        <li><a href="contact.html">contact</a></li>
-                    </ul>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="tel:2673148006">(267) 314-8006</a>
+                    <a href="mailto:hello@keylegacyrealty.com">Email</a>
                 </div>
-                <div class="footer__col">
-                    <h4>connect</h4>
-                    <ul>
-                        <li><a href="https://instagram.com/keylegacyrealty" target="_blank">instagram</a></li>
-                        <li><a href="tel:2673148006">(267) 314-8006</a></li>
-                    </ul>
+                <div>
+                    <h4>Location</h4>
+                    <p>Philadelphia, PA</p>
                 </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2026 key legacy realty. philadelphia, pa.</p>
-                <a href="assets/pdf/Privacy Policy.pdf" target="_blank">privacy policy</a>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Mobile menu toggle
-        const navToggle = document.querySelector('.nav__toggle');
-        const navMobile = document.querySelector('.nav__mobile');
-
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('is-open');
-            navMobile.classList.toggle('is-open');
-            document.body.style.overflow = navMobile.classList.contains('is-open') ? 'hidden' : '';
-        });
-
-        document.querySelectorAll('.nav__mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.classList.remove('is-open');
-                navMobile.classList.remove('is-open');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Scrolled nav state
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('nav--scrolled');
-            } else {
-                nav.classList.remove('nav--scrolled');
-            }
-        });
-    </script>
 </body>
-
 </html>

@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Legacy Realty | Philadelphia Real Estate</title>
-
-    <!-- Google Fonts: Inter -->
+    <title>Key Legacy Realty</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/groth-theme.css">
 </head>
-
 <body>
-
-    <!-- Top Navigation -->
-    <nav class="top-nav">
-        <div class="top-nav__section">
-            <a href="index.html" style="font-weight: 800; text-decoration: none; text-transform: uppercase;">Key Legacy
-                Realty</a>
-        </div>
-        <div class="top-nav__section" style="justify-content: center;">
-            <span id="nav-time">PHILADELPHIA, PA</span>
-        </div>
-        <div class="top-nav__section nav-links">
+    <nav>
+        <a href="index.html" class="logo">Key Legacy Realty</a>
+        <div class="nav-links">
             <a href="properties.html">Properties</a>
             <a href="services.html">Services</a>
             <a href="about.html">About</a>
@@ -34,160 +19,78 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1 class="hero__brand">
-            Key Legacy<sup style="font-size: 2rem; vertical-align: top;">™</sup>
-        </h1>
+    <main class="container">
+        <section>
+            <h1>Philadelphia Real Estate</h1>
+            <p>Property management and rentals since 2015.</p>
+            <br>
+            <a href="properties.html" class="btn">View Properties</a>
+        </section>
 
-        <div class="hero__grid">
-            <div class="hero__description">
-                Building communities, creating homes. Philadelphia's trusted partner for consciously managed
-                environments.
-            </div>
-            <div class="hero__decoration">
-                <svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor"
-                    stroke-width="1.5">
-                    <rect x="25" y="25" width="50" height="50" />
-                    <circle cx="50" cy="50" r="35" />
-                    <line x1="25" y1="25" x2="75" y2="75" />
-                </svg>
-            </div>
-        </div>
-    </header>
+        <section class="border-b">
+            <h2>Available Rentals</h2>
+            <div class="grid-3" id="featuredProperties"></div>
+            <br>
+            <a href="properties.html">See all properties →</a>
+        </section>
 
-    <!-- Main Content Grid -->
-    <main class="main-grid">
-
-        <!-- Left Column: Main Content -->
-        <div class="content-col">
-
-            <!-- Featured Section Header -->
-            <section class="projects-header">
-                <h2 class="projects-title">Homes</h2>
-                <div class="projects-desc">
-                    <p>A selection of properties across Philadelphia, weaving together comfort, community, and expert
-                        management.</p>
+        <section>
+            <div class="grid-2">
+                <div>
+                    <h2>Services</h2>
+                    <p>Full-service property management for landlords and investors.</p>
+                    <br>
+                    <a href="services.html">Learn more →</a>
                 </div>
-            </section>
-
-            <!-- Property List -->
-            <div class="property-list">
-
-                <!-- Property 1 -->
-                <article class="property-item">
-                    <div class="property-info">
-                        <div>
-                            <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">5449 Baltimore Ave</h3>
-                            <p style="color: var(--color-text-muted);">Residential • 3 Bed / 1 Bath</p>
-                        </div>
-                        <div>
-                            <p style="font-size: var(--text-lg); font-weight: 600; margin-bottom: 1rem;">$1,400/mo</p>
-                            <a href="properties.html" class="btn-arrow">View Property →</a>
-                        </div>
-                    </div>
-                    <img src="assets/images/Key Home Page.jpg" alt="5449 Baltimore" class="property-image">
-                </article>
-
-                <!-- Property 2 -->
-                <article class="property-item">
-                    <div class="property-info">
-                        <div>
-                            <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">1530 S 27th St</h3>
-                            <p style="color: var(--color-text-muted);">Residential • 3 Bed / 1 Bath</p>
-                        </div>
-                        <div>
-                            <p style="font-size: var(--text-lg); font-weight: 600; margin-bottom: 1rem;">$1,350/mo</p>
-                            <a href="properties.html" class="btn-arrow">View Property →</a>
-                        </div>
-                    </div>
-                    <img src="assets/images/Key Home Page.jpg" alt="1530 S 27th St" class="property-image">
-                </article>
-
-                <!-- Service Link Block -->
-                <article class="property-item" style="background-color: #eee;">
-                    <div class="property-info"
-                        style="grid-column: span 2; display: flex; flex-direction: column; justify-content: center; padding: var(--space-lg);">
-                        <h3 style="font-size: var(--text-xl);">Property Management Services</h3>
-                        <p style="margin-top: 1rem; max-width: 60ch; font-size: var(--text-lg);">Complete peace of mind
-                            for property owners. We handle everything from tenant screening to 24/7 maintenance.</p>
-                        <a href="services.html" class="btn-arrow" style="margin-top: 2rem;">Explore Services →</a>
-                    </div>
-                </article>
-
+                <div>
+                    <h2>About Us</h2>
+                    <p>Local expertise. Transparent communication. Proactive service.</p>
+                    <br>
+                    <a href="about.html">Meet the team →</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Right Column: Sidebar (Orange) -->
-        <aside class="sidebar-col">
-
-            <div class="sidebar-item">
-                <h3 class="sidebar-title">Featured Listing</h3>
-                <p style="margin-bottom: 1rem;">2051 S 65th St</p>
-                <img src="assets/images/Key Home Page.jpg" alt="Featured" class="sidebar-image">
-                <p>Spacious living in a quiet neighborhood. Recently renovated with modern amenities.</p>
-                <a href="properties.html" class="btn-arrow">Check Availability →</a>
-            </div>
-
-            <div class="sidebar-item" style="flex-grow: 1;">
-                <h3 class="sidebar-title">Our Philosophy</h3>
-                <p style="margin-bottom: 1rem;">Transparency & Trust.</p>
-                <p>We believe in transparent communication, proactive maintenance, and building lasting relationships
-                    with both property owners and tenants.</p>
-                <br>
-                <a href="about.html" class="btn-arrow">Read More →</a>
-            </div>
-
-        </aside>
-
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Key Legacy Realty</h4>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About</a>
+                    <a href="agents.html">Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="services.html">Management</a>
+                    <a href="buyers.html">Buyers</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="tel:2673148006">(267) 314-8006</a>
+                    <a href="mailto:hello@keylegacyrealty.com">Email</a>
+                </div>
+                <div>
+                    <h4>Location</h4>
                     <p>Philadelphia, PA</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Properties</h4>
-                    <ul>
-                        <li><a href="properties.html?type=rent">Rentals</a></li>
-                        <li><a href="properties.html?type=buy">Sales</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="services.html">Management</a></li>
-                        <li><a href="buyers.html">Buyers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="tel:2673148006">(267) 314-8006</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div style="margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
-                &copy; 2026 Key Legacy Realty.
             </div>
         </div>
     </footer>
 
+    <script src="data/properties-source.js"></script>
     <script>
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
-            document.getElementById('nav-time').textContent = timeString + ' ET \u2022 PHILADELPHIA';
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
+        const props = (window.PROPERTIES_DATA || []).slice(0, 3);
+        const grid = document.getElementById('featuredProperties');
+        grid.innerHTML = props.map(p => {
+            const img = p.img ? (p.img.startsWith('http') ? p.img : `https://keylegacyrealty.managebuilding.com/Resident/api/public/files/download?fileName=${p.img}&isPreview=true`) : 'assets/images/Key Home Page.jpg';
+            return `<a href="https://keylegacyrealty.managebuilding.com${p.url}" target="_blank" class="property-card">
+                <img src="${img}" alt="${p.address}">
+                <h3>${p.address}</h3>
+                <p>${p.beds} bed · ${p.baths} bath · <span class="price">$${p.rent.toLocaleString()}/mo</span></p>
+            </a>`;
+        }).join('');
     </script>
-
 </body>
-
 </html>

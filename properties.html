@@ -1,206 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Properties | Key Legacy Realty</title>
-
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/groth-theme.css">
 </head>
-
 <body>
-
-    <!-- Top Navigation -->
-    <nav class="top-nav">
-        <div class="top-nav__section">
-            <a href="index.html" style="font-weight: 800; text-decoration: none; text-transform: uppercase;">Key Legacy
-                Realty</a>
-        </div>
-        <div class="top-nav__section" style="justify-content: center;">
-            <span id="nav-time">PHILADELPHIA, PA</span>
-        </div>
-        <div class="top-nav__section nav-links">
-            <a href="properties.html" style="text-decoration: underline;">Properties</a>
+    <nav>
+        <a href="index.html" class="logo">Key Legacy Realty</a>
+        <div class="nav-links">
+            <a href="properties.html">Properties</a>
             <a href="services.html">Services</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <h1 class="page-title">Properties</h1>
-            <p class="page-subtitle">Available rentals throughout Philadelphia. Comfort, community, and expert
-                management.</p>
-        </div>
-    </header>
+    <main class="container">
+        <section>
+            <h1>Properties</h1>
+            <p>Available rentals in Philadelphia.</p>
+        </section>
 
-    <main class="container" style="padding-bottom: 4rem;">
-
-        <!-- Filter Bar -->
-        <div style="display: flex; gap: 1rem; margin: 2rem 0; align-items: center; flex-wrap: wrap;">
-            <div style="flex: 1;">
-                <span id="propertyCount" style="font-weight: 600;">0</span> Listings found
-            </div>
-            <div style="display: flex; gap: 1rem;">
-                <select id="bedroomFilter" class="form-select" style="width: auto;">
+        <section>
+            <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                <select id="bedroomFilter">
                     <option value="">All Bedrooms</option>
-                    <option value="studio">Studio</option>
-                    <option value="1">1 Bedroom</option>
-                    <option value="2">2 Bedrooms</option>
-                    <option value="3">3+ Bedrooms</option>
+                    <option value="1">1 Bed</option>
+                    <option value="2">2 Bed</option>
+                    <option value="3">3+ Bed</option>
                 </select>
-                <select id="priceFilter" class="form-select" style="width: auto;">
+                <select id="priceFilter">
                     <option value="">Any Price</option>
                     <option value="0-1200">Under $1,200</option>
-                    <option value="1200-1800">$1,200 - $1,800</option>
-                    <option value="1800-5000">$1,800+</option>
+                    <option value="1200-1800">$1,200-$1,800</option>
+                    <option value="1800-9999">$1,800+</option>
                 </select>
+                <span id="count" class="text-muted"></span>
             </div>
-        </div>
-
-        <!-- Property Grid -->
-        <div id="propertiesGrid" class="property-grid-compact">
-            <!-- Properties will be loaded here -->
-        </div>
-
+            <div class="grid-3" id="propertiesGrid"></div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Key Legacy Realty</h4>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About</a>
+                    <a href="agents.html">Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="services.html">Management</a>
+                    <a href="buyers.html">Buyers</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="tel:2673148006">(267) 314-8006</a>
+                    <a href="mailto:hello@keylegacyrealty.com">Email</a>
+                </div>
+                <div>
+                    <h4>Location</h4>
                     <p>Philadelphia, PA</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Properties</h4>
-                    <ul>
-                        <li><a href="properties.html?type=rent">Rentals</a></li>
-                        <li><a href="properties.html?type=buy">Sales</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="services.html">Management</a></li>
-                        <li><a href="buyers.html">Buyers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="tel:2673148006">(267) 314-8006</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div style="margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
-                &copy; 2026 Key Legacy Realty.
             </div>
         </div>
     </footer>
 
-    <!-- Load data -->
     <script src="data/properties-source.js"></script>
-
     <script>
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
-            const timeEl = document.getElementById('nav-time');
-            if (timeEl) timeEl.textContent = timeString + ' ET \u2022 PHILADELPHIA';
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
-
-        // Property Logic
         const properties = window.PROPERTIES_DATA || [];
-        let currentBedroomFilter = '';
-        let currentPriceFilter = '';
+        let bedFilter = '', priceFilter = '';
 
-        function renderProperties(propertiesToRender) {
-            const grid = document.getElementById('propertiesGrid');
-            const countEl = document.getElementById('propertyCount');
-
-            if (!grid) return;
-
-            if (propertiesToRender.length === 0) {
-                grid.innerHTML = '<div style="padding: 2rem; border-top: 1px solid var(--color-border); grid-column: 1/-1;">No properties match your criteria.</div>';
-                countEl.textContent = '0';
-                return;
-            }
-
-            grid.innerHTML = propertiesToRender.map((prop) => {
-                // Image Fallback
-                let imageUrl = 'assets/images/Key Home Page.jpg'; // Default safe image
-                if (prop.img && !prop.img.includes('placeholder')) {
-                    imageUrl = prop.img.startsWith('http') ? prop.img : `https://keylegacyrealty.managebuilding.com/Resident/api/public/files/download?fileName=${prop.img}&isPreview=true`;
-                }
-
-                const propertyUrl = `https://keylegacyrealty.managebuilding.com${prop.url}`;
-                const price = prop.rent.toLocaleString();
-                const beds = prop.beds === 'Studio' ? 'Studio' : `${prop.beds} Bed`;
-                const baths = `${prop.baths} Bath`;
-
-                return `
-                <a href="${propertyUrl}" target="_blank" class="property-card">
-                    <div class="property-card__image-container">
-                        <img src="${imageUrl}" alt="${prop.address}" class="property-card__image" onerror="this.src='assets/images/Key Home Page.jpg'">
-                    </div>
-                    <div class="property-card__info">
-                        <h3>${prop.address.toLowerCase()}</h3>
-                        <p class="property-card__meta">Residential • ${beds} / ${baths}</p>
-                        <p class="property-card__price">$${price}/mo</p>
-                    </div>
-                </a>
-                `;
-            }).join('');
-
-            countEl.textContent = propertiesToRender.length;
-        }
-
-        function filterProperties() {
-            const filtered = properties.filter(prop => {
-                if (currentBedroomFilter) {
-                    if (currentBedroomFilter === 'studio' && prop.beds !== 'Studio') return false;
-                    if (currentBedroomFilter === '1' && prop.beds != 1) return false;
-                    if (currentBedroomFilter === '2' && prop.beds != 2) return false;
-                    if (currentBedroomFilter === '3' && (prop.beds < 3)) return false;
-                }
-                if (currentPriceFilter) {
-                    const [min, max] = currentPriceFilter.split('-').map(Number);
-                    if (max && (prop.rent < min || prop.rent > max)) return false;
-                    if (!max && prop.rent < min) return false;
+        function render() {
+            const filtered = properties.filter(p => {
+                if (bedFilter && bedFilter !== '3' && p.beds != bedFilter) return false;
+                if (bedFilter === '3' && p.beds < 3) return false;
+                if (priceFilter) {
+                    const [min, max] = priceFilter.split('-').map(Number);
+                    if (p.rent < min || p.rent > max) return false;
                 }
                 return true;
             });
-            renderProperties(filtered);
+
+            document.getElementById('count').textContent = filtered.length + ' properties';
+            document.getElementById('propertiesGrid').innerHTML = filtered.map(p => {
+                const img = p.img ? (p.img.startsWith('http') ? p.img : `https://keylegacyrealty.managebuilding.com/Resident/api/public/files/download?fileName=${p.img}&isPreview=true`) : 'assets/images/Key Home Page.jpg';
+                return `<a href="https://keylegacyrealty.managebuilding.com${p.url}" target="_blank" class="property-card">
+                    <img src="${img}" alt="${p.address}">
+                    <h3>${p.address}</h3>
+                    <p>${p.beds} bed · ${p.baths} bath · <span class="price">$${p.rent.toLocaleString()}/mo</span></p>
+                </a>`;
+            }).join('') || '<p>No properties found.</p>';
         }
 
-        document.getElementById('bedroomFilter').addEventListener('change', (e) => {
-            currentBedroomFilter = e.target.value;
-            filterProperties();
-        });
-
-        document.getElementById('priceFilter').addEventListener('change', (e) => {
-            currentPriceFilter = e.target.value;
-            filterProperties();
-        });
-
-        // Initial
-        renderProperties(properties);
-
+        document.getElementById('bedroomFilter').onchange = e => { bedFilter = e.target.value; render(); };
+        document.getElementById('priceFilter').onchange = e => { priceFilter = e.target.value; render(); };
+        render();
     </script>
 </body>
-
 </html>

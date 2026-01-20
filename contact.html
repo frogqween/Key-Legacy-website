@@ -1,163 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Key Legacy Realty</title>
-
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/groth-theme.css">
 </head>
-
 <body>
-
-    <!-- Top Navigation -->
-    <nav class="top-nav">
-        <div class="top-nav__section">
-            <a href="index.html" style="font-weight: 800; text-decoration: none; text-transform: uppercase;">Key Legacy
-                Realty</a>
-        </div>
-        <div class="top-nav__section" style="justify-content: center;">
-            <span id="nav-time">PHILADELPHIA, PA</span>
-        </div>
-        <div class="top-nav__section nav-links">
+    <nav>
+        <a href="index.html" class="logo">Key Legacy Realty</a>
+        <div class="nav-links">
             <a href="properties.html">Properties</a>
             <a href="services.html">Services</a>
             <a href="about.html">About</a>
-            <a href="contact.html" style="text-decoration: underline;">Contact</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <h1 class="page-title">Contact Us</h1>
-            <p class="page-subtitle">Get in touch with our team for inquiries, viewings, or property management
-                services.</p>
-        </div>
-    </header>
-
-    <main class="container" style="padding-bottom: 4rem;">
-
-        <!-- High Impact Contact Info -->
-        <section class="section-border" style="padding: 4rem 0;">
-            <div class="grid-2">
-                <div>
-                    <span class="contact-label">Email Us</span>
-                    <a href="mailto:hello@keylegacyrealty.com" class="contact-hero-link"
-                        style="word-break: break-all;">hello@<br>keylegacyrealty.com</a>
-                </div>
-                <div>
-                    <span class="contact-label">Call Us</span>
-                    <a href="tel:2673148006" class="contact-hero-link">(267) 314-8006</a>
-                </div>
-            </div>
+    <main class="container">
+        <section>
+            <h1>Contact</h1>
+            <p>Get in touch with our team.</p>
         </section>
 
-        <section style="padding: 4rem 0;">
+        <section>
             <div class="grid-2">
-                <!-- Contact Form -->
                 <div>
-                    <h2 style="font-size: var(--text-xl); margin-bottom: 2rem;">Send a Message</h2>
-                    <form action="#" method="POST"
-                        style="border: 1px solid var(--color-border); padding: 2rem; background: var(--color-white);">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Phone (Optional)</label>
-                            <input type="tel" id="phone" name="phone" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    <h3>Phone</h3>
+                    <p><a href="tel:2673148006">(267) 314-8006</a></p>
+                    <br>
+                    <h3>Email</h3>
+                    <p><a href="mailto:hello@keylegacyrealty.com">hello@keylegacyrealty.com</a></p>
+                    <br>
+                    <h3>Location</h3>
+                    <p>Philadelphia, PA</p>
+                </div>
+                <div>
+                    <h3>Send a Message</h3>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <label>Name</label>
+                        <input type="text" name="name" required>
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                        <label>Message</label>
+                        <textarea name="message" required></textarea>
+                        <button type="submit" class="btn">Send</button>
                     </form>
                 </div>
-
-                <!-- Office / Map -->
-                <div>
-                    <h2 style="font-size: var(--text-xl); margin-bottom: 2rem;">Visit Us</h2>
-                    <div class="map-container">
-                        <!-- Using the placeholder image but treated as a map visual -->
-                        <img src="assets/images/Key Home Page.jpg" alt="Office Location Map">
-                        <div
-                            style="position: absolute; bottom: 0; left: 0; background: var(--color-white); padding: 1rem; border-top-right-radius: 0;">
-                            <span class="contact-label" style="margin-bottom: 0;">Philadelphia, PA</span>
-                        </div>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <h3 class="form-label">Office Hours</h3>
-                        <ul style="line-height: 1.6;">
-                            <li>Monday - Friday: 9am - 5pm</li>
-                            <li>Saturday: By Appointment</li>
-                            <li>Sunday: Closed</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Key Legacy Realty</h4>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About</a>
+                    <a href="agents.html">Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="services.html">Management</a>
+                    <a href="buyers.html">Buyers</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="tel:2673148006">(267) 314-8006</a>
+                    <a href="mailto:hello@keylegacyrealty.com">Email</a>
+                </div>
+                <div>
+                    <h4>Location</h4>
                     <p>Philadelphia, PA</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Properties</h4>
-                    <ul>
-                        <li><a href="properties.html?type=rent">Rentals</a></li>
-                        <li><a href="properties.html?type=buy">Sales</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="services.html">Management</a></li>
-                        <li><a href="buyers.html">Buyers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="tel:2673148006">(267) 314-8006</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div style="margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
-                &copy; 2026 Key Legacy Realty.
             </div>
         </div>
     </footer>
-
-    <script>
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
-            const timeEl = document.getElementById('nav-time');
-            if (timeEl) timeEl.textContent = timeString + ' ET \u2022 PHILADELPHIA';
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
-    </script>
 </body>
-
 </html>
