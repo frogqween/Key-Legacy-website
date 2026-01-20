@@ -4,97 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Key Legacy Realty</title>
+    <title>Contact | Key Legacy Realty</title>
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="src/css/te-core.css?v=6">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=6">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/css/groth-theme.css">
 </head>
 
-<body class="te-content-page">
+<body>
 
-    <!-- Navigation -->
-    <header class="te-nav">
-        <div class="te-nav-primary">
-            <nav class="nav-links">
-                <div class="nav-item">
-                    <a href="index.html" class="nav-main">
-                        <span class="nav-main-text">key legacy</span>
-                        <span class="nav-sub-inline">realty</span>
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a href="index.html" class="nav-main">home</a>
-                </div>
-                <div class="nav-item">
-                    <a href="properties.html" class="nav-main">properties</a>
-                </div>
-                <div class="nav-item has-dropdown">
-                    <a href="services.html" class="nav-main">services</a>
-                    <div class="nav-dropdown">
-                        <a href="services.html" class="dropdown-link">property management</a>
-                        <a href="buyers.html" class="dropdown-link">buyers</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="form.html" class="nav-main">forms</a>
-                </div>
-                <div class="nav-item">
-                    <a href="agents.html" class="nav-main">agents</a>
-                </div>
-                <div class="nav-item">
-                    <a href="about.html" class="nav-main">about</a>
-                </div>
-                <div class="nav-item">
-                    <a href="contact.html" class="nav-main">contact</a>
-                </div>
-            </nav>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav__section">
+            <a href="index.html" style="font-weight: 800; text-decoration: none; text-transform: uppercase;">Key Legacy
+                Realty</a>
+        </div>
+        <div class="top-nav__section" style="justify-content: center;">
+            <span id="nav-time">PHILADELPHIA, PA</span>
+        </div>
+        <div class="top-nav__section nav-links">
+            <a href="properties.html">Properties</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" style="text-decoration: underline;">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">Get in touch with our team for inquiries, viewings, or property management
+                services.</p>
         </div>
     </header>
 
-    <main class="te-container">
-        <div class="te-page-header">
-            <h1 class="te-page-title">contact</h1>
-            <p class="te-page-subtitle">get in touch with our team.</p>
-        </div>
+    <main class="container" style="padding-bottom: 4rem;">
 
-        <section class="te-section" style="border-bottom: none;">
-            <div class="te-grid-2">
+        <!-- High Impact Contact Info -->
+        <section class="section-border" style="padding: 4rem 0;">
+            <div class="grid-2">
                 <div>
-                    <h2 class="te-section-title">contact info</h2>
-                    <ul class="te-list" style="margin-bottom: 40px;">
-                        <li><strong>phone:</strong> (215) 778-9352</li>
-                        <li><strong>email:</strong> hello@keylegacyrealty.com</li>
-                        <li><strong>address:</strong> philadelphia, pa</li>
-                    </ul>
+                    <span class="contact-label">Email Us</span>
+                    <a href="mailto:hello@keylegacyrealty.com" class="contact-hero-link"
+                        style="word-break: break-all;">hello@<br>keylegacyrealty.com</a>
+                </div>
+                <div>
+                    <span class="contact-label">Call Us</span>
+                    <a href="tel:2673148006" class="contact-hero-link">(267) 314-8006</a>
+                </div>
+            </div>
+        </section>
 
-                    <h2 class="te-section-title">send us a message</h2>
-                    <!-- TODO: Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io -->
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <div class="te-form-group">
-                            <label class="te-label">name</label>
-                            <input type="text" name="name" class="te-input" required>
+        <section style="padding: 4rem 0;">
+            <div class="grid-2">
+                <!-- Contact Form -->
+                <div>
+                    <h2 style="font-size: var(--text-xl); margin-bottom: 2rem;">Send a Message</h2>
+                    <form action="#" method="POST"
+                        style="border: 1px solid var(--color-border); padding: 2rem; background: var(--color-white);">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
                         </div>
-                        <div class="te-form-group">
-                            <label class="te-label">email</label>
-                            <input type="email" name="email" class="te-input" required>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
-                        <div class="te-form-group">
-                            <label class="te-label">message</label>
-                            <textarea name="message" class="te-input" style="height: 150px;"></textarea>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
                         </div>
-                        <button type="submit" class="te-btn">send message</button>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
                     </form>
                 </div>
 
-                <div
-                    style="background: #f5f5f5; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                    <!-- Map placeholder or actual map -->
-                    <p class="te-text-small te-mono">[ map view ]</p>
+                <!-- Office / Map -->
+                <div>
+                    <h2 style="font-size: var(--text-xl); margin-bottom: 2rem;">Visit Us</h2>
+                    <div class="map-container">
+                        <!-- Using the placeholder image but treated as a map visual -->
+                        <img src="assets/images/Key Home Page.jpg" alt="Office Location Map">
+                        <div
+                            style="position: absolute; bottom: 0; left: 0; background: var(--color-white); padding: 1rem; border-top-right-radius: 0;">
+                            <span class="contact-label" style="margin-bottom: 0;">Philadelphia, PA</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <h3 class="form-label">Office Hours</h3>
+                        <ul style="line-height: 1.6;">
+                            <li>Monday - Friday: 9am - 5pm</li>
+                            <li>Saturday: By Appointment</li>
+                            <li>Sunday: Closed</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -102,48 +113,51 @@
     </main>
 
     <!-- Footer -->
-    <footer class="te-footer">
-        <div class="te-container">
-            <div class="te-footer-grid">
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>properties</h4>
+                    <h4>Key Legacy Realty</h4>
+                    <p>Philadelphia, PA</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Properties</h4>
                     <ul>
-                        <li><a href="properties.html?type=rent">rentals</a></li>
-                        <li><a href="properties.html?type=buy">sales</a></li>
+                        <li><a href="properties.html?type=rent">Rentals</a></li>
+                        <li><a href="properties.html?type=buy">Sales</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>services</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="services.html">property management</a></li>
-                        <li><a href="buyers.html">buyers</a></li>
+                        <li><a href="services.html">Management</a></li>
+                        <li><a href="buyers.html">Buyers</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>company</h4>
+                    <h4>Connect</h4>
                     <ul>
-                        <li><a href="about.html">about us</a></li>
-                        <li><a href="https://instagram.com/keylegacyrealty">instagram</a></li>
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="tel:2673148006">(267) 314-8006</a></li>
                     </ul>
-                </div>
-                <div class="footer-col footer-newsletter">
-                    <h4>newsletter</h4>
-                    <p style="margin-bottom:10px; color:var(--te-gray-dark); font-size:13px;">sign up for the latest
-                        listings.</p>
-                    <form action="#">
-                        <input type="email" class="te-input" placeholder="email address">
-                        <button type="submit" class="te-btn" style="width:100%; margin-top:10px;">subscribe</button>
-                    </form>
                 </div>
             </div>
-
-            <div class="te-footer-bottom">
-                <p>&copy; 2026 key legacy realty. philadelphia, pa.</p>
-                <p><a href="assets/pdf/Privacy Policy.pdf" target="_blank">privacy policy</a></p>
+            <div style="margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
+                &copy; 2026 Key Legacy Realty.
             </div>
         </div>
     </footer>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+            const timeEl = document.getElementById('nav-time');
+            if (timeEl) timeEl.textContent = timeString + ' ET \u2022 PHILADELPHIA';
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
 </body>
 
 </html>

@@ -5,491 +5,390 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rental Application | Key Legacy Realty</title>
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="src/css/te-core.css?v=6">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=6">
-    <link rel="stylesheet" href="src/css/form-style.css?v=3">
-
-    <style>
-        /* Override form styles for compatibility */
-        body.form-page {
-            font-family: var(--te-font-family);
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/css/te-core.css?v=7">
+    <link rel="stylesheet" href="src/css/te-nav.css?v=7">
+    <link rel="stylesheet" href="src/css/form-style.css?v=7">
 </head>
 
 <body class="form-page">
-    <div class="container" style="max-width: none; background: #bf5518;">
-
-        <header class="te-nav">
-            <div class="te-nav-primary">
-                <nav class="nav-links">
-                    <div class="nav-item">
-                        <a href="index.html" class="nav-main">
-                            <span class="nav-main-text">key legacy</span>
-                            <span class="nav-sub-inline">realty</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="index.html" class="nav-main">home</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="properties.html" class="nav-main">properties</a>
-                    </div>
-                    <div class="nav-item has-dropdown">
-                        <a href="services.html" class="nav-main">services</a>
-                        <div class="nav-dropdown">
-                            <a href="services.html" class="dropdown-link">property management</a>
-                            <a href="buyers.html" class="dropdown-link">buyers</a>
-                        </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="form.html" class="nav-main">forms</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="agents.html" class="nav-main">agents</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="about.html" class="nav-main">about</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="contact.html" class="nav-main">contact</a>
-                    </div>
-                </nav>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">key legacy realty</a>
+            <div class="nav__links">
+                <a href="properties.html" class="nav__link">properties</a>
+                <a href="services.html" class="nav__link">services</a>
+                <a href="agents.html" class="nav__link">agents</a>
+                <a href="about.html" class="nav__link">about</a>
+                <a href="contact.html" class="nav__link">contact</a>
             </div>
-        </header>
+            <button class="nav__toggle" aria-label="Menu">
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+            </button>
+        </div>
+    </nav>
 
+    <!-- Mobile Menu -->
+    <div class="nav__mobile">
+        <div class="nav__mobile-links">
+            <a href="properties.html" class="nav__mobile-link">properties</a>
+            <a href="services.html" class="nav__mobile-link">services</a>
+            <a href="agents.html" class="nav__mobile-link">agents</a>
+            <a href="about.html" class="nav__mobile-link">about</a>
+            <a href="contact.html" class="nav__mobile-link">contact</a>
+        </div>
+    </div>
 
-        <div class="split-layout" style="margin-top: 80px; height: calc(100vh - 80px);">
-            <!-- Left Sidebar: Navigation -->
-            <div class="sidebar" style="padding: 0; display: flex; flex-direction: column;">
-                <nav style="flex: 1;">
-                    <button class="nav-item active" onclick="switchSection(1)" data-section="1">
-                        <div class="step-number">1</div>
-                        <div class="nav-title">Contact Information</div>
-                    </button>
-                    <button class="nav-item disabled" onclick="switchSection(2)" data-section="2">
-                        <div class="step-number">2</div>
-                        <div class="nav-title">Property Preferences</div>
-                    </button>
-                    <button class="nav-item disabled" onclick="switchSection(3)" data-section="3">
-                        <div class="step-number">3</div>
-                        <div class="nav-title">Financial Information</div>
-                    </button>
-                    <button class="nav-item disabled" onclick="switchSection(4)" data-section="4">
-                        <div class="step-number">4</div>
-                        <div class="nav-title">Scheduling &amp; Notes</div>
-                    </button>
-                </nav>
-            </div>
-
-            <!-- Right Panel: Form -->
-            <div class="form-panel">
-                <form id="fullApplicationForm" onsubmit="handleFinalSubmit(event)">
-
-                    <!-- SECTION 1: CONTACT INFORMATION -->
-                    <div id="section-1" class="form-section active">
-                        <div style="margin-bottom: 30px;">
-                            <span class="badge">STEP 01 OF 04</span>
-                            <h2 style="margin-top: 10px; font-size: 24px;">Contact Information</h2>
-                        </div>
-
-                        <!-- Consent Block -->
-                        <div
-                            style="padding: 20px; background: rgba(0,0,0,0.03); border: 1px solid var(--border-color); margin-bottom: 20px;">
-                            <label class="input-label" style="margin-bottom: 10px; display: block;">Consent</label>
-                            <p
-                                style="font-size: 12px; color: var(--muted-color); margin-bottom: 15px; line-height: 1.6;">
-                                By continuing, I confirm that the information provided is accurate, that I've read and
-                                received the
-                                <a href="assets/pdf/Consumer%20Notice.pdf" target="_blank"
-                                    style="color: var(--accent-color); font-weight: 700; text-decoration: underline; padding: 2px 4px; margin: -2px -4px;">Consumer
-                                    Notice</a> and
-                                <a href="assets/pdf/KLR%20Application%20Criteria%20%5B12.1.2025%5D.pdf" target="_blank"
-                                    style="color: var(--accent-color); font-weight: 700; text-decoration: underline; padding: 2px 4px; margin: -2px -4px;">Application
-                                    Criteria</a>, and that Key Legacy Realty may use this information to schedule tours.
-                            </p>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                                <input type="checkbox" id="consentSection1" required>
-                                <span style="font-size: 13px;">I agree</span>
-                            </label>
-                        </div>
-
-                        <div class="input-group">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                                <input type="checkbox" name="agent" id="agentCheckbox" value="no" required>
-                                <span class="input-label" style="margin: 0;">I do not have a real estate agent</span>
-                            </label>
-                        </div>
-
-                        <div class="floating-label-group">
-                            <input type="text" name="firstName" id="firstName" placeholder=" " required>
-                            <label for="firstName">First Name</label>
-                        </div>
-
-                        <div class="floating-label-group">
-                            <input type="text" name="lastName" id="lastName" placeholder=" " required>
-                            <label for="lastName">Last Name</label>
-                        </div>
-
-                        <div class="floating-label-group">
-                            <input type="tel" name="phone" id="phone" placeholder=" " required>
-                            <label for="phone">Phone Number</label>
-                        </div>
-
-                        <div class="floating-label-group">
-                            <input type="email" name="email" id="email" placeholder=" " required>
-                            <label for="email">Email Address</label>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Preferred Contact Method</label>
-                            <div class="button-group">
-                                <input type="hidden" name="preferredContact" id="input-contact" required>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-contact', 'Email')">Email</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-contact', 'Text Message')">Text
-                                    Message</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-contact', 'Phone Call')">Phone
-                                    Call</button>
-                            </div>
-                        </div>
-
-                        <button type="button" class="btn-submit" onclick="nextSection()">Continue</button>
-                    </div>
-
-                    <!-- SECTION 2: PROPERTY PREFERENCES -->
-                    <div id="section-2" class="form-section">
-                        <div style="margin-bottom: 30px;">
-                            <span class="badge">STEP 02 OF 04</span>
-                            <h2 style="margin-top: 10px; font-size: 24px;">Property Preferences</h2>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Property Type</label>
-                            <div class="button-group preference-grid">
-                                <input type="hidden" name="propertyInterest" id="input-propertyInterest" required>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-propertyInterest', 'Apartment')">Apartment</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-propertyInterest', 'House')">House</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Bedrooms</label>
-                            <div class="button-group preference-grid" id="bedroom-group">
-                                <input type="hidden" name="bedrooms" id="input-bedrooms" required>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-bedrooms', 'Studio')">Studio</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-bedrooms', '1 Bedroom')">1 Bedroom</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-bedrooms', '2 Bedroom')">2 Bedroom</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-bedrooms', '3 Bedroom')">3 Bedroom</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-bedrooms', '4 Bedroom')">4 Bedroom</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-bedrooms', '5+ Bedrooms')">5+
-                                    Bedrooms</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Preferred Neighborhoods</label>
-                            <div class="button-group preference-grid">
-                                <input type="hidden" name="neighborhoods" id="input-neighborhoods" required>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Center City')">Center
-                                    City</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Rittenhouse Square')">Rittenhouse
-                                    Square</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Old City / Society Hill')">Old
-                                    City / Society Hill</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'University City')">University
-                                    City</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Northern Liberties / Fishtown')">Northern
-                                    Liberties / Fishtown</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Fairmount / Art Museum')">Fairmount
-                                    / Art Museum</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'South Philly')">South
-                                    Philly</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'East Passyunk')">East
-                                    Passyunk</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Manayunk / Roxborough')">Manayunk
-                                    / Roxborough</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Chestnut Hill')">Chestnut
-                                    Hill</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Mt. Airy')">Mt. Airy</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Northeast Philly')">Northeast
-                                    Philly</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'North Philly')">North
-                                    Philly</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-neighborhoods', 'Southwest Philly')">Southwest
-                                    Philly</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Move-In Date</label>
-                            <input type="date" name="moveInDate" required>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Monthly Budget</label>
-                            <div class="button-group preference-grid">
-                                <input type="hidden" name="budget" id="input-budget" required>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-budget', '$1,000-$1,200')">$1,000-$1,200</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-budget', '$1,200-$1,500')">$1,200-$1,500</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-budget', '$1,500-$1,800')">$1,500-$1,800</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-budget', '$1,800-$2,200')">$1,800-$2,200</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-budget', '$2,200+')">$2,200+</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Must-Have Features</label>
-                            <div class="button-group preference-grid">
-                                <input type="hidden" name="nonNegotiables" id="input-negotiables" required>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Parking')">Parking</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'In-Unit Laundry')">In-Unit
-                                    Laundry</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Central Air')">Central
-                                    Air</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Dishwasher')">Dishwasher</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Outdoor Space')">Outdoor
-                                    Space</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Gym Access')">Gym Access</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Storage')">Storage</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Utilities Included')">Utilities
-                                    Included</button>
-                                <button type="button" class="option-btn"
-                                    onclick="toggleOption(this, 'input-negotiables', 'Doorman / Security')">Doorman /
-                                    Security</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                                <input type="checkbox" name="hasPets" id="hasPetsCheckbox"
-                                    onchange="togglePetOptions()">
-                                <span class="input-label" style="margin: 0;">Pets</span>
-                            </label>
-
-                            <div id="petOptions" style="display: none; margin-top: 15px; transition: all 0.3s ease;">
-                                <div class="preference-grid" style="margin-bottom: 20px;">
-                                    <div class="floating-label-group" style="margin-bottom: 0;">
-                                        <input type="number" name="catCount" id="catCount" placeholder=" " min="0">
-                                        <label for="catCount">Cats (Qty)</label>
-                                    </div>
-                                    <div class="floating-label-group" style="margin-bottom: 0;">
-                                        <input type="number" name="dogCount" id="dogCount" placeholder=" " min="0"
-                                            oninput="toggleDogDetails()">
-                                        <label for="dogCount">Dogs (Qty)</label>
-                                    </div>
-                                </div>
-
-                                <div id="dogOptions" style="display: none;">
-                                    <div class="preference-grid">
-                                        <div class="floating-label-group" style="margin-bottom: 0;">
-                                            <input type="text" name="dogDetails" id="dogDetailsInput" placeholder=" ">
-                                            <label for="dogDetailsInput">Dog Weight Approx</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 10px;">
-                            <button type="button" class="btn-submit"
-                                style="background: transparent; color: var(--text-color); border: 1px solid var(--border-color); flex: 1;"
-                                onclick="prevSection()">Back</button>
-                            <button type="button" class="btn-submit" style="flex: 2;"
-                                onclick="nextSection()">Continue</button>
-                        </div>
-                    </div>
-
-                    <!-- SECTION 3: FINANCIAL INFORMATION -->
-                    <div id="section-3" class="form-section">
-                        <div style="margin-bottom: 30px;">
-                            <span class="badge">STEP 03 OF 04</span>
-                            <h2 style="margin-top: 10px; font-size: 24px;">Financial Information</h2>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Applying with Others</label>
-                            <div class="button-group">
-                                <input type="hidden" name="coapplicants" id="input-coapplicants" required>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-coapplicants', 'Yes')">Yes</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-coapplicants', 'No')">No</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Evictions in Past 4 Years</label>
-                            <div class="button-group">
-                                <input type="hidden" name="evictions" id="input-evictions" required>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-evictions', 'Yes')">Yes</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-evictions', 'No')">No</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Income 3x Monthly Rent</label>
-                            <div class="button-group">
-                                <input type="hidden" name="verifiableIncome" id="input-verifiableIncome" required>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-verifiableIncome', 'Yes')">Yes</button>
-                                <button type="button" class="option-btn"
-                                    onclick="selectSingleOption(this, 'input-verifiableIncome', 'No')">No</button>
-                            </div>
-                        </div>
-
-                        <div class="floating-label-group">
-                            <select name="creditScore" id="creditScore"
-                                onchange="this.dataset.hasValue = this.value ? 'true' : '';" required>
-                                <option value="" selected disabled hidden></option>
-                                <option value="Excellent (740+)">Excellent (740+)</option>
-                                <option value="Great (680-739)">Great (680-739)</option>
-                                <option value="Good (620-679)">Good (620-679)</option>
-                                <option value="Fair (580-619)">Fair (580-619)</option>
-                                <option value="Poor (<580)">Poor (&lt;580)</option>
-                                <option value="Unknown">Unknown</option>
-                            </select>
-                            <label for="creditScore">Credit Score</label>
-                        </div>
-
-                        <div style="display: flex; gap: 10px;">
-                            <button type="button" class="btn-submit"
-                                style="background: transparent; color: var(--text-color); border: 1px solid var(--border-color); flex: 1;"
-                                onclick="prevSection()">Back</button>
-                            <button type="button" class="btn-submit" style="flex: 2;"
-                                onclick="nextSection()">Continue</button>
-                        </div>
-                    </div>
-
-                    <!-- SECTION 4: SCHEDULING & NOTES -->
-                    <div id="section-4" class="form-section">
-                        <div style="margin-bottom: 30px;">
-                            <span class="badge">STEP 04 OF 04</span>
-                            <h2 style="margin-top: 10px; font-size: 24px;">Scheduling &amp; Notes</h2>
-                        </div>
-
-                        <div class="input-group">
-                            <div style="margin-bottom: 15px;">
-                                <label class="input-label">Available Days</label>
-                                <div class="button-group">
-                                    <input type="hidden" name="tourDays" id="input-tour-days" required>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-days', 'Mon')">Mon</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-days', 'Tue')">Tue</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-days', 'Wed')">Wed</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-days', 'Thu')">Thu</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-days', 'Fri')">Fri</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-days', 'Sat')">Sat</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-days', 'Sun')">Sun</button>
-                                </div>
-                            </div>
-
-                            <div style="margin-bottom: 15px;">
-                                <label class="input-label">Preferred Time of Day</label>
-                                <div class="button-group">
-                                    <input type="hidden" name="tourTimes" id="input-tour-times" required>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-times', 'Morning (9-12)')">Morning
-                                        (9-12)</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-times', 'Afternoon (12-5)')">Afternoon
-                                        (12-5)</button>
-                                    <button type="button" class="option-btn"
-                                        onclick="toggleOption(this, 'input-tour-times', 'Evening (5+)')">Evening
-                                        (5+)</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="input-label">Additional Notes</label>
-                            <textarea name="notes" placeholder="Is there anything else we should know?"></textarea>
-                        </div>
-
-                        <div style="display: flex; gap: 10px;">
-                            <button type="button" class="btn-submit"
-                                style="background: transparent; color: var(--text-color); border: 1px solid var(--border-color); flex: 1;"
-                                onclick="prevSection()">Back</button>
-                            <button type="submit" class="btn-submit" style="flex: 2;">Submit</button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
+    <div class="split-layout" style="margin-top: 80px; min-height: calc(100vh - 80px);">
+        <!-- Left Sidebar: Navigation -->
+        <div class="sidebar">
+            <nav>
+                <button class="nav-item active" onclick="switchSection(1)" data-section="1">
+                    <div class="step-number">1</div>
+                    <div class="nav-title">contact information</div>
+                </button>
+                <button class="nav-item disabled" onclick="switchSection(2)" data-section="2">
+                    <div class="step-number">2</div>
+                    <div class="nav-title">property preferences</div>
+                </button>
+                <button class="nav-item disabled" onclick="switchSection(3)" data-section="3">
+                    <div class="step-number">3</div>
+                    <div class="nav-title">financial information</div>
+                </button>
+                <button class="nav-item disabled" onclick="switchSection(4)" data-section="4">
+                    <div class="step-number">4</div>
+                    <div class="nav-title">scheduling & notes</div>
+                </button>
+            </nav>
         </div>
 
+        <!-- Right Panel: Form -->
+        <div class="form-panel">
+            <form id="fullApplicationForm" onsubmit="handleFinalSubmit(event)">
+
+                <!-- SECTION 1: CONTACT INFORMATION -->
+                <div id="section-1" class="form-section active">
+                    <div style="margin-bottom: var(--space-md);">
+                        <span class="badge">step 01 of 04</span>
+                        <h2 style="margin-top: var(--space-xs); font-size: var(--text-xl);">contact information</h2>
+                    </div>
+
+                    <!-- Consent Block -->
+                    <div style="padding: var(--space-md); background: var(--color-bg-alt); border: 1px solid var(--color-border-light); margin-bottom: var(--space-md);">
+                        <label class="input-label" style="margin-bottom: var(--space-xs); display: block;">consent</label>
+                        <p style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-sm); line-height: 1.6;">
+                            by continuing, i confirm that the information provided is accurate, that i've read and received the
+                            <a href="assets/pdf/Consumer%20Notice.pdf" target="_blank" style="color: var(--color-text); text-decoration: underline;">consumer notice</a> and
+                            <a href="assets/pdf/KLR%20Application%20Criteria%20%5B12.1.2025%5D.pdf" target="_blank" style="color: var(--color-text); text-decoration: underline;">application criteria</a>, and that key legacy realty may use this information to schedule tours.
+                        </p>
+                        <label style="display: flex; align-items: center; gap: var(--space-xs); cursor: pointer;">
+                            <input type="checkbox" id="consentSection1" required>
+                            <span style="font-size: var(--text-sm);">i agree</span>
+                        </label>
+                    </div>
+
+                    <div class="input-group">
+                        <label style="display: flex; align-items: center; gap: var(--space-xs); cursor: pointer;">
+                            <input type="checkbox" name="agent" id="agentCheckbox" value="no" required>
+                            <span class="input-label" style="margin: 0;">i do not have a real estate agent</span>
+                        </label>
+                    </div>
+
+                    <div class="floating-label-group">
+                        <input type="text" name="firstName" id="firstName" placeholder=" " required>
+                        <label for="firstName">first name</label>
+                    </div>
+
+                    <div class="floating-label-group">
+                        <input type="text" name="lastName" id="lastName" placeholder=" " required>
+                        <label for="lastName">last name</label>
+                    </div>
+
+                    <div class="floating-label-group">
+                        <input type="tel" name="phone" id="phone" placeholder=" " required>
+                        <label for="phone">phone number</label>
+                    </div>
+
+                    <div class="floating-label-group">
+                        <input type="email" name="email" id="email" placeholder=" " required>
+                        <label for="email">email address</label>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">preferred contact method</label>
+                        <div class="button-group">
+                            <input type="hidden" name="preferredContact" id="input-contact" required>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-contact', 'Email')">email</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-contact', 'Text Message')">text message</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-contact', 'Phone Call')">phone call</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-submit" onclick="nextSection()">continue</button>
+                </div>
+
+                <!-- SECTION 2: PROPERTY PREFERENCES -->
+                <div id="section-2" class="form-section">
+                    <div style="margin-bottom: var(--space-md);">
+                        <span class="badge">step 02 of 04</span>
+                        <h2 style="margin-top: var(--space-xs); font-size: var(--text-xl);">property preferences</h2>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">property type</label>
+                        <div class="button-group preference-grid">
+                            <input type="hidden" name="propertyInterest" id="input-propertyInterest" required>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-propertyInterest', 'Apartment')">apartment</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-propertyInterest', 'House')">house</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">bedrooms</label>
+                        <div class="button-group preference-grid">
+                            <input type="hidden" name="bedrooms" id="input-bedrooms" required>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-bedrooms', 'Studio')">studio</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-bedrooms', '1 Bedroom')">1 bedroom</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-bedrooms', '2 Bedroom')">2 bedroom</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-bedrooms', '3 Bedroom')">3 bedroom</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-bedrooms', '4 Bedroom')">4 bedroom</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-bedrooms', '5+ Bedrooms')">5+ bedrooms</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">preferred neighborhoods</label>
+                        <div class="button-group preference-grid">
+                            <input type="hidden" name="neighborhoods" id="input-neighborhoods" required>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Center City')">center city</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Rittenhouse Square')">rittenhouse square</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Old City / Society Hill')">old city / society hill</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'University City')">university city</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Northern Liberties / Fishtown')">northern liberties / fishtown</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Fairmount / Art Museum')">fairmount / art museum</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'South Philly')">south philly</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'East Passyunk')">east passyunk</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Manayunk / Roxborough')">manayunk / roxborough</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Chestnut Hill')">chestnut hill</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Mt. Airy')">mt. airy</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Northeast Philly')">northeast philly</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'North Philly')">north philly</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-neighborhoods', 'Southwest Philly')">southwest philly</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">move-in date</label>
+                        <input type="date" name="moveInDate" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">monthly budget</label>
+                        <div class="button-group preference-grid">
+                            <input type="hidden" name="budget" id="input-budget" required>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-budget', '$1,000-$1,200')">$1,000-$1,200</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-budget', '$1,200-$1,500')">$1,200-$1,500</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-budget', '$1,500-$1,800')">$1,500-$1,800</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-budget', '$1,800-$2,200')">$1,800-$2,200</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-budget', '$2,200+')">$2,200+</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">must-have features</label>
+                        <div class="button-group preference-grid">
+                            <input type="hidden" name="nonNegotiables" id="input-negotiables" required>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Parking')">parking</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'In-Unit Laundry')">in-unit laundry</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Central Air')">central air</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Dishwasher')">dishwasher</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Outdoor Space')">outdoor space</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Gym Access')">gym access</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Storage')">storage</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Utilities Included')">utilities included</button>
+                            <button type="button" class="option-btn" onclick="toggleOption(this, 'input-negotiables', 'Doorman / Security')">doorman / security</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label style="display: flex; align-items: center; gap: var(--space-xs); cursor: pointer;">
+                            <input type="checkbox" name="hasPets" id="hasPetsCheckbox" onchange="togglePetOptions()">
+                            <span class="input-label" style="margin: 0;">pets</span>
+                        </label>
+
+                        <div id="petOptions" style="display: none; margin-top: var(--space-sm);">
+                            <div class="preference-grid" style="margin-bottom: var(--space-md);">
+                                <div class="floating-label-group" style="margin-bottom: 0;">
+                                    <input type="number" name="catCount" id="catCount" placeholder=" " min="0">
+                                    <label for="catCount">cats (qty)</label>
+                                </div>
+                                <div class="floating-label-group" style="margin-bottom: 0;">
+                                    <input type="number" name="dogCount" id="dogCount" placeholder=" " min="0" oninput="toggleDogDetails()">
+                                    <label for="dogCount">dogs (qty)</label>
+                                </div>
+                            </div>
+
+                            <div id="dogOptions" style="display: none;">
+                                <div class="preference-grid">
+                                    <div class="floating-label-group" style="margin-bottom: 0;">
+                                        <input type="text" name="dogDetails" id="dogDetailsInput" placeholder=" ">
+                                        <label for="dogDetailsInput">dog weight approx</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-sm);">
+                        <button type="button" class="btn-submit" style="background: transparent; color: var(--color-text); border: 1px solid var(--color-border-light); flex: 1;" onclick="prevSection()">back</button>
+                        <button type="button" class="btn-submit" style="flex: 2;" onclick="nextSection()">continue</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: FINANCIAL INFORMATION -->
+                <div id="section-3" class="form-section">
+                    <div style="margin-bottom: var(--space-md);">
+                        <span class="badge">step 03 of 04</span>
+                        <h2 style="margin-top: var(--space-xs); font-size: var(--text-xl);">financial information</h2>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">applying with others</label>
+                        <div class="button-group">
+                            <input type="hidden" name="coapplicants" id="input-coapplicants" required>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-coapplicants', 'Yes')">yes</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-coapplicants', 'No')">no</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">evictions in past 4 years</label>
+                        <div class="button-group">
+                            <input type="hidden" name="evictions" id="input-evictions" required>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-evictions', 'Yes')">yes</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-evictions', 'No')">no</button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">income 3x monthly rent</label>
+                        <div class="button-group">
+                            <input type="hidden" name="verifiableIncome" id="input-verifiableIncome" required>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-verifiableIncome', 'Yes')">yes</button>
+                            <button type="button" class="option-btn" onclick="selectSingleOption(this, 'input-verifiableIncome', 'No')">no</button>
+                        </div>
+                    </div>
+
+                    <div class="floating-label-group">
+                        <select name="creditScore" id="creditScore" onchange="this.dataset.hasValue = this.value ? 'true' : '';" required>
+                            <option value="" selected disabled hidden></option>
+                            <option value="Excellent (740+)">excellent (740+)</option>
+                            <option value="Great (680-739)">great (680-739)</option>
+                            <option value="Good (620-679)">good (620-679)</option>
+                            <option value="Fair (580-619)">fair (580-619)</option>
+                            <option value="Poor (<580)">poor (&lt;580)</option>
+                            <option value="Unknown">unknown</option>
+                        </select>
+                        <label for="creditScore">credit score</label>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-sm);">
+                        <button type="button" class="btn-submit" style="background: transparent; color: var(--color-text); border: 1px solid var(--color-border-light); flex: 1;" onclick="prevSection()">back</button>
+                        <button type="button" class="btn-submit" style="flex: 2;" onclick="nextSection()">continue</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: SCHEDULING & NOTES -->
+                <div id="section-4" class="form-section">
+                    <div style="margin-bottom: var(--space-md);">
+                        <span class="badge">step 04 of 04</span>
+                        <h2 style="margin-top: var(--space-xs); font-size: var(--text-xl);">scheduling & notes</h2>
+                    </div>
+
+                    <div class="input-group">
+                        <div style="margin-bottom: var(--space-sm);">
+                            <label class="input-label">available days</label>
+                            <div class="button-group">
+                                <input type="hidden" name="tourDays" id="input-tour-days" required>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-days', 'Mon')">mon</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-days', 'Tue')">tue</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-days', 'Wed')">wed</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-days', 'Thu')">thu</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-days', 'Fri')">fri</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-days', 'Sat')">sat</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-days', 'Sun')">sun</button>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: var(--space-sm);">
+                            <label class="input-label">preferred time of day</label>
+                            <div class="button-group">
+                                <input type="hidden" name="tourTimes" id="input-tour-times" required>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-times', 'Morning (9-12)')">morning (9-12)</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-times', 'Afternoon (12-5)')">afternoon (12-5)</button>
+                                <button type="button" class="option-btn" onclick="toggleOption(this, 'input-tour-times', 'Evening (5+)')">evening (5+)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">additional notes</label>
+                        <textarea name="notes" placeholder="is there anything else we should know?"></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-sm);">
+                        <button type="button" class="btn-submit" style="background: transparent; color: var(--color-text); border: 1px solid var(--color-border-light); flex: 1;" onclick="prevSection()">back</button>
+                        <button type="submit" class="btn-submit" style="flex: 2;">submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
     </div>
 
     <!-- Submission Overlay -->
     <div id="submissionOverlay" class="submission-overlay">
         <div class="submission-content">
             <div class="success-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                    stroke-linecap="round" stroke-linejoin="round">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
             </div>
-            <h2 class="submission-title">You're all set</h2>
-            <p class="submission-message">Thanks for reaching out to Key Legacy Realty.<br>Our team will be in touch
-                shortly.</p>
-            <button class="btn-submit" onclick="location.href='index.html'"
-                style="max-width: 200px; margin: 0 auto;">Back to Home</button>
+            <h2 class="submission-title">you're all set</h2>
+            <p class="submission-message">thanks for reaching out to key legacy realty.<br>our team will be in touch shortly.</p>
+            <button class="btn-submit" onclick="location.href='index.html'" style="max-width: 200px; margin: 0 auto;">back to home</button>
         </div>
     </div>
 
     <script src="src/js/form.js"></script>
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav__toggle');
+        const navMobile = document.querySelector('.nav__mobile');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('is-open');
+            navMobile.classList.toggle('is-open');
+            document.body.style.overflow = navMobile.classList.contains('is-open') ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.nav__mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('is-open');
+                navMobile.classList.remove('is-open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
 
 </html>

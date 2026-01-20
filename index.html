@@ -4,208 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Legacy Realty | Philadelphia Rentals</title>
+    <title>Key Legacy Realty | Philadelphia Real Estate</title>
 
-    <!-- Google Fonts: Inter + Space Mono -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="src/css/te-core.css?v=6">
-    <link rel="stylesheet" href="src/css/te-nav.css?v=6">
-
-    <style>
-        /* Specific page overrides */
-        body.landing-page {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            /* Override te-core body padding if any */
-            padding-top: 0 !important;
-        }
-
-        /* Customize nav for landing page transparency/overlay if desired, 
-           or keep standard. Here we keep standard but ensure z-index */
-        .te-nav {
-            z-index: 1000;
-        }
-
-        .hero-section {
-            width: 100%;
-            height: 100vh;
-            /* Full height now that nav is top overlay or part of layout */
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-        }
-
-        .hero-section picture {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 80%;
-        }
-
-        /* Hero text overlay like reference */
-        .hero-overlay {
-            position: absolute;
-            bottom: 15%;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 10;
-        }
-
-        .hero-title {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 56px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin: 0 0 14px 0;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-subtitle {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0;
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 900px) {
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .hero-subtitle {
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 680px) {
-            .hero-section {
-                height: 100vh;
-            }
-
-            .hero-title {
-                font-size: 38px;
-                letter-spacing: 0.08em;
-            }
-
-            .hero-subtitle {
-                font-size: 14px;
-            }
-
-            .hero-overlay {
-                bottom: 12%;
-                padding: 0 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-section {
-                height: 100vh;
-            }
-
-            .hero-title {
-                font-size: 32px;
-                letter-spacing: 0.06em;
-                margin-bottom: 10px;
-            }
-
-            .hero-subtitle {
-                font-size: 13px;
-                letter-spacing: 0.04em;
-            }
-
-            .hero-overlay {
-                bottom: 10%;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .hero-title {
-                font-size: 28px;
-            }
-
-            .hero-subtitle {
-                font-size: 12px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="src/css/groth-theme.css">
 </head>
 
-<body class="landing-page">
+<body>
 
-    <!-- Navigation -->
-    <header class="te-nav">
-        <div class="te-nav-primary">
-            <nav class="nav-links">
-                <div class="nav-item">
-                    <a href="index.html" class="nav-main">
-                        <span class="nav-main-text">key legacy</span>
-                        <span class="nav-sub-inline">realty</span>
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a href="index.html" class="nav-main">home</a>
-                </div>
-                <div class="nav-item">
-                    <a href="properties.html" class="nav-main">properties</a>
-                </div>
-                <div class="nav-item has-dropdown">
-                    <a href="services.html" class="nav-main">services</a>
-                    <div class="nav-dropdown">
-                        <a href="services.html" class="dropdown-link">property management</a>
-                        <a href="buyers.html" class="dropdown-link">buyers</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="form.html" class="nav-main">forms</a>
-                </div>
-                <div class="nav-item">
-                    <a href="agents.html" class="nav-main">agents</a>
-                </div>
-                <div class="nav-item">
-                    <a href="about.html" class="nav-main">about</a>
-                </div>
-                <div class="nav-item">
-                    <a href="contact.html" class="nav-main">contact</a>
-                </div>
-            </nav>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav__section">
+            <a href="index.html" style="font-weight: 800; text-decoration: none; text-transform: uppercase;">Key Legacy
+                Realty</a>
+        </div>
+        <div class="top-nav__section" style="justify-content: center;">
+            <span id="nav-time">PHILADELPHIA, PA</span>
+        </div>
+        <div class="top-nav__section nav-links">
+            <a href="properties.html">Properties</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1 class="hero__brand">
+            Key Legacy<sup style="font-size: 2rem; vertical-align: top;">™</sup>
+        </h1>
+
+        <div class="hero__grid">
+            <div class="hero__description">
+                Building communities, creating homes. Philadelphia's trusted partner for consciously managed
+                environments.
+            </div>
+            <div class="hero__decoration">
+                <svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <rect x="25" y="25" width="50" height="50" />
+                    <circle cx="50" cy="50" r="35" />
+                    <line x1="25" y1="25" x2="75" y2="75" />
+                </svg>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <section class="hero-section">
-            <picture>
-                <source srcset="assets/images/Key Home Page.avif" type="image/avif">
-                <img src="assets/images/Key Home Page.jpg" alt="Key Legacy Realty" class="hero-image">
-            </picture>
-            <div class="hero-overlay">
-                <h1 class="hero-title">Key Legacy</h1>
+    <!-- Main Content Grid -->
+    <main class="main-grid">
+
+        <!-- Left Column: Main Content -->
+        <div class="content-col">
+
+            <!-- Featured Section Header -->
+            <section class="projects-header">
+                <h2 class="projects-title">Homes</h2>
+                <div class="projects-desc">
+                    <p>A selection of properties across Philadelphia, weaving together comfort, community, and expert
+                        management.</p>
+                </div>
+            </section>
+
+            <!-- Property List -->
+            <div class="property-list">
+
+                <!-- Property 1 -->
+                <article class="property-item">
+                    <div class="property-info">
+                        <div>
+                            <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">5449 Baltimore Ave</h3>
+                            <p style="color: var(--color-text-muted);">Residential • 3 Bed / 1 Bath</p>
+                        </div>
+                        <div>
+                            <p style="font-size: var(--text-lg); font-weight: 600; margin-bottom: 1rem;">$1,400/mo</p>
+                            <a href="properties.html" class="btn-arrow">View Property →</a>
+                        </div>
+                    </div>
+                    <img src="assets/images/Key Home Page.jpg" alt="5449 Baltimore" class="property-image">
+                </article>
+
+                <!-- Property 2 -->
+                <article class="property-item">
+                    <div class="property-info">
+                        <div>
+                            <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">1530 S 27th St</h3>
+                            <p style="color: var(--color-text-muted);">Residential • 3 Bed / 1 Bath</p>
+                        </div>
+                        <div>
+                            <p style="font-size: var(--text-lg); font-weight: 600; margin-bottom: 1rem;">$1,350/mo</p>
+                            <a href="properties.html" class="btn-arrow">View Property →</a>
+                        </div>
+                    </div>
+                    <img src="assets/images/Key Home Page.jpg" alt="1530 S 27th St" class="property-image">
+                </article>
+
+                <!-- Service Link Block -->
+                <article class="property-item" style="background-color: #eee;">
+                    <div class="property-info"
+                        style="grid-column: span 2; display: flex; flex-direction: column; justify-content: center; padding: var(--space-lg);">
+                        <h3 style="font-size: var(--text-xl);">Property Management Services</h3>
+                        <p style="margin-top: 1rem; max-width: 60ch; font-size: var(--text-lg);">Complete peace of mind
+                            for property owners. We handle everything from tenant screening to 24/7 maintenance.</p>
+                        <a href="services.html" class="btn-arrow" style="margin-top: 2rem;">Explore Services →</a>
+                    </div>
+                </article>
+
             </div>
-        </section>
+        </div>
+
+        <!-- Right Column: Sidebar (Orange) -->
+        <aside class="sidebar-col">
+
+            <div class="sidebar-item">
+                <h3 class="sidebar-title">Featured Listing</h3>
+                <p style="margin-bottom: 1rem;">2051 S 65th St</p>
+                <img src="assets/images/Key Home Page.jpg" alt="Featured" class="sidebar-image">
+                <p>Spacious living in a quiet neighborhood. Recently renovated with modern amenities.</p>
+                <a href="properties.html" class="btn-arrow">Check Availability →</a>
+            </div>
+
+            <div class="sidebar-item" style="flex-grow: 1;">
+                <h3 class="sidebar-title">Our Philosophy</h3>
+                <p style="margin-bottom: 1rem;">Transparency & Trust.</p>
+                <p>We believe in transparent communication, proactive maintenance, and building lasting relationships
+                    with both property owners and tenants.</p>
+                <br>
+                <a href="about.html" class="btn-arrow">Read More →</a>
+            </div>
+
+        </aside>
+
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Key Legacy Realty</h4>
+                    <p>Philadelphia, PA</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="properties.html?type=rent">Rentals</a></li>
+                        <li><a href="properties.html?type=buy">Sales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Management</a></li>
+                        <li><a href="buyers.html">Buyers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="tel:2673148006">(267) 314-8006</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
+                &copy; 2026 Key Legacy Realty.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+            document.getElementById('nav-time').textContent = timeString + ' ET \u2022 PHILADELPHIA';
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+
 </body>
 
 </html>
